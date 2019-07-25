@@ -1,0 +1,22 @@
+<ion-content>
+        <!-- This is container on which we will be drawing things -->
+        <canvas id="drawing-container"></canvas>
+        <button ion-button  id="btn-l1" icon-only (click)="openColorsPopover($event)">
+            Current Material: {{this.drawing.brushTitle}}
+        </button>
+        <button ion-button id="btn-l2" (click)="upload()">
+            Upload
+        </button>
+        <button ion-button round id="btn-r1" ion-button (click)="openColorsPopover($event)">
+            <ion-icon color="secondary" name="color-palette"></ion-icon>
+        </button>
+        <button ion-button  round id="btn-r2" (click)="openWidthsPopover($event)" icon-only>
+            <ion-icon color="secondary" name="options"></ion-icon>
+        </button>
+        <button ion-button  round id="btn-r3" (click)="undo()" icon-only>
+            <ion-icon color="secondary" name="undo"></ion-icon>
+        </button>
+        <button ion-button round id="btn-r4" (click)="reset()" icon-only>
+                <ion-icon color="secondary" name="add"></ion-icon>
+        </button>
+</ion-content>

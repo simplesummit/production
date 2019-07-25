@@ -1,0 +1,8 @@
+{
+  "name": "drawing",
+  "app_id": "79883947",
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  }
+}

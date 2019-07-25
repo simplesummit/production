@@ -1,0 +1,45 @@
+This document will serve as a guide for documenting the SSGUI Code as effectively and as clearly as possible.
+
+1. You don't need to document the contructor and destructors. It is unnessecary. Document the class overall and its unique functions and members.
+
+2. Class Documentation will be in Qt-style commments above the constructor.
+//!  Simple class description.
+/*!
+  A more elaborate class description.
+ *  \author    Jan Doe
+ *  \date      1990-2011
+ *  \pre       First initialize the system.
+ *  \bug       Not all memory is freed when deleting an object of this class.
+ *  \warning   Improper use can crash your application
+ *  \copyright GNU Public License v3.
+*/
+
+Add references and external features as needed.
+
+3. Member Documentation will be in Qt-style comments above their first usage. Keep as short as you can.
+    //! A public variable.
+    /*!
+      Details (try and avoid these for basic variables).
+    */
+
+4. Document in the source (*.cpp) files. This is where anyone trying to modify the code will be looking at the most. Keep them clean and concise, without punctuation or grammatical errors.
+
+5. Documents bugs with \bug in comments. These need to be outlined specifically.
+
+6. Public Trello board?
+
+7. Have dedicated pages stored in docs folder as Markdown files.
+Subjects include:
+ - Embedding simulation
+ - Reading Joystick input
+ - Lessons Learned
+ - Smoke Simulation
+ - Fluid Simulation
+ - ML App
+
+8. Style Docs to fit the aesthetic of the application (i.e. ORNL Logo, Summit Particles)
+
+9. Publish Documents on GitHub/GitLab pages? (Ask Brian if ORNL could host it.) [Refer to TinyTitan docs]
+
+10. Includes in all files (*.h or *.cpp) should be ordered like this:
+local files, Qt files, other standard libraries.

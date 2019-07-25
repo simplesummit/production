@@ -1,0 +1,130 @@
+    1  ifconfig
+    2  sudo reboot
+    3  exit
+    4  su - mpiuser
+    5  sudo - mpiuser
+    6  sudo adduser mpiuser
+    7  su - mpiuser
+    8  clear
+    9  exit
+   12  clear
+   13  sudo apt-get install qt5
+   14  sudo apt-get install build-essential
+   15  sudo apt-get install qtcreator
+   16  git clone https://github.com/tyler-duckworth/qt-gui-work
+   17  sudo apt-get install jstest-gtk
+   18  cd qt-gui-work/
+   19  qmake
+   20  s
+   22  qmake test2
+   23  qmake test2.pro
+   24  sudo apt-get install qt5-qmake
+   25  qmake test2.pro
+   26  which qmake
+   27  sudo apt-get install qt4-qmake
+   28  sudo apt-get install qt-sdk
+   29  apt-cache search qt5
+   30  sudo apt-get install qt5-qmake-bin
+   31  sudo apt-get install libqt5quick5
+   32  clear
+   33  qmake
+   34  qmake install
+   35  qmake -qinstall
+   36  sudo apt-get install ubuntu-sdk
+   37  sudo apt-get install qtdeclarative5-dev
+   38  sudo apt-get install qtdeclarative5-qtquick2-dev
+   39  sudo apt-get install qtdeclarative5-qtquick2-plugin
+   40  qmake
+   41  qmake test2.pro
+   42  cd ~
+   43  git clone https://github.com/qt/qt5
+   45  cd qt5/
+   47  ./configure      ./configure -prefix $PWD/qtbase <license> -nomake tests
+   48  ./configure -prefix $PWD/qtbase -opensource -nomake tests
+   49  ./init-repository 
+   50  cd ..
+   51  https://github.com/qt/qtgamepad
+   52  git clone https://github.com/qt/qtgamepad
+   53  cd qt
+   54  cd qtgamepad/
+   56  cat README.md 
+   57  qmake qtgamepad.pro 
+   58  cd src
+   60  qmake src.pro 
+   61  qmake --version
+   62  qtchooser -l
+   63  qtchooser
+   64  qtchooser -qt=qt5
+   65  echo $QT_SELECT
+   66  qmake -quwery
+   67  qmake -query
+   68  /usr/share/qt5/
+   70  cd /usr/share/qt5
+   72  cd ~
+   73  cd /usr/lib/aarch64-linux-gnu/qt5/bin
+   75  amek
+   76  ./qmake 
+   77  ll
+   78  vi ~/.bashrc
+   79  pwd
+   80  vi ~/.bashrc
+   81  cp qmake /usr/bin/qmake
+   82  sudo cp qmake /usr/bin/qmake
+   83  cd ~/qtgamepad/
+   85  qmake --version
+   86  qmake
+   87  sudo apt-get install libsdl2-2.0
+   88  sudo apt-get install libsdl2-dev
+   89  qmake
+   90  qmake clean
+   91  qmake --help
+   92  qmake 
+   93  make
+   95  rm -rf Makefile 
+   96  qmake
+   97  vi Makefile 
+   98  make
+   99  cd src
+  101  qmake
+  102  vi Makefile 
+  104  cd gamepad/
+  106  qmake
+  108  cd ..
+  110  cd imports/
+  112  qmake
+  113  cd gamepad/
+  115  qmake
+  116  cd ../../plugins/
+  118  qmake
+  119  cd gamepads/
+  121  qmake
+  122  cd sdl2/
+  124  qmake
+  126  vi sdl2.
+  127  vi sdl2.pro
+  129  cd ..
+  131  vi Makefile 
+  132  cd ..
+  133  make
+  134  apt-cache search qt | grep "private"
+  135  sudo apt-get install qtbase5-private-dev qtdeclarative5-private-dev
+  136  sudo apt-get install libudev-dev
+  137  sudo apt-get update
+  138  sudo apt-get install qtbase5-private-dev qtdeclarative5-private-dev
+  140  qmake
+  141  make
+  143  cd ../qt-gui-work/
+  145  qmake
+  146  cd ../qtgamepad/
+  147  make install
+  148  sudo make install
+  149  cd ../qt-gui-work/
+  151  qmake
+  152  vi mw_img.qrc 
+  153  qmake
+  155  make
+  156  history 100
+  157  history 500
+  160  cd ..
+  161  cd qt-gui-work/assets/
+  162  touch history.txt

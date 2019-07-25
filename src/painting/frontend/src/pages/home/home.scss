@@ -1,0 +1,73 @@
+.popover-viewport {
+  text-align: center;
+}
+
+ion-content {
+	overflow: hidden;
+	overflow-y: hidden;
+	overflow-x: hidden;
+}
+
+.loader {
+  height: 100%; 
+  width: 25%;
+  display: block;
+  margin: auto;
+}
+
+span {
+  font-family: 'Hurme Semibold';
+}
+
+#drawing-container {
+  height: 100%;
+  margin: 0px;
+  padding: 0px
+}
+
+#btn-l1 {
+  position: absolute;
+  top:25px;
+  right:20px;
+  padding: 25px 25px 25px 25px;
+}
+#btn-l2 {
+  position: absolute;
+  bottom: 25px;
+  right:20px;
+  padding: 25px 25px 25px 25px;
+}
+
+#btn-r1 {
+  position: absolute;
+  top:25px;
+  left:20px;
+  height: 75px;
+  width: 75px;
+}
+#btn-r2 {
+  position: absolute;
+  top:125px;
+  left:20px;
+  height: 75px;
+  width: 75px;
+}
+#btn-r3 {
+  position: absolute;
+  top:225px;
+  left:20px;
+  height: 75px;
+  width: 75px;
+}
+#btn-r4 {
+  position: absolute;
+  top:325px;
+  left:20px;
+  height: 75px;
+  width: 75px;
+}
+
+
+ion-icon {
+  font-size: 70px; //Preferred size here
+}

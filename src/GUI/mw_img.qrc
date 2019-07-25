@@ -1,0 +1,26 @@
+<RCC>
+    <qresource prefix="/">
+        <file>UIv0.2/pg_2.png</file>
+        <file>guidelines.txt</file>
+    </qresource>
+    <qresource prefix="/img">
+        <file>assets/img/fluid.png</file>
+        <file>assets/img/homepage.png</file>
+        <file>assets/img/ml.png</file>
+        <file>assets/img/orig_ml.png</file>
+        <file>assets/img/orig_particles.png</file>
+        <file>assets/img/orig_smoke.png</file>
+        <file>assets/img/particles.png</file>
+        <file>assets/img/smoke.png</file>
+        <file>assets/img/smoke_bkgnd.png</file>
+        <file>assets/img/smoke_img.png</file>
+        <file>assets/img/splash.png</file>
+        <file>assets/img/splashscreen.png</file>
+        <file>assets/img/summit.jpg</file>
+        <file>assets/img/summit.png</file>
+        <file>assets/img/black-particles.png</file>
+    </qresource>
+    <qresource prefix="/fonts">
+        <file>assets/fonts/LemonMilk.otf</file>
+    </qresource>
+</RCC>

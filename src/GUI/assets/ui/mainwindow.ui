@@ -1,0 +1,312 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1920</width>
+    <height>1080</height>
+   </rect>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>1920</width>
+    <height>1080</height>
+   </size>
+  </property>
+  <property name="mouseTracking">
+   <bool>true</bool>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true"/>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <property name="styleSheet">
+    <string notr="true">#centralwidget {
+background-image: url(:/new/prefix1/UIv0.2/img/pg_2.png);
+}</string>
+   </property>
+   <widget class="QWidget" name="l_small_box" native="true">
+    <property name="geometry">
+     <rect>
+      <x>222</x>
+      <y>710</y>
+      <width>390</width>
+      <height>270</height>
+     </rect>
+    </property>
+    <property name="toolTip">
+     <string>l_small_box</string>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: #323232;
+border-radius: 10px;</string>
+    </property>
+    <widget class="QWidget" name="widget_6" native="true">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>391</width>
+       <height>221</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: #5f5f5f !important;
+border-bottom-left-radius: 0px;
+border-bottom-right-radius: 0px;
+border-image: url(&quot;:/img/smoke.png&quot;);</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButton_2">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>230</y>
+       <width>211</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Lemon/Milk,sans-serif</family>
+       <pointsize>16</pointsize>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">text-align: left;
+color: white;
+font-size: 16pt;
+font-family: &quot;Lemon/Milk&quot;, sans-serif;</string>
+     </property>
+     <property name="text">
+      <string>Smoke</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="m_large_box" native="true">
+    <property name="geometry">
+     <rect>
+      <x>710</x>
+      <y>190</y>
+      <width>500</width>
+      <height>350</height>
+     </rect>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
+    <property name="toolTip">
+     <string>m_large_box</string>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: #323232;
+border-radius: 20px;
+</string>
+    </property>
+    <widget class="QPushButton" name="pushButton">
+     <property name="geometry">
+      <rect>
+       <x>18</x>
+       <y>304</y>
+       <width>461</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Lemon/Milk,sans-serif</family>
+       <pointsize>16</pointsize>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: rgb(243, 243, 243);
+font-size: 16pt;
+text-align: left;
+font-family: &quot;Lemon/Milk&quot;, sans-serif;</string>
+     </property>
+     <property name="text">
+      <string>Summit At A Glance</string>
+     </property>
+    </widget>
+    <widget class="QWidget" name="widget_5" native="true">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>501</width>
+       <height>301</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(95, 95, 95);
+border-bottom-left-radius: 0px;
+border-bottom-right-radius: 0px;
+border-image: url(&quot;:/img/summit.jpg&quot;);</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="m_small_box" native="true">
+    <property name="geometry">
+     <rect>
+      <x>765</x>
+      <y>710</y>
+      <width>390</width>
+      <height>270</height>
+     </rect>
+    </property>
+    <property name="toolTip">
+     <string>m_small_box</string>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: #323232;
+border-radius: 10px;</string>
+    </property>
+    <widget class="QWidget" name="widget_11" native="true">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>391</width>
+       <height>221</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: #5f5f5f !important;
+border-bottom-left-radius: 0px;
+border-bottom-right-radius: 0px;
+border-image: url(&quot;:/img/particles.png&quot;);</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButton_7">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>230</y>
+       <width>211</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">text-align: left;
+color: white;
+font-size: 12pt;
+</string>
+     </property>
+     <property name="text">
+      <string>PushButton</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButton_3">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>230</y>
+       <width>211</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Lemon/Milk,sans-serif</family>
+       <pointsize>16</pointsize>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">text-align: left;
+color: white;
+font-size: 16pt;
+font-family: &quot;Lemon/Milk&quot;, sans-serif;</string>
+     </property>
+     <property name="text">
+      <string>Particles</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="r_small_box" native="true">
+    <property name="geometry">
+     <rect>
+      <x>1300</x>
+      <y>710</y>
+      <width>390</width>
+      <height>270</height>
+     </rect>
+    </property>
+    <property name="toolTip">
+     <string>r_small_box</string>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: #323232;
+border-radius: 10px;</string>
+    </property>
+    <widget class="QWidget" name="widget_12" native="true">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>391</width>
+       <height>221</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: #5f5f5f !important;
+border-bottom-left-radius: 0px;
+border-bottom-right-radius: 0px;
+border-image: url(&quot;:/img/ml.png&quot;);</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButton_8">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>230</y>
+       <width>211</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">text-align: left;
+color: white;
+font-size: 12pt;
+</string>
+     </property>
+     <property name="text">
+      <string>PushButton</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButton_9">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>230</y>
+       <width>271</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Lemon/Milk,sans-serif</family>
+       <pointsize>16</pointsize>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">text-align: left;
+color: white;
+font-size: 16pt;
+font-family: &quot;Lemon/Milk&quot;, sans-serif;</string>
+     </property>
+     <property name="text">
+      <string>Machine Learning</string>
+     </property>
+    </widget>
+   </widget>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

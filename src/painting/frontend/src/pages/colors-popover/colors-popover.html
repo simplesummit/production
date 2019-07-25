@@ -1,0 +1,5 @@
+<div colors-container>
+  <button ion-button style="color:black" block *ngFor="let item of drawing.brushColors" [style.background]="item.color" (click)="setColor(item.color)">
+    {{item.title}} 
+  </button>
+</div>
