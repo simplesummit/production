@@ -50,7 +50,7 @@ Fluid::Fluid(QWidget *parent) : QWidget(parent)
 void Fluid::StartSim() {
     isActive = true;
     qDebug() << "Starting Fluid Sim...";
-    int test = system("nohup ../../../bin/particles &");
+    int test = system("nohup ./particles &");
     qDebug() << test;
     this_thread::sleep_for(dura);
     unsigned int kWID = Simulation::GetStdoutFromCommand("wmctrl -l | grep 'CUDAParticles' | awk '{print $1}'");

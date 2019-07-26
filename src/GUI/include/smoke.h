@@ -2,11 +2,13 @@
 #define PARTICLES_H
 
 #include "simulation.h"
+#include "usagestat.h"
 
 #include <QGraphicsDropShadowEffect>
 #include <QStyleOption>
 #include <QWidget>
 #include <QWindow>
+#include <QThread>
 #include <QtCharts>
 
 #include <chrono>
@@ -23,10 +25,13 @@ public:
     void StartSim();
     void EndSim();
     void paintEvent(QPaintEvent *);
-
+    void InitThread();
     unsigned int pgID = 0x02; //!< Page ID
 
 private:
+    CpuUsage cpu;
+
+    QThread* statThread;
     QWindow *m_window; //!< Window the simulation is routed to
     QWidget *qw; //!< Container for m_window
     QStyleOption option; //!< Overrides the QWidget's style for custom background.

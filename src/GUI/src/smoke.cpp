@@ -15,6 +15,7 @@
 #include <QDebug>
 #include <QPainter>
 #include <QtCharts>
+#include <QThread>
 
 #include <iostream>
 #include <string>
@@ -48,6 +49,12 @@ Smoke::Smoke(QWidget *parent) : QWidget(parent)
     dShadow->setOffset(0, 0);
     test->setGeometry(pos);
     test->setGraphicsEffect(dShadow);
+    statThread = new QThread;
+    cpu.moveToThread(statThread);
+
+    connect(statThread, &QThread::started, &cpu, [&](){
+        cpu.startTimer(1000);
+    });
 }
 
 /** Start simulation. 
@@ -58,11 +65,11 @@ Smoke::Smoke(QWidget *parent) : QWidget(parent)
 void Smoke::StartSim() {
     isActive = true;
     qDebug() << "Starting Smoke Sim...";
-    int test = system("nohup ../../../bin/smokeParticles &");
+    int test = system("nohup ./smokeParticles &");
     qDebug() << test;
     this_thread::sleep_for(dura);
     unsigned int kWID = Simulation::GetStdoutFromCommand("wmctrl -l | grep 'Smoke' | awk '{print $1}'");
-     qDebug() << "Smoke WID: " << kWID;
+    qDebug() << "Smoke WID: " << kWID;
     m_window = QWindow::fromWinId(kWID);
     m_window->setFlags(Qt::FramelessWindowHint);
     qw = QWidget::createWindowContainer(m_window);
@@ -87,7 +94,13 @@ void Smoke::EndSim() {
     m_window = nullptr;
 }
 
+void Smoke::InitThread() {
+    statThread->start();
+}
+
 Smoke::~Smoke() {
     delete qw;
     delete m_window;
+    statThread->quit();
+    statThread->wait();
 }
