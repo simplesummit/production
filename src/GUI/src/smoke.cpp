@@ -14,7 +14,6 @@
 
 #include <QDebug>
 #include <QPainter>
-#include <QtCharts>
 
 #include <iostream>
 #include <string>
@@ -24,7 +23,6 @@
 #include <unistd.h>
 
 using namespace std;
-using namespace QtCharts;
 /**  Create a Smoke element
  * \param parent Element for Smoke to be under. (Optional)
  * 
@@ -55,14 +53,22 @@ Smoke::Smoke(QWidget *parent) : QWidget(parent)
  * For a deeper dive into how this app gets the simulation into this class,
  * see the Simulation page.
  */
+
 void Smoke::StartSim() {
     isActive = true;
     qDebug() << "Starting Smoke Sim...";
-    int test = system("nohup ../../../bin/smokeParticles &");
+    int test = system("nohup ./smokeParticles &");
     qDebug() << test;
+    loadingPoint:
     this_thread::sleep_for(dura);
     unsigned int kWID = Simulation::GetStdoutFromCommand("wmctrl -l | grep 'Smoke' | awk '{print $1}'");
-     qDebug() << "Smoke WID: " << kWID;
+	std::cout << kWID << "\n";
+	if (kWID > 1000) {
+		qDebug() << "Smoke WID: " << kWID;
+	} else {
+		qDebug() << "Failed To Get kWID... Trying again";
+		goto loadingPoint;
+	}
     m_window = QWindow::fromWinId(kWID);
     m_window->setFlags(Qt::FramelessWindowHint);
     qw = QWidget::createWindowContainer(m_window);

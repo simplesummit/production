@@ -50,11 +50,17 @@ Fluid::Fluid(QWidget *parent) : QWidget(parent)
 void Fluid::StartSim() {
     isActive = true;
     qDebug() << "Starting Fluid Sim...";
-    int test = system("nohup ../../../bin/particles &");
+    int test = system("nohup ./particles &");
     qDebug() << test;
     this_thread::sleep_for(dura);
     unsigned int kWID = Simulation::GetStdoutFromCommand("wmctrl -l | grep 'CUDAParticles' | awk '{print $1}'");
-     qDebug() << "Smoke WID: " << kWID;
+    	std::cout << kWID << "\n";
+	if (kWID > 1000) {
+		qDebug() << "Particles WID: " << kWID;
+	} else {
+		qDebug() << "Failed To Get kWID... Trying again";
+		goto loadingPoint;
+	}
     m_window = QWindow::fromWinId(kWID);
     m_window->setFlags(Qt::FramelessWindowHint);
     qw = QWidget::createWindowContainer(m_window);
