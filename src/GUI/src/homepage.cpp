@@ -150,16 +150,12 @@ void HomePage::getLeftX(double value) {
     if(deg > -145 && deg < -125) {
         state = ST_SM_LFT;
         activeCard = "l_small_box";
-        qDebug() << "Bottom Left";
     } else if(deg > -100 && deg < -80) {
         state = ST_SM_MID;
         activeCard = "m_small_box";
-        qDebug() << "Bottom Middle";
     } else if(deg > -55 && deg < -35) {
         state = ST_SM_RGT;
         activeCard = "r_small_box";
-
-        qDebug() << "Bottom Right";
     } else {
         activeCard = "m_large_box";
         state = ST_LG_CARD;
@@ -198,7 +194,7 @@ void HomePage::getLeftY(double value) {
     animation->setDuration(200);
     animation->setEasingCurve(QEasingCurve::BezierSpline);
     animation->setEndValue(activeCardObj->geometry().translated(0,-20));
-    // animation->start();
+
     if(activeCard != "m_large_box" && activeCardObj->y() < 690) {
        animationList.at(state)->start();
     } else if(activeCardObj->y() < 190) {

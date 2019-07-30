@@ -20,7 +20,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 # You can also select to disable deprecated APIs only up to a certain version of Qt.
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 # Input
-QT += quick gui widgets gamepad charts
+QT += quick gui widgets gamepad charts printsupport
 # QT += quick gui widgets gamepad
 HEADERS += \
     include/datatypes.h \
@@ -31,7 +31,8 @@ HEADERS += \
     include/simulation.h \
     include/splashscreen.h \
     include/paint.h \
-    include/usagestat.h
+    include/qcustomplot.h \
+    graph.h
 FORMS += \
     assets/ui/homepage.ui
 SOURCES += \
@@ -41,6 +42,8 @@ SOURCES += \
     src/smoke.cpp \
     src/fluid.cpp \
     src/splashscreen.cpp \
-    src/paint.cpp
+    src/paint.cpp \
+    src/qcustomplot.cpp \
+    graph.cpp
 RESOURCES += \
     mw_img.qrc

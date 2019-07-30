@@ -12,10 +12,10 @@ MAKEFILE      = Makefile
 
 CC            = gcc
 CXX           = g++
-DEFINES       = -DQT_DEPRECATED_WARNINGS -DQT_QML_DEBUG -DQT_QUICK_LIB -DQT_CHARTS_LIB -DQT_WIDGETS_LIB -DQT_GAMEPAD_LIB -DQT_GUI_LIB -DQT_QML_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB
+DEFINES       = -DQT_DEPRECATED_WARNINGS -DQT_QML_DEBUG -DQT_QUICK_LIB -DQT_CHARTS_LIB -DQT_PRINTSUPPORT_LIB -DQT_WIDGETS_LIB -DQT_GAMEPAD_LIB -DQT_GUI_LIB -DQT_QML_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB
 CFLAGS        = -pipe -g -Wall -W -D_REENTRANT -fPIC $(DEFINES)
 CXXFLAGS      = -pipe -g -Wall -W -D_REENTRANT -fPIC $(DEFINES)
-INCPATH       = -I../GUI -I. -I../GUI/include -isystem /usr/include/aarch64-linux-gnu/qt5 -isystem /usr/include/aarch64-linux-gnu/qt5/QtQuick -isystem /usr/include/aarch64-linux-gnu/qt5/QtCharts -isystem /usr/include/aarch64-linux-gnu/qt5/QtWidgets -isystem /usr/include/aarch64-linux-gnu/qt5/QtGamepad -isystem /usr/include/aarch64-linux-gnu/qt5/QtGui -isystem /usr/include/aarch64-linux-gnu/qt5/QtQml -isystem /usr/include/aarch64-linux-gnu/qt5/QtNetwork -isystem /usr/include/aarch64-linux-gnu/qt5/QtCore -I. -I. -I/usr/lib/aarch64-linux-gnu/qt5/mkspecs/linux-g++
+INCPATH       = -I../GUI -I. -I../GUI/include -isystem /usr/include/aarch64-linux-gnu/qt5 -isystem /usr/include/aarch64-linux-gnu/qt5/QtQuick -isystem /usr/include/aarch64-linux-gnu/qt5/QtCharts -isystem /usr/include/aarch64-linux-gnu/qt5/QtPrintSupport -isystem /usr/include/aarch64-linux-gnu/qt5/QtWidgets -isystem /usr/include/aarch64-linux-gnu/qt5/QtGamepad -isystem /usr/include/aarch64-linux-gnu/qt5/QtGui -isystem /usr/include/aarch64-linux-gnu/qt5/QtQml -isystem /usr/include/aarch64-linux-gnu/qt5/QtNetwork -isystem /usr/include/aarch64-linux-gnu/qt5/QtCore -I. -I. -I/usr/lib/aarch64-linux-gnu/qt5/mkspecs/linux-g++
 QMAKE         = /usr/lib/qt5/bin/qmake
 DEL_FILE      = rm -f
 CHK_DIR_EXISTS= test -d
@@ -38,7 +38,7 @@ DISTNAME      = GUI1.0.0
 DISTDIR = /home/node-8/production/src/build-gui-Desktop-Debug/GUI1.0.0
 LINK          = g++
 LFLAGS        = 
-LIBS          = $(SUBLIBS) -lQt5Quick -lQt5Charts -lQt5Widgets -lQt5Gamepad -lQt5Gui -lQt5Qml -lQt5Network -lQt5Core -lGLESv2 -lpthread 
+LIBS          = $(SUBLIBS) -lQt5Quick -lQt5Charts -lQt5PrintSupport -lQt5Widgets -lQt5Gamepad -lQt5Gui -lQt5Qml -lQt5Network -lQt5Core -lGLESv2 -lpthread 
 AR            = ar cqs
 RANLIB        = 
 SED           = sed
@@ -56,14 +56,17 @@ SOURCES       = ../GUI/src/homepage.cpp \
 		../GUI/src/smoke.cpp \
 		../GUI/src/fluid.cpp \
 		../GUI/src/splashscreen.cpp \
-		../GUI/src/paint.cpp qrc_mw_img.cpp \
+		../GUI/src/paint.cpp \
+		../GUI/src/qcustomplot.cpp \
+		../GUI/graph.cpp qrc_mw_img.cpp \
 		moc_homepage.cpp \
 		moc_stack.cpp \
 		moc_smoke.cpp \
 		moc_fluid.cpp \
 		moc_splashscreen.cpp \
 		moc_paint.cpp \
-		moc_usagestat.cpp
+		moc_qcustomplot.cpp \
+		moc_graph.cpp
 OBJECTS       = ./homepage.o \
 		./main.o \
 		./stack.o \
@@ -71,6 +74,8 @@ OBJECTS       = ./homepage.o \
 		./fluid.o \
 		./splashscreen.o \
 		./paint.o \
+		./qcustomplot.o \
+		./graph.o \
 		./qrc_mw_img.o \
 		./moc_homepage.o \
 		./moc_stack.o \
@@ -78,7 +83,8 @@ OBJECTS       = ./homepage.o \
 		./moc_fluid.o \
 		./moc_splashscreen.o \
 		./moc_paint.o \
-		./moc_usagestat.o
+		./moc_qcustomplot.o \
+		./moc_graph.o
 DIST          = /usr/lib/aarch64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib/aarch64-linux-gnu/qt5/mkspecs/common/unix.conf \
 		/usr/lib/aarch64-linux-gnu/qt5/mkspecs/common/linux.conf \
@@ -186,13 +192,16 @@ DIST          = /usr/lib/aarch64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		../GUI/include/simulation.h \
 		../GUI/include/splashscreen.h \
 		../GUI/include/paint.h \
-		../GUI/include/usagestat.h ../GUI/src/homepage.cpp \
+		../GUI/include/qcustomplot.h \
+		../GUI/graph.h ../GUI/src/homepage.cpp \
 		../GUI/src/main.cpp \
 		../GUI/src/stack.cpp \
 		../GUI/src/smoke.cpp \
 		../GUI/src/fluid.cpp \
 		../GUI/src/splashscreen.cpp \
-		../GUI/src/paint.cpp
+		../GUI/src/paint.cpp \
+		../GUI/src/qcustomplot.cpp \
+		../GUI/graph.cpp
 QMAKE_TARGET  = GUI
 DESTDIR       = ../../bin/
 TARGET        = ../../bin/GUI
@@ -308,6 +317,7 @@ Makefile: ../GUI/gui.pro /usr/lib/aarch64-linux-gnu/qt5/mkspecs/linux-g++/qmake.
 		../GUI/mw_img.qrc \
 		/usr/lib/aarch64-linux-gnu/libQt5Quick.prl \
 		/usr/lib/aarch64-linux-gnu/libQt5Charts.prl \
+		/usr/lib/aarch64-linux-gnu/libQt5PrintSupport.prl \
 		/usr/lib/aarch64-linux-gnu/libQt5Widgets.prl \
 		/usr/lib/aarch64-linux-gnu/libQt5Gamepad.prl \
 		/usr/lib/aarch64-linux-gnu/libQt5Gui.prl \
@@ -418,6 +428,7 @@ Makefile: ../GUI/gui.pro /usr/lib/aarch64-linux-gnu/qt5/mkspecs/linux-g++/qmake.
 ../GUI/mw_img.qrc:
 /usr/lib/aarch64-linux-gnu/libQt5Quick.prl:
 /usr/lib/aarch64-linux-gnu/libQt5Charts.prl:
+/usr/lib/aarch64-linux-gnu/libQt5PrintSupport.prl:
 /usr/lib/aarch64-linux-gnu/libQt5Widgets.prl:
 /usr/lib/aarch64-linux-gnu/libQt5Gamepad.prl:
 /usr/lib/aarch64-linux-gnu/libQt5Gui.prl:
@@ -440,8 +451,8 @@ distdir: FORCE
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents ../GUI/mw_img.qrc $(DISTDIR)/
 	$(COPY_FILE) --parents /usr/lib/aarch64-linux-gnu/qt5/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../GUI/include/datatypes.h ../GUI/include/homepage.h ../GUI/include/stack.h ../GUI/include/smoke.h ../GUI/include/fluid.h ../GUI/include/simulation.h ../GUI/include/splashscreen.h ../GUI/include/paint.h ../GUI/include/usagestat.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../GUI/src/homepage.cpp ../GUI/src/main.cpp ../GUI/src/stack.cpp ../GUI/src/smoke.cpp ../GUI/src/fluid.cpp ../GUI/src/splashscreen.cpp ../GUI/src/paint.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../GUI/include/datatypes.h ../GUI/include/homepage.h ../GUI/include/stack.h ../GUI/include/smoke.h ../GUI/include/fluid.h ../GUI/include/simulation.h ../GUI/include/splashscreen.h ../GUI/include/paint.h ../GUI/include/qcustomplot.h ../GUI/graph.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../GUI/src/homepage.cpp ../GUI/src/main.cpp ../GUI/src/stack.cpp ../GUI/src/smoke.cpp ../GUI/src/fluid.cpp ../GUI/src/splashscreen.cpp ../GUI/src/paint.cpp ../GUI/src/qcustomplot.cpp ../GUI/graph.cpp $(DISTDIR)/
 	$(COPY_FILE) --parents ../GUI/assets/ui/homepage.ui $(DISTDIR)/
 
 
@@ -496,58 +507,66 @@ compiler_moc_predefs_clean:
 moc_predefs.h: /usr/lib/aarch64-linux-gnu/qt5/mkspecs/features/data/dummy.cpp
 	g++ -pipe -g -Wall -W -dM -E -o moc_predefs.h /usr/lib/aarch64-linux-gnu/qt5/mkspecs/features/data/dummy.cpp
 
-compiler_moc_header_make_all: moc_homepage.cpp moc_stack.cpp moc_smoke.cpp moc_fluid.cpp moc_splashscreen.cpp moc_paint.cpp moc_usagestat.cpp
+compiler_moc_header_make_all: moc_homepage.cpp moc_stack.cpp moc_smoke.cpp moc_fluid.cpp moc_splashscreen.cpp moc_paint.cpp moc_qcustomplot.cpp moc_graph.cpp
 compiler_moc_header_clean:
-	-$(DEL_FILE) moc_homepage.cpp moc_stack.cpp moc_smoke.cpp moc_fluid.cpp moc_splashscreen.cpp moc_paint.cpp moc_usagestat.cpp
+	-$(DEL_FILE) moc_homepage.cpp moc_stack.cpp moc_smoke.cpp moc_fluid.cpp moc_splashscreen.cpp moc_paint.cpp moc_qcustomplot.cpp moc_graph.cpp
 moc_homepage.cpp: ../GUI/include/datatypes.h \
 		ui_homepage.h \
 		../GUI/include/homepage.h \
 		moc_predefs.h \
 		/usr/lib/qt5/bin/moc
-	/usr/lib/qt5/bin/moc $(DEFINES) --include ./moc_predefs.h -I/usr/lib/aarch64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/node-8/production/src/GUI -I/home/node-8/production/src/GUI/include -I/usr/include/aarch64-linux-gnu/qt5 -I/usr/include/aarch64-linux-gnu/qt5/QtQuick -I/usr/include/aarch64-linux-gnu/qt5/QtCharts -I/usr/include/aarch64-linux-gnu/qt5/QtWidgets -I/usr/include/aarch64-linux-gnu/qt5/QtGamepad -I/usr/include/aarch64-linux-gnu/qt5/QtGui -I/usr/include/aarch64-linux-gnu/qt5/QtQml -I/usr/include/aarch64-linux-gnu/qt5/QtNetwork -I/usr/include/aarch64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/7 -I/usr/include/aarch64-linux-gnu/c++/7 -I/usr/include/c++/7/backward -I/usr/lib/gcc/aarch64-linux-gnu/7/include -I/usr/local/include -I/usr/lib/gcc/aarch64-linux-gnu/7/include-fixed -I/usr/include/aarch64-linux-gnu -I/usr/include ../GUI/include/homepage.h -o moc_homepage.cpp
+	/usr/lib/qt5/bin/moc $(DEFINES) --include ./moc_predefs.h -I/usr/lib/aarch64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/node-8/production/src/GUI -I/home/node-8/production/src/GUI/include -I/usr/include/aarch64-linux-gnu/qt5 -I/usr/include/aarch64-linux-gnu/qt5/QtQuick -I/usr/include/aarch64-linux-gnu/qt5/QtCharts -I/usr/include/aarch64-linux-gnu/qt5/QtPrintSupport -I/usr/include/aarch64-linux-gnu/qt5/QtWidgets -I/usr/include/aarch64-linux-gnu/qt5/QtGamepad -I/usr/include/aarch64-linux-gnu/qt5/QtGui -I/usr/include/aarch64-linux-gnu/qt5/QtQml -I/usr/include/aarch64-linux-gnu/qt5/QtNetwork -I/usr/include/aarch64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/7 -I/usr/include/aarch64-linux-gnu/c++/7 -I/usr/include/c++/7/backward -I/usr/lib/gcc/aarch64-linux-gnu/7/include -I/usr/local/include -I/usr/lib/gcc/aarch64-linux-gnu/7/include-fixed -I/usr/include/aarch64-linux-gnu -I/usr/include ../GUI/include/homepage.h -o moc_homepage.cpp
 
 moc_stack.cpp: ../GUI/include/homepage.h \
 		../GUI/include/datatypes.h \
 		ui_homepage.h \
 		../GUI/include/smoke.h \
 		../GUI/include/simulation.h \
-		../GUI/include/usagestat.h \
+		../GUI/include/qcustomplot.h \
 		../GUI/include/fluid.h \
 		../GUI/include/paint.h \
 		../GUI/include/splashscreen.h \
 		../GUI/include/stack.h \
 		moc_predefs.h \
 		/usr/lib/qt5/bin/moc
-	/usr/lib/qt5/bin/moc $(DEFINES) --include ./moc_predefs.h -I/usr/lib/aarch64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/node-8/production/src/GUI -I/home/node-8/production/src/GUI/include -I/usr/include/aarch64-linux-gnu/qt5 -I/usr/include/aarch64-linux-gnu/qt5/QtQuick -I/usr/include/aarch64-linux-gnu/qt5/QtCharts -I/usr/include/aarch64-linux-gnu/qt5/QtWidgets -I/usr/include/aarch64-linux-gnu/qt5/QtGamepad -I/usr/include/aarch64-linux-gnu/qt5/QtGui -I/usr/include/aarch64-linux-gnu/qt5/QtQml -I/usr/include/aarch64-linux-gnu/qt5/QtNetwork -I/usr/include/aarch64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/7 -I/usr/include/aarch64-linux-gnu/c++/7 -I/usr/include/c++/7/backward -I/usr/lib/gcc/aarch64-linux-gnu/7/include -I/usr/local/include -I/usr/lib/gcc/aarch64-linux-gnu/7/include-fixed -I/usr/include/aarch64-linux-gnu -I/usr/include ../GUI/include/stack.h -o moc_stack.cpp
+	/usr/lib/qt5/bin/moc $(DEFINES) --include ./moc_predefs.h -I/usr/lib/aarch64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/node-8/production/src/GUI -I/home/node-8/production/src/GUI/include -I/usr/include/aarch64-linux-gnu/qt5 -I/usr/include/aarch64-linux-gnu/qt5/QtQuick -I/usr/include/aarch64-linux-gnu/qt5/QtCharts -I/usr/include/aarch64-linux-gnu/qt5/QtPrintSupport -I/usr/include/aarch64-linux-gnu/qt5/QtWidgets -I/usr/include/aarch64-linux-gnu/qt5/QtGamepad -I/usr/include/aarch64-linux-gnu/qt5/QtGui -I/usr/include/aarch64-linux-gnu/qt5/QtQml -I/usr/include/aarch64-linux-gnu/qt5/QtNetwork -I/usr/include/aarch64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/7 -I/usr/include/aarch64-linux-gnu/c++/7 -I/usr/include/c++/7/backward -I/usr/lib/gcc/aarch64-linux-gnu/7/include -I/usr/local/include -I/usr/lib/gcc/aarch64-linux-gnu/7/include-fixed -I/usr/include/aarch64-linux-gnu -I/usr/include ../GUI/include/stack.h -o moc_stack.cpp
 
 moc_smoke.cpp: ../GUI/include/simulation.h \
-		../GUI/include/usagestat.h \
+		../GUI/include/qcustomplot.h \
 		../GUI/include/smoke.h \
 		moc_predefs.h \
 		/usr/lib/qt5/bin/moc
-	/usr/lib/qt5/bin/moc $(DEFINES) --include ./moc_predefs.h -I/usr/lib/aarch64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/node-8/production/src/GUI -I/home/node-8/production/src/GUI/include -I/usr/include/aarch64-linux-gnu/qt5 -I/usr/include/aarch64-linux-gnu/qt5/QtQuick -I/usr/include/aarch64-linux-gnu/qt5/QtCharts -I/usr/include/aarch64-linux-gnu/qt5/QtWidgets -I/usr/include/aarch64-linux-gnu/qt5/QtGamepad -I/usr/include/aarch64-linux-gnu/qt5/QtGui -I/usr/include/aarch64-linux-gnu/qt5/QtQml -I/usr/include/aarch64-linux-gnu/qt5/QtNetwork -I/usr/include/aarch64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/7 -I/usr/include/aarch64-linux-gnu/c++/7 -I/usr/include/c++/7/backward -I/usr/lib/gcc/aarch64-linux-gnu/7/include -I/usr/local/include -I/usr/lib/gcc/aarch64-linux-gnu/7/include-fixed -I/usr/include/aarch64-linux-gnu -I/usr/include ../GUI/include/smoke.h -o moc_smoke.cpp
+	/usr/lib/qt5/bin/moc $(DEFINES) --include ./moc_predefs.h -I/usr/lib/aarch64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/node-8/production/src/GUI -I/home/node-8/production/src/GUI/include -I/usr/include/aarch64-linux-gnu/qt5 -I/usr/include/aarch64-linux-gnu/qt5/QtQuick -I/usr/include/aarch64-linux-gnu/qt5/QtCharts -I/usr/include/aarch64-linux-gnu/qt5/QtPrintSupport -I/usr/include/aarch64-linux-gnu/qt5/QtWidgets -I/usr/include/aarch64-linux-gnu/qt5/QtGamepad -I/usr/include/aarch64-linux-gnu/qt5/QtGui -I/usr/include/aarch64-linux-gnu/qt5/QtQml -I/usr/include/aarch64-linux-gnu/qt5/QtNetwork -I/usr/include/aarch64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/7 -I/usr/include/aarch64-linux-gnu/c++/7 -I/usr/include/c++/7/backward -I/usr/lib/gcc/aarch64-linux-gnu/7/include -I/usr/local/include -I/usr/lib/gcc/aarch64-linux-gnu/7/include-fixed -I/usr/include/aarch64-linux-gnu -I/usr/include ../GUI/include/smoke.h -o moc_smoke.cpp
 
 moc_fluid.cpp: ../GUI/include/simulation.h \
+		../GUI/include/qcustomplot.h \
 		../GUI/include/fluid.h \
 		moc_predefs.h \
 		/usr/lib/qt5/bin/moc
-	/usr/lib/qt5/bin/moc $(DEFINES) --include ./moc_predefs.h -I/usr/lib/aarch64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/node-8/production/src/GUI -I/home/node-8/production/src/GUI/include -I/usr/include/aarch64-linux-gnu/qt5 -I/usr/include/aarch64-linux-gnu/qt5/QtQuick -I/usr/include/aarch64-linux-gnu/qt5/QtCharts -I/usr/include/aarch64-linux-gnu/qt5/QtWidgets -I/usr/include/aarch64-linux-gnu/qt5/QtGamepad -I/usr/include/aarch64-linux-gnu/qt5/QtGui -I/usr/include/aarch64-linux-gnu/qt5/QtQml -I/usr/include/aarch64-linux-gnu/qt5/QtNetwork -I/usr/include/aarch64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/7 -I/usr/include/aarch64-linux-gnu/c++/7 -I/usr/include/c++/7/backward -I/usr/lib/gcc/aarch64-linux-gnu/7/include -I/usr/local/include -I/usr/lib/gcc/aarch64-linux-gnu/7/include-fixed -I/usr/include/aarch64-linux-gnu -I/usr/include ../GUI/include/fluid.h -o moc_fluid.cpp
+	/usr/lib/qt5/bin/moc $(DEFINES) --include ./moc_predefs.h -I/usr/lib/aarch64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/node-8/production/src/GUI -I/home/node-8/production/src/GUI/include -I/usr/include/aarch64-linux-gnu/qt5 -I/usr/include/aarch64-linux-gnu/qt5/QtQuick -I/usr/include/aarch64-linux-gnu/qt5/QtCharts -I/usr/include/aarch64-linux-gnu/qt5/QtPrintSupport -I/usr/include/aarch64-linux-gnu/qt5/QtWidgets -I/usr/include/aarch64-linux-gnu/qt5/QtGamepad -I/usr/include/aarch64-linux-gnu/qt5/QtGui -I/usr/include/aarch64-linux-gnu/qt5/QtQml -I/usr/include/aarch64-linux-gnu/qt5/QtNetwork -I/usr/include/aarch64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/7 -I/usr/include/aarch64-linux-gnu/c++/7 -I/usr/include/c++/7/backward -I/usr/lib/gcc/aarch64-linux-gnu/7/include -I/usr/local/include -I/usr/lib/gcc/aarch64-linux-gnu/7/include-fixed -I/usr/include/aarch64-linux-gnu -I/usr/include ../GUI/include/fluid.h -o moc_fluid.cpp
 
 moc_splashscreen.cpp: ../GUI/include/splashscreen.h \
 		moc_predefs.h \
 		/usr/lib/qt5/bin/moc
-	/usr/lib/qt5/bin/moc $(DEFINES) --include ./moc_predefs.h -I/usr/lib/aarch64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/node-8/production/src/GUI -I/home/node-8/production/src/GUI/include -I/usr/include/aarch64-linux-gnu/qt5 -I/usr/include/aarch64-linux-gnu/qt5/QtQuick -I/usr/include/aarch64-linux-gnu/qt5/QtCharts -I/usr/include/aarch64-linux-gnu/qt5/QtWidgets -I/usr/include/aarch64-linux-gnu/qt5/QtGamepad -I/usr/include/aarch64-linux-gnu/qt5/QtGui -I/usr/include/aarch64-linux-gnu/qt5/QtQml -I/usr/include/aarch64-linux-gnu/qt5/QtNetwork -I/usr/include/aarch64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/7 -I/usr/include/aarch64-linux-gnu/c++/7 -I/usr/include/c++/7/backward -I/usr/lib/gcc/aarch64-linux-gnu/7/include -I/usr/local/include -I/usr/lib/gcc/aarch64-linux-gnu/7/include-fixed -I/usr/include/aarch64-linux-gnu -I/usr/include ../GUI/include/splashscreen.h -o moc_splashscreen.cpp
+	/usr/lib/qt5/bin/moc $(DEFINES) --include ./moc_predefs.h -I/usr/lib/aarch64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/node-8/production/src/GUI -I/home/node-8/production/src/GUI/include -I/usr/include/aarch64-linux-gnu/qt5 -I/usr/include/aarch64-linux-gnu/qt5/QtQuick -I/usr/include/aarch64-linux-gnu/qt5/QtCharts -I/usr/include/aarch64-linux-gnu/qt5/QtPrintSupport -I/usr/include/aarch64-linux-gnu/qt5/QtWidgets -I/usr/include/aarch64-linux-gnu/qt5/QtGamepad -I/usr/include/aarch64-linux-gnu/qt5/QtGui -I/usr/include/aarch64-linux-gnu/qt5/QtQml -I/usr/include/aarch64-linux-gnu/qt5/QtNetwork -I/usr/include/aarch64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/7 -I/usr/include/aarch64-linux-gnu/c++/7 -I/usr/include/c++/7/backward -I/usr/lib/gcc/aarch64-linux-gnu/7/include -I/usr/local/include -I/usr/lib/gcc/aarch64-linux-gnu/7/include-fixed -I/usr/include/aarch64-linux-gnu -I/usr/include ../GUI/include/splashscreen.h -o moc_splashscreen.cpp
 
 moc_paint.cpp: ../GUI/include/simulation.h \
+		../GUI/include/qcustomplot.h \
 		../GUI/include/paint.h \
 		moc_predefs.h \
 		/usr/lib/qt5/bin/moc
-	/usr/lib/qt5/bin/moc $(DEFINES) --include ./moc_predefs.h -I/usr/lib/aarch64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/node-8/production/src/GUI -I/home/node-8/production/src/GUI/include -I/usr/include/aarch64-linux-gnu/qt5 -I/usr/include/aarch64-linux-gnu/qt5/QtQuick -I/usr/include/aarch64-linux-gnu/qt5/QtCharts -I/usr/include/aarch64-linux-gnu/qt5/QtWidgets -I/usr/include/aarch64-linux-gnu/qt5/QtGamepad -I/usr/include/aarch64-linux-gnu/qt5/QtGui -I/usr/include/aarch64-linux-gnu/qt5/QtQml -I/usr/include/aarch64-linux-gnu/qt5/QtNetwork -I/usr/include/aarch64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/7 -I/usr/include/aarch64-linux-gnu/c++/7 -I/usr/include/c++/7/backward -I/usr/lib/gcc/aarch64-linux-gnu/7/include -I/usr/local/include -I/usr/lib/gcc/aarch64-linux-gnu/7/include-fixed -I/usr/include/aarch64-linux-gnu -I/usr/include ../GUI/include/paint.h -o moc_paint.cpp
+	/usr/lib/qt5/bin/moc $(DEFINES) --include ./moc_predefs.h -I/usr/lib/aarch64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/node-8/production/src/GUI -I/home/node-8/production/src/GUI/include -I/usr/include/aarch64-linux-gnu/qt5 -I/usr/include/aarch64-linux-gnu/qt5/QtQuick -I/usr/include/aarch64-linux-gnu/qt5/QtCharts -I/usr/include/aarch64-linux-gnu/qt5/QtPrintSupport -I/usr/include/aarch64-linux-gnu/qt5/QtWidgets -I/usr/include/aarch64-linux-gnu/qt5/QtGamepad -I/usr/include/aarch64-linux-gnu/qt5/QtGui -I/usr/include/aarch64-linux-gnu/qt5/QtQml -I/usr/include/aarch64-linux-gnu/qt5/QtNetwork -I/usr/include/aarch64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/7 -I/usr/include/aarch64-linux-gnu/c++/7 -I/usr/include/c++/7/backward -I/usr/lib/gcc/aarch64-linux-gnu/7/include -I/usr/local/include -I/usr/lib/gcc/aarch64-linux-gnu/7/include-fixed -I/usr/include/aarch64-linux-gnu -I/usr/include ../GUI/include/paint.h -o moc_paint.cpp
 
-moc_usagestat.cpp: ../GUI/include/usagestat.h \
+moc_qcustomplot.cpp: ../GUI/include/qcustomplot.h \
 		moc_predefs.h \
 		/usr/lib/qt5/bin/moc
-	/usr/lib/qt5/bin/moc $(DEFINES) --include ./moc_predefs.h -I/usr/lib/aarch64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/node-8/production/src/GUI -I/home/node-8/production/src/GUI/include -I/usr/include/aarch64-linux-gnu/qt5 -I/usr/include/aarch64-linux-gnu/qt5/QtQuick -I/usr/include/aarch64-linux-gnu/qt5/QtCharts -I/usr/include/aarch64-linux-gnu/qt5/QtWidgets -I/usr/include/aarch64-linux-gnu/qt5/QtGamepad -I/usr/include/aarch64-linux-gnu/qt5/QtGui -I/usr/include/aarch64-linux-gnu/qt5/QtQml -I/usr/include/aarch64-linux-gnu/qt5/QtNetwork -I/usr/include/aarch64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/7 -I/usr/include/aarch64-linux-gnu/c++/7 -I/usr/include/c++/7/backward -I/usr/lib/gcc/aarch64-linux-gnu/7/include -I/usr/local/include -I/usr/lib/gcc/aarch64-linux-gnu/7/include-fixed -I/usr/include/aarch64-linux-gnu -I/usr/include ../GUI/include/usagestat.h -o moc_usagestat.cpp
+	/usr/lib/qt5/bin/moc $(DEFINES) --include ./moc_predefs.h -I/usr/lib/aarch64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/node-8/production/src/GUI -I/home/node-8/production/src/GUI/include -I/usr/include/aarch64-linux-gnu/qt5 -I/usr/include/aarch64-linux-gnu/qt5/QtQuick -I/usr/include/aarch64-linux-gnu/qt5/QtCharts -I/usr/include/aarch64-linux-gnu/qt5/QtPrintSupport -I/usr/include/aarch64-linux-gnu/qt5/QtWidgets -I/usr/include/aarch64-linux-gnu/qt5/QtGamepad -I/usr/include/aarch64-linux-gnu/qt5/QtGui -I/usr/include/aarch64-linux-gnu/qt5/QtQml -I/usr/include/aarch64-linux-gnu/qt5/QtNetwork -I/usr/include/aarch64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/7 -I/usr/include/aarch64-linux-gnu/c++/7 -I/usr/include/c++/7/backward -I/usr/lib/gcc/aarch64-linux-gnu/7/include -I/usr/local/include -I/usr/lib/gcc/aarch64-linux-gnu/7/include-fixed -I/usr/include/aarch64-linux-gnu -I/usr/include ../GUI/include/qcustomplot.h -o moc_qcustomplot.cpp
+
+moc_graph.cpp: ../GUI/include/qcustomplot.h \
+		../GUI/graph.h \
+		moc_predefs.h \
+		/usr/lib/qt5/bin/moc
+	/usr/lib/qt5/bin/moc $(DEFINES) --include ./moc_predefs.h -I/usr/lib/aarch64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/node-8/production/src/GUI -I/home/node-8/production/src/GUI/include -I/usr/include/aarch64-linux-gnu/qt5 -I/usr/include/aarch64-linux-gnu/qt5/QtQuick -I/usr/include/aarch64-linux-gnu/qt5/QtCharts -I/usr/include/aarch64-linux-gnu/qt5/QtPrintSupport -I/usr/include/aarch64-linux-gnu/qt5/QtWidgets -I/usr/include/aarch64-linux-gnu/qt5/QtGamepad -I/usr/include/aarch64-linux-gnu/qt5/QtGui -I/usr/include/aarch64-linux-gnu/qt5/QtQml -I/usr/include/aarch64-linux-gnu/qt5/QtNetwork -I/usr/include/aarch64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/7 -I/usr/include/aarch64-linux-gnu/c++/7 -I/usr/include/c++/7/backward -I/usr/lib/gcc/aarch64-linux-gnu/7/include -I/usr/local/include -I/usr/lib/gcc/aarch64-linux-gnu/7/include-fixed -I/usr/include/aarch64-linux-gnu -I/usr/include ../GUI/graph.h -o moc_graph.cpp
 
 compiler_moc_source_make_all:
 compiler_moc_source_clean:
@@ -579,7 +598,7 @@ compiler_clean: compiler_rcc_clean compiler_moc_predefs_clean compiler_moc_heade
 		ui_homepage.h \
 		../GUI/include/smoke.h \
 		../GUI/include/simulation.h \
-		../GUI/include/usagestat.h \
+		../GUI/include/qcustomplot.h \
 		../GUI/include/fluid.h \
 		../GUI/include/paint.h \
 		../GUI/include/splashscreen.h
@@ -591,7 +610,7 @@ compiler_clean: compiler_rcc_clean compiler_moc_predefs_clean compiler_moc_heade
 		ui_homepage.h \
 		../GUI/include/smoke.h \
 		../GUI/include/simulation.h \
-		../GUI/include/usagestat.h \
+		../GUI/include/qcustomplot.h \
 		../GUI/include/fluid.h \
 		../GUI/include/paint.h \
 		../GUI/include/splashscreen.h
@@ -599,7 +618,7 @@ compiler_clean: compiler_rcc_clean compiler_moc_predefs_clean compiler_moc_heade
 
 ./smoke.o: ../GUI/src/smoke.cpp ../GUI/include/smoke.h \
 		../GUI/include/simulation.h \
-		../GUI/include/usagestat.h \
+		../GUI/include/qcustomplot.h \
 		../GUI/include/stack.h \
 		../GUI/include/homepage.h \
 		../GUI/include/datatypes.h \
@@ -610,7 +629,8 @@ compiler_clean: compiler_rcc_clean compiler_moc_predefs_clean compiler_moc_heade
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ./smoke.o ../GUI/src/smoke.cpp
 
 ./fluid.o: ../GUI/src/fluid.cpp ../GUI/include/fluid.h \
-		../GUI/include/simulation.h
+		../GUI/include/simulation.h \
+		../GUI/include/qcustomplot.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ./fluid.o ../GUI/src/fluid.cpp
 
 ./splashscreen.o: ../GUI/src/splashscreen.cpp ../GUI/include/splashscreen.h
@@ -618,15 +638,22 @@ compiler_clean: compiler_rcc_clean compiler_moc_predefs_clean compiler_moc_heade
 
 ./paint.o: ../GUI/src/paint.cpp ../GUI/include/paint.h \
 		../GUI/include/simulation.h \
+		../GUI/include/qcustomplot.h \
 		../GUI/include/stack.h \
 		../GUI/include/homepage.h \
 		../GUI/include/datatypes.h \
 		ui_homepage.h \
 		../GUI/include/smoke.h \
-		../GUI/include/usagestat.h \
 		../GUI/include/fluid.h \
 		../GUI/include/splashscreen.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ./paint.o ../GUI/src/paint.cpp
+
+./qcustomplot.o: ../GUI/src/qcustomplot.cpp ../GUI/include/qcustomplot.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ./qcustomplot.o ../GUI/src/qcustomplot.cpp
+
+./graph.o: ../GUI/graph.cpp ../GUI/graph.h \
+		../GUI/include/qcustomplot.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ./graph.o ../GUI/graph.cpp
 
 ./qrc_mw_img.o: qrc_mw_img.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ./qrc_mw_img.o qrc_mw_img.cpp
@@ -649,8 +676,11 @@ compiler_clean: compiler_rcc_clean compiler_moc_predefs_clean compiler_moc_heade
 ./moc_paint.o: moc_paint.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ./moc_paint.o moc_paint.cpp
 
-./moc_usagestat.o: moc_usagestat.cpp 
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ./moc_usagestat.o moc_usagestat.cpp
+./moc_qcustomplot.o: moc_qcustomplot.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ./moc_qcustomplot.o moc_qcustomplot.cpp
+
+./moc_graph.o: moc_graph.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ./moc_graph.o moc_graph.cpp
 
 ####### Install
 

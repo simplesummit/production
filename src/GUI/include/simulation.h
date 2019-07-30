@@ -2,6 +2,7 @@
 #define SIMULATION_H
 
 #include <QDebug>
+#include <QFile>
 
 #include <iostream>
 #include <string>
@@ -49,8 +50,34 @@ public:
        
         return result;
     }
+    float update_cpu() {
+        float test = 0.00;
+        QFile file("/sys/devices/virtual/thermal/thermal_zone1/temp");
+        file.open(QFile::ReadOnly);
+        QString times = file.readLine();
+        int totalTime = times.split("\n")[0].toInt();
+        test = (totalTime / 1000);
+        if(test != 0.00) {
+            return test;
+        }
+        throw "Invalid CPU Temperature Value";
+        return -1;
+    }
 
+    float update_gpu() {
+        float test = 0.00;
+        QFile file("/sys/devices/virtual/thermal/thermal_zone2/temp");
+        file.open(QFile::ReadOnly);
+        QString times = file.readLine();
+        int totalTime = times.split("\n")[0].toInt();
+        test = (totalTime / 1000);
+        if(test != 0.00) {
+            return test;
+        }
+        throw "Invalid GPU Temperature Value";
+        return -1;
+    }
 private:
     bool isActive; //!< Simulation status
-    };
+};
 #endif // SIMULATION_H

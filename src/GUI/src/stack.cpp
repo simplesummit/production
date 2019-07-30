@@ -41,7 +41,7 @@ Stack::Stack(QWidget *parent) : QStackedWidget(parent)
     simSmoke = new Smoke;
     simFluid = new Fluid;
     paint = new Paint;
-    //view = new QWebEngineView(this);
+
 
     idSplash = this->addWidget(splash);
     idHomePage = this->addWidget(homePage);
@@ -139,20 +139,22 @@ void Stack::paintEvent(QPaintEvent *) {
 void Stack::prepareNewPage(int index) {
     switch(index) {
         case 1:
-            qDebug() << "HOMEPAGE";
+            qDebug() << "Prepping HomePage";
         break;
         case 2:
-            qDebug() << "SMOKE";
+            qDebug() << "Prepping Smoke";
             simSmoke->InitThread();
         break;
         case 3:
-            qDebug() << "FLUID";
+            qDebug() << "Prepping Fluid";
+            simFluid->InitThread();
         break;
         case 4:
-            qDebug() << "ML";
+            qDebug() << "Prepping NeuralPaint";
+            paint->InitThread();
         break;
         default:
-            qDebug() << "ERROR";
+            throw "Invalid Navigation ID";
         break;
     }
 }
