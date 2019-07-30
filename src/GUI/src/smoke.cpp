@@ -71,6 +71,13 @@ void Smoke::StartSim() {
     this_thread::sleep_for(dura);
     unsigned int kWID = Simulation::GetStdoutFromCommand("wmctrl -l | grep 'Smoke' | awk '{print $1}'");
     qDebug() << "Smoke WID: " << kWID;
+    std::cout << kWID << "\n";
+	if (kWID > 1000) {
+		qDebug() << "Smoke WID: " << kWID;
+	} else {
+		qDebug() << "Failed To Get kWID... Trying again";
+		goto loadingPoint;
+	}
     m_window = QWindow::fromWinId(kWID);
     m_window->setFlags(Qt::FramelessWindowHint);
     qw = QWidget::createWindowContainer(m_window);
