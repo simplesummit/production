@@ -56,6 +56,7 @@ Stack::Stack(QWidget *parent) : QStackedWidget(parent)
     connect(m_gamepad, &QGamepad::buttonGuideChanged, this, &Stack::closeApp);
     connect(m_gamepad, &QGamepad::axisLeftXChanged, homePage, &HomePage::getLeftX);
     connect(m_gamepad, &QGamepad::axisLeftYChanged, homePage, &HomePage::getLeftY);
+    connect(this, &Stack::currentChanged, this, &Stack::prepareNewPage);
     this->setStyleSheet("background-color: black");
 
 }
@@ -127,6 +128,32 @@ void Stack::closeApp(bool _isChanged) {
 void Stack::paintEvent(QPaintEvent *) {
     if(this->currentIndex() != homePage->activePage()) {
         destination = homePage->activePage();
+    }
+}
+
+/** Activates necessary methods to allow the page to run smoothly.
+ * \param index Index for the new page
+ *
+ * Meant to prepare the threads for the CPU and GPU processing.
+ */
+void Stack::prepareNewPage(int index) {
+    switch(index) {
+        case 1:
+            qDebug() << "HOMEPAGE";
+        break;
+        case 2:
+            qDebug() << "SMOKE";
+            simSmoke->InitThread();
+        break;
+        case 3:
+            qDebug() << "FLUID";
+        break;
+        case 4:
+            qDebug() << "ML";
+        break;
+        default:
+            qDebug() << "ERROR";
+        break;
     }
 }
 

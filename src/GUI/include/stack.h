@@ -47,6 +47,7 @@ public slots:
     void openPage(bool _isChanged);
     void closePage(bool _isChanged);
     void closeApp(bool _isChanged);
+    void prepareNewPage(int index);
 };
 
 #endif // STACK_H
