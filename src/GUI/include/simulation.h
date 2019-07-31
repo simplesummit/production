@@ -18,10 +18,10 @@
  */
 class Simulation {
 public:
-    virtual void StartSim() = 0; /*!< Starts the simulation */
-    virtual void EndSim() = 0; /*!< Ends the simulation */
+    virtual void startSim() = 0; /*!< Starts the simulation */
+    virtual void endSim() = 0; /*!< Ends the simulation */
 
-    bool SimIsActive() {return isActive;} /*!< Checks simulation status */
+    bool simIsActive() {return isActive;} /*!< Checks simulation status */
 
     /** Grab results of bash command.
      * \param cmd Command to grab output from.
@@ -30,7 +30,7 @@ public:
      * an unsigned int to be used as a Window ID. (See Simulation 
      * page for more)
      */
-    unsigned int GetStdoutFromCommand(std::string cmd) {
+    unsigned int readCommand(std::string cmd) {
         std::string data;
         unsigned int result;
         FILE * stream;

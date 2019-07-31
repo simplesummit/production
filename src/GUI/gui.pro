@@ -32,7 +32,8 @@ HEADERS += \
     include/splashscreen.h \
     include/paint.h \
     include/qcustomplot.h \
-    graph.h
+    graph.h \
+    include/graph.h
 FORMS += \
     assets/ui/homepage.ui
 SOURCES += \
@@ -44,6 +45,6 @@ SOURCES += \
     src/splashscreen.cpp \
     src/paint.cpp \
     src/qcustomplot.cpp \
-    graph.cpp
+    src/graph.cpp
 RESOURCES += \
     mw_img.qrc

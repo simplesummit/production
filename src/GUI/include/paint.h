@@ -20,14 +20,12 @@ class Paint : public QWidget, public Simulation
 public:
     explicit Paint(QWidget *parent = nullptr);
     ~Paint();
-    void StartSim();
-    void EndSim();
+    void startSim();
+    void endSim();
     void paintEvent(QPaintEvent *);
-    void InitThread();
-    void update_cpu();
-    void update_gpu();
+    void startPlot();
 
-    unsigned int pgID = 0x03; //!< Page ID
+    unsigned int pgID = 0x04; //!< Page ID
 
 private:
     QWindow *m_window; //!< Window the simulation is routed to
@@ -40,10 +38,10 @@ private:
     QCustomPlot* plot; //!< Temperature graph
 
     bool isActive; //!< Simulation Status
-    chrono::milliseconds dura{1000}; //!< Pause for simulation
+    chrono::milliseconds dura{100}; //!< Pause for simulation
     float gpu_data; //!< Buffer for GPU Temperature
     float cpu_data; //!< Buffer for CPU Temperature
-    float range[2];
+    float range[2]; //!< Holds minimum and max for the graph
 
 signals:
 

@@ -22,12 +22,10 @@ class Smoke : public QWidget, public Simulation
 public:
     explicit Smoke(QWidget *parent = nullptr);
     ~Smoke();
-    void StartSim();
-    void EndSim();
+    void startSim();
+    void endSim();
     void paintEvent(QPaintEvent *);
-    void InitThread();
-    void update_cpu();
-    void update_gpu();
+    void startPlot();
 
     unsigned int pgID = 0x02; //!< Page ID
 

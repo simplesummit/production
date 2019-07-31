@@ -87,13 +87,13 @@ Smoke::Smoke(QWidget *parent) : QWidget(parent)
  * see the Simulation page.
  */
 
-void Smoke::StartSim() {
+void Smoke::startSim() {
     isActive = true;
     int test = system("nohup ./smokeParticles &");
 
     loadingPoint:
     this_thread::sleep_for(dura);
-    unsigned int kWID = Simulation::GetStdoutFromCommand("wmctrl -l | grep 'Smoke' | awk '{print $1}'");
+    unsigned int kWID = Simulation::readCommand("wmctrl -l | grep 'Smoke' | awk '{print $1}'");
 
     if (kWID > 1000) {
 		qDebug() << "Smoke WID: " << kWID;
@@ -119,15 +119,18 @@ void Smoke::paintEvent(QPaintEvent *) {
 }
 
 /**  End simulation */
-void Smoke::EndSim() {
+void Smoke::endSim() {
     isActive = false;
     qw = nullptr;
     m_window = nullptr;
 }
 
-void Smoke::InitThread() {
+/** Start plotting the temperature */
+void Smoke::startPlot() {
     timer.start(100);
 }
+
+/** Get update values, and update the graph's content and y-axis. */
 void Smoke::redraw_plot() {
     cpu_data = Simulation::update_cpu();
     gpu_data = Simulation::update_gpu();
@@ -156,6 +159,7 @@ void Smoke::redraw_plot() {
     plot->yAxis->setRange(range[0] + 2, range[1] + 2);
     plot->replot();
 }
+
 Smoke::~Smoke() {
     delete qw;
     delete m_window;

@@ -98,8 +98,6 @@ Paint::Paint(QWidget *parent) : QWidget(parent)
  */
 void Paint::StartSim() {
     isActive = true;
-    //qDebug() << "Starting Smoke Sim...";
-    //qDebug() << test;
     int test = system("chromium-browser --app=http://localhost:8000 --force-device-scale-factor=1.0 --disable-web-security --hide-scrollbars --start-minimized --user-data-dir --window-size=5,5 &");
 
     loadingPoint:
@@ -134,6 +132,13 @@ void Paint::EndSim() {
     qw = nullptr;
     m_window = nullptr;
 }
+
+/** Start plotting the temperature */
+void Paint::startPlot() {
+    timer.start(100);
+}
+
+/** Get update values, and update the graph's content and y-axis. */
 void Paint::redraw_plot() {
     cpu_data = Simulation::update_cpu();
     gpu_data = Simulation::update_gpu();
@@ -162,9 +167,6 @@ void Paint::redraw_plot() {
     plot->xAxis->setRange(key, 8, Qt::AlignRight);
     plot->yAxis->setRange(range[0] + 2, range[1] + 2);
     plot->replot();
-}
-void Paint::InitThread() {
-    timer.start(100);
 }
 
 Paint::~Paint() {

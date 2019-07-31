@@ -1,3 +1,13 @@
+/*! \class Graph
+ *  \brief The main fluid simulation class that the user interacts with.
+ *  \author    Tyler Duckworth
+ *  \date      2019
+ *  \copyright BSD 3-Clause "New" or "Revised" License
+ *
+ *  Inheriting from the Simulation class, Fluid follows the same process
+ *  of embedding its own window in the application, seen here.
+*/
+
 #include "graph.h"
 
 Graph::Graph(QWidget *parent)

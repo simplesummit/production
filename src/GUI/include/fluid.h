@@ -21,10 +21,10 @@ class Fluid : public QWidget, public Simulation
 public:
     explicit Fluid(QWidget *parent = nullptr);
     ~Fluid();
-    void StartSim();
-    void EndSim();
+    void startSim();
+    void endSim();
     void paintEvent(QPaintEvent *);
-    void InitThread();
+    void startPlot();
 
     unsigned int pgID = 0x03; //!< Page ID
 
@@ -39,15 +39,15 @@ private:
     QCustomPlot* plot; //!< Temperature graph
 
     bool isActive; //!< Simulation Status
-    std::chrono::milliseconds dura{1000}; //!< Pause for the simulation.
+    std::chrono::milliseconds dura{100}; //!< Pause for the simulation.
     float gpu_data; //!< Buffer for GPU Temperature
     float cpu_data; //!< Buffer for CPU Temperature
-    float range[2];
+    float range[2]; //!< Holds minimum and max for the graph
 
 signals:
 
 public slots:
-    void redraw_plot();
+    void redrawPlot();
 };
 
 #endif // FLUID_H

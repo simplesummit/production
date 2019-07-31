@@ -7,6 +7,7 @@
  *  Inheriting from the Simulation class, Fluid follows the same process
  *  of embedding its own window in the application, seen here.
 */
+
 #include "fluid.h"
 
 #include <QDebug>
@@ -77,14 +78,14 @@ Fluid::Fluid(QWidget *parent) : QWidget(parent)
  * For a deeper dive into how this app gets the simulation into this class,
  * see the Simulation page.
  */
-void Fluid::StartSim() {
+void Fluid::startSim() {
     isActive = true;
     qDebug() << "Starting Fluid Sim...";
     int test = system("nohup ./particles &");
 
     loadingPoint:
     this_thread::sleep_for(dura);
-    unsigned int kWID = Simulation::GetStdoutFromCommand("wmctrl -l | grep 'CUDAParticles' | awk '{print $1}'");
+    unsigned int kWID = Simulation::readCommand("wmctrl -l | grep 'CUDAParticles' | awk '{print $1}'");
 	if (kWID > 1000) {
 		qDebug() << "Particles WID: " << kWID;
 	} else {
@@ -99,17 +100,19 @@ void Fluid::StartSim() {
 }
 
 /**  End simulation */
-void Fluid::EndSim() {
+void Fluid::endSim() {
     isActive = false;
     qw = nullptr;
     m_window = nullptr;
 }
 
-void Fluid::InitThread() {
+/** Start plotting the temperature */
+void Fluid::startPlot() {
     timer.start(100);
 }
 
-void Fluid::redraw_plot() {
+/** Get update values, and update the graph's content and y-axis. */
+void Fluid::redrawPlot() {
     cpu_data = Simulation::update_cpu();
     gpu_data = Simulation::update_gpu();
     if(gpu_data > range[1]) {
@@ -138,6 +141,7 @@ void Fluid::redraw_plot() {
     plot->yAxis->setRange(range[0] + 2, range[1] + 2);
     plot->replot();
 }
+
 /** Repaint the canvas
  *
  * Sets the settings of the canvas to allow for background-image.
@@ -147,6 +151,7 @@ void Fluid::paintEvent(QPaintEvent *) {
     option.init(this);
     style()->drawPrimitive(QStyle::PE_Widget, &option, &painter, this);
 }
+
 Fluid::~Fluid() {
     delete qw;
     delete m_window;
