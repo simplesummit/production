@@ -1,0 +1,6 @@
+<map id="Simulation" name="Simulation">
+<area shape="rect" id="node1" title="The abstract class that underlies the Smoke and Fluid simulations." alt="" coords="63,5,147,31"/>
+<area shape="rect" id="node2" href="$classFluid.html" title="The main fluid simulation class that the user interacts with." alt="" coords="5,79,56,104"/>
+<area shape="rect" id="node3" href="$classPaint.html" title=" " alt="" coords="79,79,131,104"/>
+<area shape="rect" id="node4" href="$classSmoke.html" title="The main fluid simulation class that the user interacts with." alt="" coords="155,79,218,104"/>
+</map>

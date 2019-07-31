@@ -1,0 +1,115 @@
+\hypertarget{classSimulation}{}\section{Simulation Class Reference}
+\label{classSimulation}\index{Simulation@{Simulation}}
+
+
+The abstract class that underlies the \mbox{\hyperlink{classSmoke}{Smoke}} and \mbox{\hyperlink{classFluid}{Fluid}} simulations.  
+
+
+
+
+{\ttfamily \#include $<$simulation.\+h$>$}
+
+
+
+Inheritance diagram for Simulation\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=239pt]{classSimulation__inherit__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \mbox{\hyperlink{classSimulation_ac523544ffc2b4cffed1d2a6ead5809b1}{start\+Sim}} ()=0
+\item 
+virtual void \mbox{\hyperlink{classSimulation_ab496d124202f55e741db7db9a304a7ee}{end\+Sim}} ()=0
+\item 
+bool \mbox{\hyperlink{classSimulation_a0b951a01d3de845823d2a87b0d50adef}{sim\+Is\+Active}} ()
+\item 
+unsigned int \mbox{\hyperlink{classSimulation_a04cafb2071be521281c2584fa300b912}{read\+Command}} (std\+::string cmd)
+\item 
+float \mbox{\hyperlink{classSimulation_a36aefdee44fabe9b8070363ca9eb80a7}{update\+\_\+cpu}} ()
+\item 
+float \mbox{\hyperlink{classSimulation_a16ab6b7e3c5936bae78fc8c2daf658d2}{update\+\_\+gpu}} ()
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{classSimulation_ad76dc6e6d56b95b074f3824340f91a4c}{is\+Active}}
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classSimulation}{Simulation}} status. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The abstract class that underlies the \mbox{\hyperlink{classSmoke}{Smoke}} and \mbox{\hyperlink{classFluid}{Fluid}} simulations. 
+
+It applies the prebuilt UI, reads joystick input, and creates animations. 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classSimulation_ab496d124202f55e741db7db9a304a7ee}\label{classSimulation_ab496d124202f55e741db7db9a304a7ee}} 
+\index{Simulation@{Simulation}!endSim@{endSim}}
+\index{endSim@{endSim}!Simulation@{Simulation}}
+\subsubsection{\texorpdfstring{endSim()}{endSim()}}
+{\footnotesize\ttfamily virtual void Simulation\+::end\+Sim (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+Ends the simulation 
+
+Implemented in \mbox{\hyperlink{classSmoke_a83d3a0d8bf172fcd6bc42ebf07f0f12f}{Smoke}}, \mbox{\hyperlink{classFluid_a92695db4868e8b2ec1bf4649ce5a9d19}{Fluid}}, and \mbox{\hyperlink{classPaint_a0624eaeb1d076ab01278b27026aba249}{Paint}}.
+
+\mbox{\Hypertarget{classSimulation_a04cafb2071be521281c2584fa300b912}\label{classSimulation_a04cafb2071be521281c2584fa300b912}} 
+\index{Simulation@{Simulation}!readCommand@{readCommand}}
+\index{readCommand@{readCommand}!Simulation@{Simulation}}
+\subsubsection{\texorpdfstring{readCommand()}{readCommand()}}
+{\footnotesize\ttfamily unsigned int Simulation\+::read\+Command (\begin{DoxyParamCaption}\item[{std\+::string}]{cmd }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Grab results of bash command. 
+\begin{DoxyParams}{Parameters}
+{\em cmd} & Command to grab output from.\\
+\hline
+\end{DoxyParams}
+Runs the command, reads the string, and converts it to an unsigned int to be used as a Window ID. (See \mbox{\hyperlink{classSimulation}{Simulation}} page for more) \mbox{\Hypertarget{classSimulation_a0b951a01d3de845823d2a87b0d50adef}\label{classSimulation_a0b951a01d3de845823d2a87b0d50adef}} 
+\index{Simulation@{Simulation}!simIsActive@{simIsActive}}
+\index{simIsActive@{simIsActive}!Simulation@{Simulation}}
+\subsubsection{\texorpdfstring{simIsActive()}{simIsActive()}}
+{\footnotesize\ttfamily bool Simulation\+::sim\+Is\+Active (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Checks simulation status \mbox{\Hypertarget{classSimulation_ac523544ffc2b4cffed1d2a6ead5809b1}\label{classSimulation_ac523544ffc2b4cffed1d2a6ead5809b1}} 
+\index{Simulation@{Simulation}!startSim@{startSim}}
+\index{startSim@{startSim}!Simulation@{Simulation}}
+\subsubsection{\texorpdfstring{startSim()}{startSim()}}
+{\footnotesize\ttfamily virtual void Simulation\+::start\+Sim (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+Starts the simulation 
+
+Implemented in \mbox{\hyperlink{classSmoke_aca6f4c3a6e62bf27920229c5b53ae561}{Smoke}}, \mbox{\hyperlink{classFluid_af249a75d7ef113842c226b8b939c8f90}{Fluid}}, and \mbox{\hyperlink{classPaint_a1f01fcd27e595cc9aacd1ef94e3e1454}{Paint}}.
+
+\mbox{\Hypertarget{classSimulation_a36aefdee44fabe9b8070363ca9eb80a7}\label{classSimulation_a36aefdee44fabe9b8070363ca9eb80a7}} 
+\index{Simulation@{Simulation}!update\_cpu@{update\_cpu}}
+\index{update\_cpu@{update\_cpu}!Simulation@{Simulation}}
+\subsubsection{\texorpdfstring{update\_cpu()}{update\_cpu()}}
+{\footnotesize\ttfamily float Simulation\+::update\+\_\+cpu (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{classSimulation_a16ab6b7e3c5936bae78fc8c2daf658d2}\label{classSimulation_a16ab6b7e3c5936bae78fc8c2daf658d2}} 
+\index{Simulation@{Simulation}!update\_gpu@{update\_gpu}}
+\index{update\_gpu@{update\_gpu}!Simulation@{Simulation}}
+\subsubsection{\texorpdfstring{update\_gpu()}{update\_gpu()}}
+{\footnotesize\ttfamily float Simulation\+::update\+\_\+gpu (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{classSimulation_ad76dc6e6d56b95b074f3824340f91a4c}\label{classSimulation_ad76dc6e6d56b95b074f3824340f91a4c}} 
+\index{Simulation@{Simulation}!isActive@{isActive}}
+\index{isActive@{isActive}!Simulation@{Simulation}}
+\subsubsection{\texorpdfstring{isActive}{isActive}}
+{\footnotesize\ttfamily bool Simulation\+::is\+Active\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+\mbox{\hyperlink{classSimulation}{Simulation}} status. 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{simulation_8h}{simulation.\+h}}\end{DoxyCompactItemize}

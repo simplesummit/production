@@ -1,0 +1,322 @@
+\hypertarget{classSmoke}{}\section{Smoke Class Reference}
+\label{classSmoke}\index{Smoke@{Smoke}}
+
+
+The main fluid simulation class that the user interacts with.  
+
+
+
+
+{\ttfamily \#include $<$smoke.\+h$>$}
+
+
+
+Inheritance diagram for Smoke\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=216pt]{classSmoke__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Smoke\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=216pt]{classSmoke__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Slots}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classSmoke_af856939211a558bf5dcd6feece65ad9d}{redraw\+\_\+plot}} ()
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classSmoke_a37d4531eec55ecb9085bf7b1a6b03228}{Smoke}} (Q\+Widget $\ast$parent=nullptr)
+\item 
+\mbox{\hyperlink{classSmoke_a545ad6bf5610bf9bbe3e62967db1fff9}{$\sim$\+Smoke}} ()
+\item 
+void \mbox{\hyperlink{classSmoke_aca6f4c3a6e62bf27920229c5b53ae561}{start\+Sim}} ()
+\item 
+void \mbox{\hyperlink{classSmoke_a83d3a0d8bf172fcd6bc42ebf07f0f12f}{end\+Sim}} ()
+\item 
+void \mbox{\hyperlink{classSmoke_af00f430e6cbe30b6caf841d7d1b05890}{paint\+Event}} (Q\+Paint\+Event $\ast$)
+\item 
+void \mbox{\hyperlink{classSmoke_a989e6653d16bee5d83dc53e766a1eae7}{start\+Plot}} ()
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+unsigned int \mbox{\hyperlink{classSmoke_a85ac4d6389daf0b33572436f18141397}{pg\+ID}} = 0x02
+\begin{DoxyCompactList}\small\item\em Page ID. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Q\+Window $\ast$ \mbox{\hyperlink{classSmoke_a75cc318af83d2cf39a6609b8becafe38}{m\+\_\+window}}
+\begin{DoxyCompactList}\small\item\em Window the simulation is routed to. \end{DoxyCompactList}\item 
+Q\+Widget $\ast$ \mbox{\hyperlink{classSmoke_ae04389450b60548adaf2ff0e76399673}{qw}}
+\begin{DoxyCompactList}\small\item\em Container for m\+\_\+window. \end{DoxyCompactList}\item 
+Q\+Widget $\ast$ \mbox{\hyperlink{classSmoke_aa6b959618b43da0106cc49148be321e8}{w\+Shadow}}
+\begin{DoxyCompactList}\small\item\em Widget for drop shadow. \end{DoxyCompactList}\item 
+Q\+Graphics\+Drop\+Shadow\+Effect $\ast$ \mbox{\hyperlink{classSmoke_a26f011df30f860db285ef97713ca7989}{d\+Shadow}}
+\begin{DoxyCompactList}\small\item\em Drop Shadow Effect. \end{DoxyCompactList}\item 
+Q\+Style\+Option \mbox{\hyperlink{classSmoke_adaf76ba29af2bc7105de57280a7e0993}{option}}
+\begin{DoxyCompactList}\small\item\em Overrides the Q\+Widget\textquotesingle{}s style for custom background. \end{DoxyCompactList}\item 
+Q\+Rect \mbox{\hyperlink{classSmoke_ae762c3ace8ef3b2aafab01e1c28f7523}{pos}}
+\begin{DoxyCompactList}\small\item\em Global Position. \end{DoxyCompactList}\item 
+Q\+Timer \mbox{\hyperlink{classSmoke_ab86a0c9a3d30df9136fd8b2cb0c875ad}{timer}}
+\begin{DoxyCompactList}\small\item\em Periodical timer to redraw the plot. \end{DoxyCompactList}\item 
+Q\+Custom\+Plot $\ast$ \mbox{\hyperlink{classSmoke_a5c1910ba7c1f3ae49b5e753d35e9156b}{plot}}
+\begin{DoxyCompactList}\small\item\em Temperature graph. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classSmoke_a83c338b4ec7a3d71443e8f1fd9d7a1b5}{is\+Active}}
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classSimulation}{Simulation}} Status. \end{DoxyCompactList}\item 
+chrono\+::milliseconds \mbox{\hyperlink{classSmoke_ae62660aa3919c7a01b5a0c3ad5ec1715}{dura}} \{1000\}
+\begin{DoxyCompactList}\small\item\em Pause for simulation. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classSmoke_afcd49fb97c3573ec4c779346d4be1c95}{gpu\+\_\+data}}
+\begin{DoxyCompactList}\small\item\em Buffer for G\+PU Temperature. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classSmoke_a27ecb4dc9f91a34bed0637c1743275cb}{cpu\+\_\+data}}
+\begin{DoxyCompactList}\small\item\em Buffer for C\+PU Temperature. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classSmoke_ae27bb310eec891bf0973a263383563a5}{range}} \mbox{[}2\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The main fluid simulation class that the user interacts with. 
+
+\begin{DoxyAuthor}{Author}
+Tyler Duckworth 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2019 
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+G\+NU Public License v3
+\end{DoxyCopyright}
+Inheriting from the \mbox{\hyperlink{classSimulation}{Simulation}} class, \mbox{\hyperlink{classFluid}{Fluid}} follows the same process of embedding its own window in the application, seen here.
+
+\begin{DoxyAuthor}{Author}
+Tyler Duckworth 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2019 
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+B\+SD 3-\/Clause \char`\"{}\+New\char`\"{} or \char`\"{}\+Revised\char`\"{} License
+\end{DoxyCopyright}
+Inheriting from the \mbox{\hyperlink{classSimulation}{Simulation}} class, \mbox{\hyperlink{classFluid}{Fluid}} follows the same process of embedding its own window in the application, seen here. 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classSmoke_a37d4531eec55ecb9085bf7b1a6b03228}\label{classSmoke_a37d4531eec55ecb9085bf7b1a6b03228}} 
+\index{Smoke@{Smoke}!Smoke@{Smoke}}
+\index{Smoke@{Smoke}!Smoke@{Smoke}}
+\subsubsection{\texorpdfstring{Smoke()}{Smoke()}}
+{\footnotesize\ttfamily Smoke\+::\+Smoke (\begin{DoxyParamCaption}\item[{Q\+Widget $\ast$}]{parent = {\ttfamily nullptr} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+Create a \mbox{\hyperlink{classSmoke}{Smoke}} element 
+\begin{DoxyParams}{Parameters}
+{\em parent} & Element for \mbox{\hyperlink{classSmoke}{Smoke}} to be under. (Optional)\\
+\hline
+\end{DoxyParams}
+Sets the geometry for the page to be 1080p. (Subject to change)
+
+Pairs the UI template with this page.
+
+N\+O\+TE\+: Could remove .ui file completely and use instead a pixmap as the background. \mbox{\Hypertarget{classSmoke_a545ad6bf5610bf9bbe3e62967db1fff9}\label{classSmoke_a545ad6bf5610bf9bbe3e62967db1fff9}} 
+\index{Smoke@{Smoke}!````~Smoke@{$\sim$Smoke}}
+\index{````~Smoke@{$\sim$Smoke}!Smoke@{Smoke}}
+\subsubsection{\texorpdfstring{$\sim$Smoke()}{~Smoke()}}
+{\footnotesize\ttfamily Smoke\+::$\sim$\+Smoke (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classSmoke_a83d3a0d8bf172fcd6bc42ebf07f0f12f}\label{classSmoke_a83d3a0d8bf172fcd6bc42ebf07f0f12f}} 
+\index{Smoke@{Smoke}!endSim@{endSim}}
+\index{endSim@{endSim}!Smoke@{Smoke}}
+\subsubsection{\texorpdfstring{endSim()}{endSim()}}
+{\footnotesize\ttfamily void Smoke\+::end\+Sim (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+End simulation 
+
+Implements \mbox{\hyperlink{classSimulation_ab496d124202f55e741db7db9a304a7ee}{Simulation}}.
+
+\mbox{\Hypertarget{classSmoke_af00f430e6cbe30b6caf841d7d1b05890}\label{classSmoke_af00f430e6cbe30b6caf841d7d1b05890}} 
+\index{Smoke@{Smoke}!paintEvent@{paintEvent}}
+\index{paintEvent@{paintEvent}!Smoke@{Smoke}}
+\subsubsection{\texorpdfstring{paintEvent()}{paintEvent()}}
+{\footnotesize\ttfamily void Smoke\+::paint\+Event (\begin{DoxyParamCaption}\item[{Q\+Paint\+Event $\ast$}]{ }\end{DoxyParamCaption})}
+
+Repaint the canvas
+
+Sets the settings of the canvas to allow for background-\/image. \mbox{\Hypertarget{classSmoke_af856939211a558bf5dcd6feece65ad9d}\label{classSmoke_af856939211a558bf5dcd6feece65ad9d}} 
+\index{Smoke@{Smoke}!redraw\_plot@{redraw\_plot}}
+\index{redraw\_plot@{redraw\_plot}!Smoke@{Smoke}}
+\subsubsection{\texorpdfstring{redraw\_plot}{redraw\_plot}}
+{\footnotesize\ttfamily void Smoke\+::redraw\+\_\+plot (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+Get update values, and update the graph\textquotesingle{}s content and y-\/axis. \mbox{\Hypertarget{classSmoke_a989e6653d16bee5d83dc53e766a1eae7}\label{classSmoke_a989e6653d16bee5d83dc53e766a1eae7}} 
+\index{Smoke@{Smoke}!startPlot@{startPlot}}
+\index{startPlot@{startPlot}!Smoke@{Smoke}}
+\subsubsection{\texorpdfstring{startPlot()}{startPlot()}}
+{\footnotesize\ttfamily void Smoke\+::start\+Plot (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Start plotting the temperature \mbox{\Hypertarget{classSmoke_aca6f4c3a6e62bf27920229c5b53ae561}\label{classSmoke_aca6f4c3a6e62bf27920229c5b53ae561}} 
+\index{Smoke@{Smoke}!startSim@{startSim}}
+\index{startSim@{startSim}!Smoke@{Smoke}}
+\subsubsection{\texorpdfstring{startSim()}{startSim()}}
+{\footnotesize\ttfamily void Smoke\+::start\+Sim (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Start simulation.
+
+For a deeper dive into how this app gets the simulation into this class, see the \mbox{\hyperlink{classSimulation}{Simulation}} page. 
+
+Implements \mbox{\hyperlink{classSimulation_ac523544ffc2b4cffed1d2a6ead5809b1}{Simulation}}.
+
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{classSmoke_a27ecb4dc9f91a34bed0637c1743275cb}\label{classSmoke_a27ecb4dc9f91a34bed0637c1743275cb}} 
+\index{Smoke@{Smoke}!cpu\_data@{cpu\_data}}
+\index{cpu\_data@{cpu\_data}!Smoke@{Smoke}}
+\subsubsection{\texorpdfstring{cpu\_data}{cpu\_data}}
+{\footnotesize\ttfamily float Smoke\+::cpu\+\_\+data\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Buffer for C\+PU Temperature. 
+
+\mbox{\Hypertarget{classSmoke_a26f011df30f860db285ef97713ca7989}\label{classSmoke_a26f011df30f860db285ef97713ca7989}} 
+\index{Smoke@{Smoke}!dShadow@{dShadow}}
+\index{dShadow@{dShadow}!Smoke@{Smoke}}
+\subsubsection{\texorpdfstring{dShadow}{dShadow}}
+{\footnotesize\ttfamily Q\+Graphics\+Drop\+Shadow\+Effect$\ast$ Smoke\+::d\+Shadow\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Drop Shadow Effect. 
+
+\mbox{\Hypertarget{classSmoke_ae62660aa3919c7a01b5a0c3ad5ec1715}\label{classSmoke_ae62660aa3919c7a01b5a0c3ad5ec1715}} 
+\index{Smoke@{Smoke}!dura@{dura}}
+\index{dura@{dura}!Smoke@{Smoke}}
+\subsubsection{\texorpdfstring{dura}{dura}}
+{\footnotesize\ttfamily chrono\+::milliseconds Smoke\+::dura \{1000\}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Pause for simulation. 
+
+\mbox{\Hypertarget{classSmoke_afcd49fb97c3573ec4c779346d4be1c95}\label{classSmoke_afcd49fb97c3573ec4c779346d4be1c95}} 
+\index{Smoke@{Smoke}!gpu\_data@{gpu\_data}}
+\index{gpu\_data@{gpu\_data}!Smoke@{Smoke}}
+\subsubsection{\texorpdfstring{gpu\_data}{gpu\_data}}
+{\footnotesize\ttfamily float Smoke\+::gpu\+\_\+data\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Buffer for G\+PU Temperature. 
+
+\mbox{\Hypertarget{classSmoke_a83c338b4ec7a3d71443e8f1fd9d7a1b5}\label{classSmoke_a83c338b4ec7a3d71443e8f1fd9d7a1b5}} 
+\index{Smoke@{Smoke}!isActive@{isActive}}
+\index{isActive@{isActive}!Smoke@{Smoke}}
+\subsubsection{\texorpdfstring{isActive}{isActive}}
+{\footnotesize\ttfamily bool Smoke\+::is\+Active\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+\mbox{\hyperlink{classSimulation}{Simulation}} Status. 
+
+\mbox{\Hypertarget{classSmoke_a75cc318af83d2cf39a6609b8becafe38}\label{classSmoke_a75cc318af83d2cf39a6609b8becafe38}} 
+\index{Smoke@{Smoke}!m\_window@{m\_window}}
+\index{m\_window@{m\_window}!Smoke@{Smoke}}
+\subsubsection{\texorpdfstring{m\_window}{m\_window}}
+{\footnotesize\ttfamily Q\+Window$\ast$ Smoke\+::m\+\_\+window\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Window the simulation is routed to. 
+
+\mbox{\Hypertarget{classSmoke_adaf76ba29af2bc7105de57280a7e0993}\label{classSmoke_adaf76ba29af2bc7105de57280a7e0993}} 
+\index{Smoke@{Smoke}!option@{option}}
+\index{option@{option}!Smoke@{Smoke}}
+\subsubsection{\texorpdfstring{option}{option}}
+{\footnotesize\ttfamily Q\+Style\+Option Smoke\+::option\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Overrides the Q\+Widget\textquotesingle{}s style for custom background. 
+
+\mbox{\Hypertarget{classSmoke_a85ac4d6389daf0b33572436f18141397}\label{classSmoke_a85ac4d6389daf0b33572436f18141397}} 
+\index{Smoke@{Smoke}!pgID@{pgID}}
+\index{pgID@{pgID}!Smoke@{Smoke}}
+\subsubsection{\texorpdfstring{pgID}{pgID}}
+{\footnotesize\ttfamily unsigned int Smoke\+::pg\+ID = 0x02}
+
+
+
+Page ID. 
+
+\mbox{\Hypertarget{classSmoke_a5c1910ba7c1f3ae49b5e753d35e9156b}\label{classSmoke_a5c1910ba7c1f3ae49b5e753d35e9156b}} 
+\index{Smoke@{Smoke}!plot@{plot}}
+\index{plot@{plot}!Smoke@{Smoke}}
+\subsubsection{\texorpdfstring{plot}{plot}}
+{\footnotesize\ttfamily Q\+Custom\+Plot$\ast$ Smoke\+::plot\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Temperature graph. 
+
+\mbox{\Hypertarget{classSmoke_ae762c3ace8ef3b2aafab01e1c28f7523}\label{classSmoke_ae762c3ace8ef3b2aafab01e1c28f7523}} 
+\index{Smoke@{Smoke}!pos@{pos}}
+\index{pos@{pos}!Smoke@{Smoke}}
+\subsubsection{\texorpdfstring{pos}{pos}}
+{\footnotesize\ttfamily Q\+Rect Smoke\+::pos\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Global Position. 
+
+\mbox{\Hypertarget{classSmoke_ae04389450b60548adaf2ff0e76399673}\label{classSmoke_ae04389450b60548adaf2ff0e76399673}} 
+\index{Smoke@{Smoke}!qw@{qw}}
+\index{qw@{qw}!Smoke@{Smoke}}
+\subsubsection{\texorpdfstring{qw}{qw}}
+{\footnotesize\ttfamily Q\+Widget$\ast$ Smoke\+::qw\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Container for m\+\_\+window. 
+
+\mbox{\Hypertarget{classSmoke_ae27bb310eec891bf0973a263383563a5}\label{classSmoke_ae27bb310eec891bf0973a263383563a5}} 
+\index{Smoke@{Smoke}!range@{range}}
+\index{range@{range}!Smoke@{Smoke}}
+\subsubsection{\texorpdfstring{range}{range}}
+{\footnotesize\ttfamily float Smoke\+::range\mbox{[}2\mbox{]}\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classSmoke_ab86a0c9a3d30df9136fd8b2cb0c875ad}\label{classSmoke_ab86a0c9a3d30df9136fd8b2cb0c875ad}} 
+\index{Smoke@{Smoke}!timer@{timer}}
+\index{timer@{timer}!Smoke@{Smoke}}
+\subsubsection{\texorpdfstring{timer}{timer}}
+{\footnotesize\ttfamily Q\+Timer Smoke\+::timer\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Periodical timer to redraw the plot. 
+
+\mbox{\Hypertarget{classSmoke_aa6b959618b43da0106cc49148be321e8}\label{classSmoke_aa6b959618b43da0106cc49148be321e8}} 
+\index{Smoke@{Smoke}!wShadow@{wShadow}}
+\index{wShadow@{wShadow}!Smoke@{Smoke}}
+\subsubsection{\texorpdfstring{wShadow}{wShadow}}
+{\footnotesize\ttfamily Q\+Widget$\ast$ Smoke\+::w\+Shadow\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Widget for drop shadow. 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{smoke_8h}{smoke.\+h}}\item 
+src/\mbox{\hyperlink{smoke_8cpp}{smoke.\+cpp}}\end{DoxyCompactItemize}

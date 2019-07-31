@@ -1,0 +1,9 @@
+<map id="include/splashscreen.h" name="include/splashscreen.h">
+<area shape="rect" id="node1" title=" " alt="" coords="97,5,254,31"/>
+<area shape="rect" id="node2" href="$stack_8h.html" title=" " alt="" coords="120,79,230,104"/>
+<area shape="rect" id="node3" href="$main_8cpp.html" title=" " alt="" coords="5,152,102,177"/>
+<area shape="rect" id="node7" href="$splashscreen_8cpp.html" title=" " alt="" coords="254,79,400,104"/>
+<area shape="rect" id="node4" href="$paint_8cpp.html" title=" " alt="" coords="127,152,224,177"/>
+<area shape="rect" id="node5" href="$smoke_8cpp.html" title=" " alt="" coords="248,152,355,177"/>
+<area shape="rect" id="node6" href="$stack_8cpp.html" title=" " alt="" coords="379,152,478,177"/>
+</map>
