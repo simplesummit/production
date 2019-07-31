@@ -33,7 +33,8 @@ Stack::Stack(QWidget *parent) : QStackedWidget(parent)
     if (gamepads.isEmpty()) {
         return;
     }
-    m_gamepad = new QGamepad(*gamepads.begin(), this);    pos = QRect(20,20,1880,880);
+    m_gamepad = new QGamepad(*gamepads.begin(), this);    
+    pos = QRect(20,20,1880,880);
     showFullScreen();
     QPixmap pixmap(":/img/assets/img/splash.png");
     splash = new SplashScreen(pixmap);
