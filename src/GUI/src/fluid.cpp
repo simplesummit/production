@@ -30,7 +30,7 @@
  */
 Fluid::Fluid(QWidget *parent) : QWidget(parent)
 {
-    range[0] = 38;
+    range[0] = 25;
     range[1] = 42;
     qDebug() << "Initalizating Fluid Sim...";
     this->setGeometry(0, 0, 1920, 1080);
@@ -43,34 +43,8 @@ Fluid::Fluid(QWidget *parent) : QWidget(parent)
     wShadow->setGeometry(20, 20, 1880, 880);
     wShadow->setGraphicsEffect(dShadow);
 
-    plot = new QCustomPlot(this);
-    QSharedPointer<QCPAxisTickerTime> timeTicker(new QCPAxisTickerTime);
-    timeTicker->setTimeFormat("%s");
-    plot->setGeometry(1000, 910, 400, 150);
-
-    plot->addGraph();
-    plot->graph(0)->setPen(QPen(QColor(232, 76, 50)));
-    plot->graph(0)->setAntialiasedFill(false);
-    plot->graph(0)->setLineStyle(QCPGraph::lsLine);
-
-    plot->addGraph();
-    plot->graph(1)->setPen(QPen(QColor(25, 49, 81)));
-    plot->graph(1)->setAntialiasedFill(false);
-    plot->graph(1)->setLineStyle(QCPGraph::lsLine);
-
-    plot->xAxis->setTicker(timeTicker);
-    plot->axisRect()->setupFullAxesBox();
-    plot->yAxis->setRange(30, 50);
-    plot->xAxis->setRange(0,100);
-    plot->yAxis->setVisible(true);
-    plot->xAxis->setVisible(false);
-    plot->yAxis2->setVisible(false);
-    plot->yAxis->setTicks(true);
-    plot->xAxis2->setTicks(false);
-    plot->plotLayout()->insertRow(0);
-    plot->plotLayout()->addElement(0,0, new QCPTextElement(plot, "Temperature \u00b0C"));
-
-    connect(&timer, &QTimer::timeout, this, &Fluid::redraw_plot);
+    graph = new Graph(this);
+    connect(&timer, &QTimer::timeout, this, &Fluid::redrawPlot);
 }
 
 /** Start simulation. 
@@ -82,7 +56,7 @@ void Fluid::startSim() {
     isActive = true;
     qDebug() << "Starting Fluid Sim...";
     int test = system("nohup ./particles &");
-
+    Q_ASSERT(test >= 0);
     loadingPoint:
     this_thread::sleep_for(dura);
     unsigned int kWID = Simulation::readCommand("wmctrl -l | grep 'CUDAParticles' | awk '{print $1}'");
@@ -131,15 +105,13 @@ void Fluid::redrawPlot() {
     double key = time.elapsed()/1000.0;
     static double lastPointKey = 0;
     if(key - lastPointKey > 0.002) {
-
-        plot->graph(0)->addData(key, (double)cpu_data);
-        plot->graph(1)->addData(key, (double)gpu_data);
+	graph->plot(key, cpu_data, gpu_data);
         lastPointKey = key;
     }
-
-    plot->xAxis->setRange(key, 8, Qt::AlignRight);
-    plot->yAxis->setRange(range[0] + 2, range[1] + 2);
-    plot->replot();
+    
+    graph->setXRange(key);
+    graph->setYRange(range);
+    graph->replot();
 }
 
 /** Repaint the canvas
@@ -155,7 +127,7 @@ void Fluid::paintEvent(QPaintEvent *) {
 Fluid::~Fluid() {
     delete qw;
     delete m_window;
-    delete plot;
     delete wShadow;
     delete dShadow;
+    delete graph;
 }

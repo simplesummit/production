@@ -3,6 +3,7 @@
 
 #include "simulation.h"
 #include "qcustomplot.h"
+#include "graph.h"
 
 #include <QGraphicsDropShadowEffect>
 #include <QStyleOption>
@@ -35,7 +36,7 @@ private:
     QGraphicsDropShadowEffect *dShadow; //!< Drop Shadow Effect
     QRect pos; //!< Global Position
     QTimer timer; //!< Periodical timer to redraw the plot
-    QCustomPlot* plot; //!< Temperature graph
+    Graph* graph; //!< Temperature graph
 
     bool isActive; //!< Simulation Status
     chrono::milliseconds dura{100}; //!< Pause for simulation
@@ -46,7 +47,7 @@ private:
 signals:
 
 public slots:
-    void redraw_plot();
+    void redrawPlot();
 };
 
 #endif // PAINT_H

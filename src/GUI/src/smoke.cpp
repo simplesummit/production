@@ -37,7 +37,7 @@ using namespace std;
  */
 Smoke::Smoke(QWidget *parent) : QWidget(parent)
 {
-    range[0] = 38;
+    range[0] = 25;
     range[1] = 42;
     pos = QRect(20,20,1880,880);
     qDebug() << "Initalizating Smoke Sim...";
@@ -51,34 +51,8 @@ Smoke::Smoke(QWidget *parent) : QWidget(parent)
     wShadow->setGeometry(pos);
     wShadow->setGraphicsEffect(dShadow);
 
-    plot = new QCustomPlot(this);
-    QSharedPointer<QCPAxisTickerTime> timeTicker(new QCPAxisTickerTime);
-    timeTicker->setTimeFormat("%s");
-    plot->setGeometry(1000, 910, 400, 150);
-
-    plot->addGraph();
-    plot->graph(0)->setPen(QPen(QColor(232, 76, 50)));
-    plot->graph(0)->setAntialiasedFill(false);
-    plot->graph(0)->setLineStyle(QCPGraph::lsLine);
-
-    plot->addGraph();
-    plot->graph(1)->setPen(QPen(QColor(25, 49, 81)));
-    plot->graph(1)->setAntialiasedFill(false);
-    plot->graph(1)->setLineStyle(QCPGraph::lsLine);
-
-    plot->xAxis->setTicker(timeTicker);
-    plot->axisRect()->setupFullAxesBox();
-    plot->yAxis->setRange(30, 50);
-    plot->xAxis->setRange(0,100);
-    plot->yAxis->setVisible(true);
-    plot->xAxis->setVisible(false);
-    plot->yAxis2->setVisible(false);
-    plot->yAxis->setTicks(true);
-    plot->xAxis2->setTicks(false);
-    plot->plotLayout()->insertRow(0);
-    plot->plotLayout()->addElement(0,0, new QCPTextElement(plot, "Temperature \u00b0C"));
-
-    connect(&timer, &QTimer::timeout, this, &Smoke::redraw_plot);
+    graph = new Graph(this);
+    connect(&timer, &QTimer::timeout, this, &Smoke::redrawPlot);
 }
 
 /** Start simulation. 
@@ -90,6 +64,7 @@ Smoke::Smoke(QWidget *parent) : QWidget(parent)
 void Smoke::startSim() {
     isActive = true;
     int test = system("nohup ./smokeParticles &");
+    Q_ASSERT(test >= 0);
 
     loadingPoint:
     this_thread::sleep_for(dura);
@@ -131,7 +106,7 @@ void Smoke::startPlot() {
 }
 
 /** Get update values, and update the graph's content and y-axis. */
-void Smoke::redraw_plot() {
+void Smoke::redrawPlot() {
     cpu_data = Simulation::update_cpu();
     gpu_data = Simulation::update_gpu();
     if(gpu_data > range[1]) {
@@ -149,21 +124,20 @@ void Smoke::redraw_plot() {
     double key = time.elapsed()/1000.0;
     static double lastPointKey = 0;
     if(key - lastPointKey > 0.002) {
-
-        plot->graph(0)->addData(key, (double)cpu_data);
-        plot->graph(1)->addData(key, (double)gpu_data);
+	
+	graph->plot(key, cpu_data, gpu_data);
         lastPointKey = key;
     }
 
-    plot->xAxis->setRange(key, 8, Qt::AlignRight);
-    plot->yAxis->setRange(range[0] + 2, range[1] + 2);
-    plot->replot();
+    graph->setXRange(key);
+    graph->setYRange(range);
+    graph->replot();
 }
 
 Smoke::~Smoke() {
     delete qw;
     delete m_window;
-    delete plot;
     delete wShadow;
     delete dShadow;
+    delete graph;
 }

@@ -1,0 +1,6 @@
+[I 190801 13:59:17 server:107] Recieved a file
+[I 190801 13:59:41 web:2246] 200 POST /upload (127.0.0.1) 23902.46ms
+[I 190801 13:59:41 web:2246] 200 GET /img/fccc48cd-9f9c-4fcd-b044-4d5f33851f04.png (127.0.0.1) 12.26ms
+[I 190801 14:03:31 server:107] Recieved a file
+[I 190801 14:03:43 web:2246] 200 POST /upload (127.0.0.1) 11665.63ms
+[I 190801 14:03:43 web:2246] 200 GET /img/3cf953b0-0177-4c3e-ac1d-d2dfc5fd522e.png (127.0.0.1) 3.28ms

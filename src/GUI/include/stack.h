@@ -37,8 +37,7 @@ private:
     int idSmoke; //!< ID for smoke simulation
     int idFluid; //!< ID for fluid simulation
     int idSplash; //!< ID for splashscreen
-    int idPaint;
-    //QWebEngineView *view;
+    int idPaint; //!< ID for neural paint
 protected:
     void paintEvent(QPaintEvent *);
 signals:

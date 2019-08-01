@@ -3,6 +3,7 @@
 
 #include "simulation.h"
 #include "qcustomplot.h"
+#include "graph.h"
 
 #include <QGraphicsDropShadowEffect>
 #include <QStyleOption>
@@ -37,18 +38,18 @@ private:
     QStyleOption option; //!< Overrides the QWidget's style for custom background.
     QRect pos; //!< Global Position
     QTimer timer; //!< Periodical timer to redraw the plot
-    QCustomPlot* plot; //!< Temperature graph
+    Graph* graph; //!< Temperature graph
 
     bool isActive; //!< Simulation Status
-    chrono::milliseconds dura{1000}; //!< Pause for simulation.
+    chrono::milliseconds dura{1000}; //!< Pause for simulation
     float gpu_data; //!< Buffer for GPU Temperature
     float cpu_data; //!< Buffer for CPU Temperature
-    float range[2];
+    float range[2]; //!< Minimum and maximum range
 
 signals:
 
 public slots:
-    void redraw_plot();
+    void redrawPlot();
 };
 
 #endif // PARTICLES_H

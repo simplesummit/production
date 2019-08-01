@@ -25,6 +25,7 @@ public:
 
     /** Grab results of bash command.
      * \param cmd Command to grab output from.
+     * \return Window ID (WID) as a hex number.
      *
      * Runs the command, reads the string, and converts it to 
      * an unsigned int to be used as a Window ID. (See Simulation 
@@ -50,6 +51,13 @@ public:
        
         return result;
     }
+
+    /** Get the current temperature of the CPU.
+     * \return CPU Temperature
+     *
+     * Reads the temperature file for thermal_zone1, the MCPU, and converts it into a float.
+     * The initial temperature is in millidegree Celsius, so the program converts it to standard Celsius.
+     */
     float update_cpu() {
         float test = 0.00;
         QFile file("/sys/devices/virtual/thermal/thermal_zone1/temp");
@@ -64,6 +72,12 @@ public:
         return -1;
     }
 
+    /** Get the current temperature of the GPU.
+     * \return GPU Temperature
+     *
+     * Reads the temperature file for thermal_zone1, the GPU, and converts it into a float.
+     * The initial temperature is in millidegree Celsius, so the program converts it to standard Celsius.
+     */
     float update_gpu() {
         float test = 0.00;
         QFile file("/sys/devices/virtual/thermal/thermal_zone2/temp");

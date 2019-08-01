@@ -62,7 +62,7 @@
 #define GRID_SIZE 64
 #define NUM_PARTICLES 16384
 
-const uint width = 5, height = 5;
+const uint width = 600, height = 600;
 
 // view params
 int ox, oy, oz;
@@ -368,7 +368,14 @@ void ixformPoint(float *v, float *r, GLfloat *m) {
   x[3] = 1.0f;
   ixform(x, r, m);
 }
+void special(int k, int x, int y) {
+  if (displaySliders) {
+    params->Special(k, x, y);
+  }
 
+  demoMode = false;
+  idleCounter = 0;
+}
 void motion(int x, int y, int z) {
   // std::cout << x  << " : " << y << "\n";
   float dx, dy, dz;
@@ -376,14 +383,19 @@ void motion(int x, int y, int z) {
   dy = (float)(y - oy);
   dz = (float)(z - oz);
 
+  special(x, y, z);
+  
+  std::cout << "X: " << x << "Y: " << z << "\n";
+  /*
   if (displaySliders) {
-    if (params->Motion(x, y)) {
+    if (params->Special(dy, dx, dz)) {
       ox = x;
       oy = y;
       glutPostRedisplay();
       return;
     }
   }
+  */
   /*camera code
     if (buttonState == 3)
       {
@@ -451,6 +463,10 @@ void joystick_cb(unsigned int buttonMask, int x, int y, int _z) {
     if (event.isButton()) {
       printf("Button %u is %s\n", event.number,
              event.value == 0 ? "up" : "down");
+        if (event.number == 7 & event.value == 1) {
+          displaySliders = !displaySliders;
+        }
+
     }
     if (event.isAxis()) {
       js[event.number] = event.value;
@@ -558,14 +574,7 @@ void key(unsigned char key, int /*x */, int /*y */) {
   glutPostRedisplay();
 }
 
-void special(int k, int x, int y) {
-  if (displaySliders) {
-    params->Special(k, x, y);
-  }
 
-  demoMode = false;
-  idleCounter = 0;
-}
 
 void idle(void) {
   if ((idleCounter++ > idleDelay) && (demoMode == false)) {
@@ -723,7 +732,7 @@ int main(int argc, char **argv) {
     // glutTimerFunc (25, gl_timer, 0);
     // glutMotionFunc(motion);
     glutKeyboardFunc(key);
-    glutSpecialFunc(special);
+    //glutSpecialFunc(special);
     glutIdleFunc(idle);
 
     glutCloseFunc(cleanup);

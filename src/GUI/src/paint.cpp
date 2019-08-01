@@ -37,7 +37,7 @@ using namespace std;
  */
 Paint::Paint(QWidget *parent) : QWidget(parent)
 {
-    range[0] = 38;
+    range[0] = 25;
     range[1] = 42;
 //    pos = QRect(20,20,1880,880);
     qDebug() << "Initalizating NeuralPaint...";
@@ -51,44 +51,9 @@ Paint::Paint(QWidget *parent) : QWidget(parent)
     dShadow->setOffset(0, 0);
     wShadow->setGeometry(20,20,1880,880);
     wShadow->setGraphicsEffect(dShadow);
-
-    plot = new QCustomPlot(this);
-    plot->setBackground(QBrush(QColor("#3D3D3D")));
-    QSharedPointer<QCPAxisTickerTime> timeTicker(new QCPAxisTickerTime);
-    timeTicker->setTimeFormat("%s");
-    plot->setGeometry(1000, 910, 400, 150);
-
-    plot->addGraph();
-    plot->graph(0)->setPen(QPen(QColor("#E82D13")));
-    plot->graph(0)->setAntialiasedFill(false);
-    plot->graph(0)->setLineStyle(QCPGraph::lsLine);
-
-    plot->addGraph();
-    plot->graph(1)->setPen(QPen(QColor("#498FEB")));
-    plot->graph(1)->setAntialiasedFill(false);
-    plot->graph(1)->setLineStyle(QCPGraph::lsLine);
-
-    plot->xAxis->setTicker(timeTicker);
-    plot->yAxis->setTickLabelColor(Qt::white);
-    plot->yAxis->setBasePen(QPen(Qt::white));
-    plot->yAxis->setLabelColor(Qt::white);
-    plot->yAxis->setTickPen(QPen(Qt::white));
-    plot->yAxis->setSubTickPen(QPen(Qt::white));
-    plot->xAxis2->setBasePen(QPen(Qt::white));
-    plot->axisRect()->setupFullAxesBox();
-    plot->yAxis->setRange(30, 50);
-    plot->xAxis->setRange(0,100);
-    plot->yAxis->setVisible(true);
-    plot->xAxis->setVisible(false);
-    plot->yAxis2->setVisible(false);
-    plot->yAxis->setTicks(true);
-    plot->xAxis2->setTicks(false);
-    plot->plotLayout()->insertRow(0);
-    QCPTextElement* txt = new QCPTextElement(plot, "Temperature \u00b0C");
-    txt->setTextColor(Qt::white);
-    plot->plotLayout()->addElement(0,0, txt);
-
-    connect(&timer, &QTimer::timeout, this, &Paint::redraw_plot);
+    
+    graph = new Graph(this);
+    connect(&timer, &QTimer::timeout, this, &Paint::redrawPlot);
 }
 
 /** Start simulation. 
@@ -96,13 +61,14 @@ Paint::Paint(QWidget *parent) : QWidget(parent)
  * For a deeper dive into how this app gets the simulation into this class,
  * see the Simulation page.
  */
-void Paint::StartSim() {
+void Paint::startSim() {
     isActive = true;
-    int test = system("chromium-browser --app=http://localhost:8000 --force-device-scale-factor=1.0 --disable-web-security --hide-scrollbars --start-minimized --user-data-dir --window-size=5,5 &");
+    int test = system("chromium-browser --app=http://localhost:8000 --force-device-scale-factor=1.0 --disable-web-security --disable-gpu --hide-scrollbars --start-minimized --user-data-dir --window-size=5,5 &");
+    Q_ASSERT(test >= 0);
 
     loadingPoint:
     this_thread::sleep_for(dura);
-    unsigned int kWID = Simulation::GetStdoutFromCommand("wmctrl -l | grep 'localhost' | awk '{print $1}'");
+    unsigned int kWID = Simulation::readCommand("wmctrl -l | grep 'localhost' | awk '{print $1}'");
     if (kWID > 1000) {
         qDebug() << "NeuralPaint WID: " << kWID;
     } else {
@@ -127,7 +93,7 @@ void Paint::paintEvent(QPaintEvent *) {
 }
 
 /**  End simulation */
-void Paint::EndSim() {
+void Paint::endSim() {
     isActive = false;
     qw = nullptr;
     m_window = nullptr;
@@ -139,7 +105,7 @@ void Paint::startPlot() {
 }
 
 /** Get update values, and update the graph's content and y-axis. */
-void Paint::redraw_plot() {
+void Paint::redrawPlot() {
     cpu_data = Simulation::update_cpu();
     gpu_data = Simulation::update_gpu();
     if(gpu_data > range[1]) {
@@ -148,28 +114,28 @@ void Paint::redraw_plot() {
         range[1] = cpu_data;
     }
     if(gpu_data < range[0]) {
-
         range[0] = gpu_data;
     } else if(cpu_data < range[0]) {
         range[0] = cpu_data;
     }
 
+
+
     static QTime time(QTime::currentTime());
     double key = time.elapsed()/1000.0;
     static double lastPointKey = 0;
     if(key - lastPointKey > 0.002) {
-
-        plot->graph(0)->addData(key, (double)cpu_data);
-        plot->graph(1)->addData(key, (double)gpu_data);
+	graph->plot(key, cpu_data, gpu_data);
         lastPointKey = key;
     }
 
-    plot->xAxis->setRange(key, 8, Qt::AlignRight);
-    plot->yAxis->setRange(range[0] + 2, range[1] + 2);
-    plot->replot();
+    graph->setXRange(key);
+    graph->setYRange(range);
+    graph->replot();
 }
 
 Paint::~Paint() {
     delete qw;
     delete m_window;
+    delete graph;
 }

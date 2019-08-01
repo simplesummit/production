@@ -18,22 +18,29 @@
  */
 Graph::Graph(QWidget *parent)
 {
-    this->setParent(this);
+    this->setParent(parent);
     this->setGeometry(1000, 910, 400, 150);
     QSharedPointer<QCPAxisTickerTime> timeTicker(new QCPAxisTickerTime);
     timeTicker->setTimeFormat("%s");
     this->addGraph();
-    this->graph(0)->setPen(QPen(QColor(232, 76, 50)));
+    this->graph(0)->setPen(QPen(QColor("#E82D13")));
     this->graph(0)->setAntialiasedFill(false);
     this->graph(0)->setLineStyle(QCPGraph::lsLine);
 
     this->addGraph();
-    this->graph(1)->setPen(QPen(QColor(25, 49, 81)));
+    this->graph(1)->setPen(QPen(QColor("#498FEB")));
     this->graph(1)->setAntialiasedFill(false);
     this->graph(1)->setLineStyle(QCPGraph::lsLine);
 
     this->xAxis->setTicker(timeTicker);
+    this->yAxis->setTickLabelColor(Qt::white);
+    this->yAxis->setBasePen(QPen(Qt::white));
+    this->yAxis->setLabelColor(Qt::white);
+    this->yAxis->setTickPen(QPen(Qt::white));
+    this->yAxis->setSubTickPen(QPen(Qt::white));
+    this->xAxis2->setBasePen(QPen(Qt::white));
     this->axisRect()->setupFullAxesBox();
+    this->setBackground(QColor("#151515"));
     this->yAxis->setRange(30, 50);
     this->xAxis->setRange(0,100);
     this->yAxis->setVisible(true);
@@ -42,7 +49,10 @@ Graph::Graph(QWidget *parent)
     this->yAxis->setTicks(true);
     this->xAxis2->setTicks(false);
     this->plotLayout()->insertRow(0);
-    this->plotLayout()->addElement(0,0, new QCPTextElement(this, "Temperature \u00b0C"));
+    QCPTextElement* txt = new QCPTextElement(this, "Temperature \u00b0C");
+    txt->setTextColor(Qt::white);
+ 
+    this->plotLayout()->addElement(0,0, txt);
 }
 
 /** Sets the x-axis dynamically to allow it to move with time.

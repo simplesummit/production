@@ -63,7 +63,6 @@ class ParticleSystem {
     if (x.x > -1 && x.x < 1) {
       if (x.y > -1.5 && x.y < 1.5) {
         if (x.z > -1 && x.z < 1) {
-          std::cout << "True\n";
           m_params.colliderPos = x;
         }
       }

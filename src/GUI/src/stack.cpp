@@ -76,13 +76,13 @@ void Stack::openPage(bool _isChanged) {
         } else {
             int destination = homePage->activePage();
             if(destination == 2) {
-                simSmoke->StartSim();
+                simSmoke->startSim();
                 this->setCurrentIndex(idSmoke);
             } else if(destination == 3) {
-                simFluid->StartSim();
+                simFluid->startSim();
                 this->setCurrentIndex(idFluid);
             } else if(destination == 4) {
-                paint->StartSim();
+                paint->startSim();
                 this->setCurrentIndex(idPaint);
             }
         }
@@ -97,18 +97,19 @@ void Stack::openPage(bool _isChanged) {
  * This is about as deep as the navigation goes currently.
  */
 void Stack::closePage(bool _isChanged) {
-
+    int killall;
     if(_isChanged) {
         if(this->currentIndex() == idSmoke) {
-            system("killall smokeParticles");
+            killall = system("killall smokeParticles");
             this->setCurrentIndex(idHomePage);
         } else if(this->currentIndex() == idFluid) {
-            system("killall particles");
+            killall = system("killall particles");
             this->setCurrentIndex(idHomePage);
         } else if(this->currentIndex() == idPaint) {
-            system("killall chromium-browser");
+            killall = system("killall chromium-browser");
             this->setCurrentIndex(idHomePage);
         }
+        Q_ASSERT(killall >= 0);
     }
 }
 
@@ -144,15 +145,15 @@ void Stack::prepareNewPage(int index) {
         break;
         case 2:
             qDebug() << "Prepping Smoke";
-            simSmoke->InitThread();
+            simSmoke->startPlot();
         break;
         case 3:
             qDebug() << "Prepping Fluid";
-            simFluid->InitThread();
+            simFluid->startPlot();
         break;
         case 4:
             qDebug() << "Prepping NeuralPaint";
-            paint->InitThread();
+            paint->startPlot();
         break;
         default:
             throw "Invalid Navigation ID";

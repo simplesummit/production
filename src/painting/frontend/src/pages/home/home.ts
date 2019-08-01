@@ -59,20 +59,19 @@ export class HomePage {
     alert.present()
     console.log('reset');
   }
-  
-  presentLoadingCustom() {
-    let loading = this.loadingCtrl.create({
-      spinner: 'hide',
-      content: `<img src="assets/imgs/loading.gif"/> Painting Your Masterpiece...`,
-      duration: 5000
-    });
+  loading = this.loadingCtrl.create({
+    spinner: 'hide',
+    content: `<img src="assets/imgs/loading.gif"/> Painting Your Masterpiece...`,
+  });
 
-    loading.onDidDismiss(() => {
+  presentLoadingCustom() {
+
+    this.loading.onDidDismiss(() => {
       console.log('Dismissed loading');
     });
-
-    loading.present();
+    this.loading.present();
   }
+
 
   /**
    * Make sure you are calling create method inside of "ionViewDidLoad"
@@ -109,6 +108,7 @@ export class HomePage {
         console.log("Location: " + " " + dataB['location'] + "\n");
         let imageSource = dataB['location'];
         this.drawing.setCanvas(this.host+ imageSource);
+        this.loading.dismiss();
       }, error => {
         console.log(error);
       });

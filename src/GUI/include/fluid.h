@@ -3,6 +3,7 @@
 
 #include "simulation.h"
 #include "qcustomplot.h"
+#include "graph.h"
 
 #include <QGraphicsDropShadowEffect>
 #include <QWidget>
@@ -36,7 +37,7 @@ private:
     QStyleOption option; //!< Overrides the QWidget's style for custom background.
     QRect pos; //!< Global Position
     QTimer timer; //!< Periodical timer to redraw the plot
-    QCustomPlot* plot; //!< Temperature graph
+    Graph* graph; //!< Temperature graph
 
     bool isActive; //!< Simulation Status
     std::chrono::milliseconds dura{100}; //!< Pause for the simulation.
