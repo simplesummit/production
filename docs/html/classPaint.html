@@ -93,16 +93,18 @@ Collaboration diagram for Paint:</div>
 <div class="dyncontent">
 <div class="center"><img src="classPaint__coll__graph.png" border="0" usemap="#Paint_coll__map" alt="Collaboration graph"/></div>
 <map name="Paint_coll__map" id="Paint_coll__map">
-<area shape="rect"  title=" " alt="" coords="67,79,118,104"/>
-<area shape="rect"  title=" " alt="" coords="5,5,79,31"/>
-<area shape="rect"  href="classSimulation.html" title="The abstract class that underlies the Smoke and Fluid simulations." alt="" coords="103,5,186,31"/>
+<area shape="rect"  title=" " alt="" coords="119,167,170,192"/>
+<area shape="rect"  title=" " alt="" coords="5,80,79,105"/>
+<area shape="rect"  href="classSimulation.html" title="The abstract class that underlies the Smoke and Fluid simulations." alt="" coords="103,80,186,105"/>
+<area shape="rect"  href="classGraph.html" title="Temperature graph class for CPU and GPU." alt="" coords="210,80,268,105"/>
+<area shape="rect"  title=" " alt="" coords="189,5,290,31"/>
 </map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-slots"></a>
 Public Slots</h2></td></tr>
-<tr class="memitem:ab32de795b250bd919ebc0d8ebead6440"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPaint.html#ab32de795b250bd919ebc0d8ebead6440">redraw_plot</a> ()</td></tr>
-<tr class="separator:ab32de795b250bd919ebc0d8ebead6440"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9790e137dfd6386ed72aea47f176326d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPaint.html#a9790e137dfd6386ed72aea47f176326d">redrawPlot</a> ()</td></tr>
+<tr class="separator:a9790e137dfd6386ed72aea47f176326d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -157,9 +159,9 @@ Private Attributes</h2></td></tr>
 <tr class="memitem:a0cd2955c474cb99795506bdee2df71ab"><td class="memItemLeft" align="right" valign="top">QTimer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPaint.html#a0cd2955c474cb99795506bdee2df71ab">timer</a></td></tr>
 <tr class="memdesc:a0cd2955c474cb99795506bdee2df71ab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Periodical timer to redraw the plot.  <a href="#a0cd2955c474cb99795506bdee2df71ab">More...</a><br /></td></tr>
 <tr class="separator:a0cd2955c474cb99795506bdee2df71ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3e7c98331cbf71478fa2090c5d387cb2"><td class="memItemLeft" align="right" valign="top">QCustomPlot *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPaint.html#a3e7c98331cbf71478fa2090c5d387cb2">plot</a></td></tr>
-<tr class="memdesc:a3e7c98331cbf71478fa2090c5d387cb2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Temperature graph.  <a href="#a3e7c98331cbf71478fa2090c5d387cb2">More...</a><br /></td></tr>
-<tr class="separator:a3e7c98331cbf71478fa2090c5d387cb2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7c4451334289c681e3763ba244227b7a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classGraph.html">Graph</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPaint.html#a7c4451334289c681e3763ba244227b7a">graph</a></td></tr>
+<tr class="memdesc:a7c4451334289c681e3763ba244227b7a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Temperature graph.  <a href="#a7c4451334289c681e3763ba244227b7a">More...</a><br /></td></tr>
+<tr class="separator:a7c4451334289c681e3763ba244227b7a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad3674af36118608e17d5f49812f0e398"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPaint.html#ad3674af36118608e17d5f49812f0e398">isActive</a></td></tr>
 <tr class="memdesc:ad3674af36118608e17d5f49812f0e398"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classSimulation.html" title="The abstract class that underlies the Smoke and Fluid simulations.">Simulation</a> Status.  <a href="#ad3674af36118608e17d5f49812f0e398">More...</a><br /></td></tr>
 <tr class="separator:ad3674af36118608e17d5f49812f0e398"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -252,7 +254,7 @@ Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Ends the simulation </p>
+<p>End simulation </p>
 
 <p>Implements <a class="el" href="classSimulation.html#ab496d124202f55e741db7db9a304a7ee">Simulation</a>.</p>
 
@@ -278,8 +280,8 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="ab32de795b250bd919ebc0d8ebead6440"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab32de795b250bd919ebc0d8ebead6440">&#9670;&nbsp;</a></span>redraw_plot</h2>
+<a id="a9790e137dfd6386ed72aea47f176326d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9790e137dfd6386ed72aea47f176326d">&#9670;&nbsp;</a></span>redrawPlot</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -288,7 +290,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void Paint::redraw_plot </td>
+          <td class="memname">void Paint::redrawPlot </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -344,7 +346,8 @@ Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Starts the simulation </p>
+<p>Start simulation.</p>
+<p>For a deeper dive into how this app gets the simulation into this class, see the <a class="el" href="classSimulation.html" title="The abstract class that underlies the Smoke and Fluid simulations.">Simulation</a> page. </p>
 
 <p>Implements <a class="el" href="classSimulation.html#ac523544ffc2b4cffed1d2a6ead5809b1">Simulation</a>.</p>
 
@@ -447,6 +450,30 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="a7c4451334289c681e3763ba244227b7a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7c4451334289c681e3763ba244227b7a">&#9670;&nbsp;</a></span>graph</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classGraph.html">Graph</a>* Paint::graph</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Temperature graph. </p>
+
+</div>
+</div>
 <a id="ad3674af36118608e17d5f49812f0e398"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ad3674af36118608e17d5f49812f0e398">&#9670;&nbsp;</a></span>isActive</h2>
 
@@ -532,30 +559,6 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Page ID. </p>
-
-</div>
-</div>
-<a id="a3e7c98331cbf71478fa2090c5d387cb2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3e7c98331cbf71478fa2090c5d387cb2">&#9670;&nbsp;</a></span>plot</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">QCustomPlot* Paint::plot</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Temperature graph. </p>
 
 </div>
 </div>
@@ -689,7 +692,7 @@ Private Attributes</h2></td></tr>
 <!-- <hr class="footer"/> -->
 <address class="footer">
     <small>
-Generated on Wed Jul 31 2019 14:49:49 for Simple Summit UI by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Aug 1 2019 16:40:35 for Simple Summit UI by &#160;<a href="http://www.doxygen.org/index.html">
         <img class="footer" src="doxygen.png" alt="doxygen"/>
         </a> 1.8.15
     </small>

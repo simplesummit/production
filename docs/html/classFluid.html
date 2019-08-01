@@ -96,9 +96,11 @@ Collaboration diagram for Fluid:</div>
 <div class="dyncontent">
 <div class="center"><img src="classFluid__coll__graph.png" border="0" usemap="#Fluid_coll__map" alt="Collaboration graph"/></div>
 <map name="Fluid_coll__map" id="Fluid_coll__map">
-<area shape="rect"  title="The main fluid simulation class that the user interacts with." alt="" coords="67,79,118,104"/>
-<area shape="rect"  title=" " alt="" coords="5,5,79,31"/>
-<area shape="rect"  href="classSimulation.html" title="The abstract class that underlies the Smoke and Fluid simulations." alt="" coords="103,5,186,31"/>
+<area shape="rect"  title="The main fluid simulation class that the user interacts with." alt="" coords="119,167,170,192"/>
+<area shape="rect"  title=" " alt="" coords="5,80,79,105"/>
+<area shape="rect"  href="classSimulation.html" title="The abstract class that underlies the Smoke and Fluid simulations." alt="" coords="103,80,186,105"/>
+<area shape="rect"  href="classGraph.html" title="Temperature graph class for CPU and GPU." alt="" coords="210,80,268,105"/>
+<area shape="rect"  title=" " alt="" coords="189,5,290,31"/>
 </map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
@@ -159,9 +161,9 @@ Private Attributes</h2></td></tr>
 <tr class="memitem:a0765840a82e6ec401dea0cb65c435f5f"><td class="memItemLeft" align="right" valign="top">QTimer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFluid.html#a0765840a82e6ec401dea0cb65c435f5f">timer</a></td></tr>
 <tr class="memdesc:a0765840a82e6ec401dea0cb65c435f5f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Periodical timer to redraw the plot.  <a href="#a0765840a82e6ec401dea0cb65c435f5f">More...</a><br /></td></tr>
 <tr class="separator:a0765840a82e6ec401dea0cb65c435f5f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa996761644ea1e220176f4983569bd4b"><td class="memItemLeft" align="right" valign="top">QCustomPlot *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFluid.html#aa996761644ea1e220176f4983569bd4b">plot</a></td></tr>
-<tr class="memdesc:aa996761644ea1e220176f4983569bd4b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Temperature graph.  <a href="#aa996761644ea1e220176f4983569bd4b">More...</a><br /></td></tr>
-<tr class="separator:aa996761644ea1e220176f4983569bd4b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a709eabc9846a8e29c79285c17b8b07ca"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classGraph.html">Graph</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFluid.html#a709eabc9846a8e29c79285c17b8b07ca">graph</a></td></tr>
+<tr class="memdesc:a709eabc9846a8e29c79285c17b8b07ca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Temperature graph.  <a href="#a709eabc9846a8e29c79285c17b8b07ca">More...</a><br /></td></tr>
+<tr class="separator:a709eabc9846a8e29c79285c17b8b07ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aea07a907844eca27a318311869d31473"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFluid.html#aea07a907844eca27a318311869d31473">isActive</a></td></tr>
 <tr class="memdesc:aea07a907844eca27a318311869d31473"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classSimulation.html" title="The abstract class that underlies the Smoke and Fluid simulations.">Simulation</a> Status.  <a href="#aea07a907844eca27a318311869d31473">More...</a><br /></td></tr>
 <tr class="separator:aea07a907844eca27a318311869d31473"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -454,6 +456,30 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="a709eabc9846a8e29c79285c17b8b07ca"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a709eabc9846a8e29c79285c17b8b07ca">&#9670;&nbsp;</a></span>graph</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classGraph.html">Graph</a>* Fluid::graph</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Temperature graph. </p>
+
+</div>
+</div>
 <a id="aea07a907844eca27a318311869d31473"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aea07a907844eca27a318311869d31473">&#9670;&nbsp;</a></span>isActive</h2>
 
@@ -539,30 +565,6 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Page ID. </p>
-
-</div>
-</div>
-<a id="aa996761644ea1e220176f4983569bd4b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa996761644ea1e220176f4983569bd4b">&#9670;&nbsp;</a></span>plot</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">QCustomPlot* Fluid::plot</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Temperature graph. </p>
 
 </div>
 </div>
@@ -696,7 +698,7 @@ Private Attributes</h2></td></tr>
 <!-- <hr class="footer"/> -->
 <address class="footer">
     <small>
-Generated on Wed Jul 31 2019 14:49:49 for Simple Summit UI by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Aug 1 2019 16:40:35 for Simple Summit UI by &#160;<a href="http://www.doxygen.org/index.html">
         <img class="footer" src="doxygen.png" alt="doxygen"/>
         </a> 1.8.15
     </small>

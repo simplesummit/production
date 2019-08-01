@@ -24,13 +24,13 @@ Collaboration diagram for Smoke\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=216pt]{classSmoke__coll__graph}
+\includegraphics[width=293pt]{classSmoke__coll__graph}
 \end{center}
 \end{figure}
 \subsection*{Public Slots}
 \begin{DoxyCompactItemize}
 \item 
-void \mbox{\hyperlink{classSmoke_af856939211a558bf5dcd6feece65ad9d}{redraw\+\_\+plot}} ()
+void \mbox{\hyperlink{classSmoke_a558447ca2b067daebfca58a2d8b30f66}{redraw\+Plot}} ()
 \end{DoxyCompactItemize}
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
@@ -69,7 +69,7 @@ Q\+Rect \mbox{\hyperlink{classSmoke_ae762c3ace8ef3b2aafab01e1c28f7523}{pos}}
 \begin{DoxyCompactList}\small\item\em Global Position. \end{DoxyCompactList}\item 
 Q\+Timer \mbox{\hyperlink{classSmoke_ab86a0c9a3d30df9136fd8b2cb0c875ad}{timer}}
 \begin{DoxyCompactList}\small\item\em Periodical timer to redraw the plot. \end{DoxyCompactList}\item 
-Q\+Custom\+Plot $\ast$ \mbox{\hyperlink{classSmoke_a5c1910ba7c1f3ae49b5e753d35e9156b}{plot}}
+\mbox{\hyperlink{classGraph}{Graph}} $\ast$ \mbox{\hyperlink{classSmoke_a7a2faa3ba32e51c7eb4212622f31ed79}{graph}}
 \begin{DoxyCompactList}\small\item\em Temperature graph. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{classSmoke_a83c338b4ec7a3d71443e8f1fd9d7a1b5}{is\+Active}}
 \begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classSimulation}{Simulation}} Status. \end{DoxyCompactList}\item 
@@ -80,7 +80,7 @@ float \mbox{\hyperlink{classSmoke_afcd49fb97c3573ec4c779346d4be1c95}{gpu\+\_\+da
 float \mbox{\hyperlink{classSmoke_a27ecb4dc9f91a34bed0637c1743275cb}{cpu\+\_\+data}}
 \begin{DoxyCompactList}\small\item\em Buffer for C\+PU Temperature. \end{DoxyCompactList}\item 
 float \mbox{\hyperlink{classSmoke_ae27bb310eec891bf0973a263383563a5}{range}} \mbox{[}2\mbox{]}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Minimum and maximum range. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
@@ -151,11 +151,11 @@ Implements \mbox{\hyperlink{classSimulation_ab496d124202f55e741db7db9a304a7ee}{S
 
 Repaint the canvas
 
-Sets the settings of the canvas to allow for background-\/image. \mbox{\Hypertarget{classSmoke_af856939211a558bf5dcd6feece65ad9d}\label{classSmoke_af856939211a558bf5dcd6feece65ad9d}} 
-\index{Smoke@{Smoke}!redraw\_plot@{redraw\_plot}}
-\index{redraw\_plot@{redraw\_plot}!Smoke@{Smoke}}
-\subsubsection{\texorpdfstring{redraw\_plot}{redraw\_plot}}
-{\footnotesize\ttfamily void Smoke\+::redraw\+\_\+plot (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+Sets the settings of the canvas to allow for background-\/image. \mbox{\Hypertarget{classSmoke_a558447ca2b067daebfca58a2d8b30f66}\label{classSmoke_a558447ca2b067daebfca58a2d8b30f66}} 
+\index{Smoke@{Smoke}!redrawPlot@{redrawPlot}}
+\index{redrawPlot@{redrawPlot}!Smoke@{Smoke}}
+\subsubsection{\texorpdfstring{redrawPlot}{redrawPlot}}
+{\footnotesize\ttfamily void Smoke\+::redraw\+Plot (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
 
 Get update values, and update the graph\textquotesingle{}s content and y-\/axis. \mbox{\Hypertarget{classSmoke_a989e6653d16bee5d83dc53e766a1eae7}\label{classSmoke_a989e6653d16bee5d83dc53e766a1eae7}} 
 \index{Smoke@{Smoke}!startPlot@{startPlot}}
@@ -218,6 +218,16 @@ Pause for simulation.
 
 Buffer for G\+PU Temperature. 
 
+\mbox{\Hypertarget{classSmoke_a7a2faa3ba32e51c7eb4212622f31ed79}\label{classSmoke_a7a2faa3ba32e51c7eb4212622f31ed79}} 
+\index{Smoke@{Smoke}!graph@{graph}}
+\index{graph@{graph}!Smoke@{Smoke}}
+\subsubsection{\texorpdfstring{graph}{graph}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classGraph}{Graph}}$\ast$ Smoke\+::graph\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Temperature graph. 
+
 \mbox{\Hypertarget{classSmoke_a83c338b4ec7a3d71443e8f1fd9d7a1b5}\label{classSmoke_a83c338b4ec7a3d71443e8f1fd9d7a1b5}} 
 \index{Smoke@{Smoke}!isActive@{isActive}}
 \index{isActive@{isActive}!Smoke@{Smoke}}
@@ -258,16 +268,6 @@ Overrides the Q\+Widget\textquotesingle{}s style for custom background.
 
 Page ID. 
 
-\mbox{\Hypertarget{classSmoke_a5c1910ba7c1f3ae49b5e753d35e9156b}\label{classSmoke_a5c1910ba7c1f3ae49b5e753d35e9156b}} 
-\index{Smoke@{Smoke}!plot@{plot}}
-\index{plot@{plot}!Smoke@{Smoke}}
-\subsubsection{\texorpdfstring{plot}{plot}}
-{\footnotesize\ttfamily Q\+Custom\+Plot$\ast$ Smoke\+::plot\hspace{0.3cm}{\ttfamily [private]}}
-
-
-
-Temperature graph. 
-
 \mbox{\Hypertarget{classSmoke_ae762c3ace8ef3b2aafab01e1c28f7523}\label{classSmoke_ae762c3ace8ef3b2aafab01e1c28f7523}} 
 \index{Smoke@{Smoke}!pos@{pos}}
 \index{pos@{pos}!Smoke@{Smoke}}
@@ -293,6 +293,10 @@ Container for m\+\_\+window.
 \index{range@{range}!Smoke@{Smoke}}
 \subsubsection{\texorpdfstring{range}{range}}
 {\footnotesize\ttfamily float Smoke\+::range\mbox{[}2\mbox{]}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Minimum and maximum range. 
 
 \mbox{\Hypertarget{classSmoke_ab86a0c9a3d30df9136fd8b2cb0c875ad}\label{classSmoke_ab86a0c9a3d30df9136fd8b2cb0c875ad}} 
 \index{Smoke@{Smoke}!timer@{timer}}

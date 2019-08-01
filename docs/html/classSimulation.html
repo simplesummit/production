@@ -169,10 +169,11 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Grab results of bash command. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">cmd</td><td>Command to grab output from.</td></tr>
+    <tr><td class="paramname">cmd</td><td>Command to grab output from. </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>Window ID (WID) as a hex number.</dd></dl>
 <p>Runs the command, reads the string, and converts it to an unsigned int to be used as a Window ID. (See <a class="el" href="classSimulation.html" title="The abstract class that underlies the Smoke and Fluid simulations.">Simulation</a> page for more) </p>
 
 </div>
@@ -253,6 +254,8 @@ Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Get the current temperature of the CPU. </p><dl class="section return"><dt>Returns</dt><dd>CPU Temperature</dd></dl>
+<p>Reads the temperature file for thermal_zone1, the MCPU, and converts it into a float. The initial temperature is in millidegree Celsius, so the program converts it to standard Celsius. </p>
 
 </div>
 </div>
@@ -278,6 +281,8 @@ Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Get the current temperature of the GPU. </p><dl class="section return"><dt>Returns</dt><dd>GPU Temperature</dd></dl>
+<p>Reads the temperature file for thermal_zone1, the GPU, and converts it into a float. The initial temperature is in millidegree Celsius, so the program converts it to standard Celsius. </p>
 
 </div>
 </div>
@@ -315,7 +320,7 @@ Private Attributes</h2></td></tr>
 <!-- <hr class="footer"/> -->
 <address class="footer">
     <small>
-Generated on Wed Jul 31 2019 14:49:49 for Simple Summit UI by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Aug 1 2019 16:40:35 for Simple Summit UI by &#160;<a href="http://www.doxygen.org/index.html">
         <img class="footer" src="doxygen.png" alt="doxygen"/>
         </a> 1.8.15
     </small>

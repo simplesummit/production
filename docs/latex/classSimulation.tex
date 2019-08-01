@@ -64,9 +64,12 @@ Implemented in \mbox{\hyperlink{classSmoke_a83d3a0d8bf172fcd6bc42ebf07f0f12f}{Sm
 
 Grab results of bash command. 
 \begin{DoxyParams}{Parameters}
-{\em cmd} & Command to grab output from.\\
+{\em cmd} & Command to grab output from. \\
 \hline
 \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Window ID (W\+ID) as a hex number.
+\end{DoxyReturn}
 Runs the command, reads the string, and converts it to an unsigned int to be used as a Window ID. (See \mbox{\hyperlink{classSimulation}{Simulation}} page for more) \mbox{\Hypertarget{classSimulation_a0b951a01d3de845823d2a87b0d50adef}\label{classSimulation_a0b951a01d3de845823d2a87b0d50adef}} 
 \index{Simulation@{Simulation}!simIsActive@{simIsActive}}
 \index{simIsActive@{simIsActive}!Simulation@{Simulation}}
@@ -89,13 +92,19 @@ Implemented in \mbox{\hyperlink{classSmoke_aca6f4c3a6e62bf27920229c5b53ae561}{Sm
 \subsubsection{\texorpdfstring{update\_cpu()}{update\_cpu()}}
 {\footnotesize\ttfamily float Simulation\+::update\+\_\+cpu (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
-\mbox{\Hypertarget{classSimulation_a16ab6b7e3c5936bae78fc8c2daf658d2}\label{classSimulation_a16ab6b7e3c5936bae78fc8c2daf658d2}} 
+Get the current temperature of the C\+PU. \begin{DoxyReturn}{Returns}
+C\+PU Temperature
+\end{DoxyReturn}
+Reads the temperature file for thermal\+\_\+zone1, the M\+C\+PU, and converts it into a float. The initial temperature is in millidegree Celsius, so the program converts it to standard Celsius. \mbox{\Hypertarget{classSimulation_a16ab6b7e3c5936bae78fc8c2daf658d2}\label{classSimulation_a16ab6b7e3c5936bae78fc8c2daf658d2}} 
 \index{Simulation@{Simulation}!update\_gpu@{update\_gpu}}
 \index{update\_gpu@{update\_gpu}!Simulation@{Simulation}}
 \subsubsection{\texorpdfstring{update\_gpu()}{update\_gpu()}}
 {\footnotesize\ttfamily float Simulation\+::update\+\_\+gpu (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
-
+Get the current temperature of the G\+PU. \begin{DoxyReturn}{Returns}
+G\+PU Temperature
+\end{DoxyReturn}
+Reads the temperature file for thermal\+\_\+zone1, the G\+PU, and converts it into a float. The initial temperature is in millidegree Celsius, so the program converts it to standard Celsius. 
 
 \subsection{Member Data Documentation}
 \mbox{\Hypertarget{classSimulation_ad76dc6e6d56b95b074f3824340f91a4c}\label{classSimulation_ad76dc6e6d56b95b074f3824340f91a4c}} 

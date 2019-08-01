@@ -19,13 +19,13 @@ Collaboration diagram for Paint\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=216pt]{classPaint__coll__graph}
+\includegraphics[width=293pt]{classPaint__coll__graph}
 \end{center}
 \end{figure}
 \subsection*{Public Slots}
 \begin{DoxyCompactItemize}
 \item 
-void \mbox{\hyperlink{classPaint_ab32de795b250bd919ebc0d8ebead6440}{redraw\+\_\+plot}} ()
+void \mbox{\hyperlink{classPaint_a9790e137dfd6386ed72aea47f176326d}{redraw\+Plot}} ()
 \end{DoxyCompactItemize}
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
@@ -64,7 +64,7 @@ Q\+Rect \mbox{\hyperlink{classPaint_ad18245bd858cc8c6bd715e56659e3634}{pos}}
 \begin{DoxyCompactList}\small\item\em Global Position. \end{DoxyCompactList}\item 
 Q\+Timer \mbox{\hyperlink{classPaint_a0cd2955c474cb99795506bdee2df71ab}{timer}}
 \begin{DoxyCompactList}\small\item\em Periodical timer to redraw the plot. \end{DoxyCompactList}\item 
-Q\+Custom\+Plot $\ast$ \mbox{\hyperlink{classPaint_a3e7c98331cbf71478fa2090c5d387cb2}{plot}}
+\mbox{\hyperlink{classGraph}{Graph}} $\ast$ \mbox{\hyperlink{classPaint_a7c4451334289c681e3763ba244227b7a}{graph}}
 \begin{DoxyCompactList}\small\item\em Temperature graph. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{classPaint_ad3674af36118608e17d5f49812f0e398}{is\+Active}}
 \begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classSimulation}{Simulation}} Status. \end{DoxyCompactList}\item 
@@ -109,7 +109,7 @@ N\+O\+TE\+: Could remove .ui file completely and use instead a pixmap as the bac
 \subsubsection{\texorpdfstring{endSim()}{endSim()}}
 {\footnotesize\ttfamily void Paint\+::end\+Sim (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
 
-Ends the simulation 
+End simulation 
 
 Implements \mbox{\hyperlink{classSimulation_ab496d124202f55e741db7db9a304a7ee}{Simulation}}.
 
@@ -121,11 +121,11 @@ Implements \mbox{\hyperlink{classSimulation_ab496d124202f55e741db7db9a304a7ee}{S
 
 Repaint the canvas
 
-Sets the settings of the canvas to allow for background-\/image. \mbox{\Hypertarget{classPaint_ab32de795b250bd919ebc0d8ebead6440}\label{classPaint_ab32de795b250bd919ebc0d8ebead6440}} 
-\index{Paint@{Paint}!redraw\_plot@{redraw\_plot}}
-\index{redraw\_plot@{redraw\_plot}!Paint@{Paint}}
-\subsubsection{\texorpdfstring{redraw\_plot}{redraw\_plot}}
-{\footnotesize\ttfamily void Paint\+::redraw\+\_\+plot (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+Sets the settings of the canvas to allow for background-\/image. \mbox{\Hypertarget{classPaint_a9790e137dfd6386ed72aea47f176326d}\label{classPaint_a9790e137dfd6386ed72aea47f176326d}} 
+\index{Paint@{Paint}!redrawPlot@{redrawPlot}}
+\index{redrawPlot@{redrawPlot}!Paint@{Paint}}
+\subsubsection{\texorpdfstring{redrawPlot}{redrawPlot}}
+{\footnotesize\ttfamily void Paint\+::redraw\+Plot (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
 
 Get update values, and update the graph\textquotesingle{}s content and y-\/axis. \mbox{\Hypertarget{classPaint_ab8c4d8cbf3999cd2b80b299587ec9e83}\label{classPaint_ab8c4d8cbf3999cd2b80b299587ec9e83}} 
 \index{Paint@{Paint}!startPlot@{startPlot}}
@@ -139,7 +139,9 @@ Start plotting the temperature \mbox{\Hypertarget{classPaint_a1f01fcd27e595cc9aa
 \subsubsection{\texorpdfstring{startSim()}{startSim()}}
 {\footnotesize\ttfamily void Paint\+::start\+Sim (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
 
-Starts the simulation 
+Start simulation.
+
+For a deeper dive into how this app gets the simulation into this class, see the \mbox{\hyperlink{classSimulation}{Simulation}} page. 
 
 Implements \mbox{\hyperlink{classSimulation_ac523544ffc2b4cffed1d2a6ead5809b1}{Simulation}}.
 
@@ -186,6 +188,16 @@ Pause for simulation.
 
 Buffer for G\+PU Temperature. 
 
+\mbox{\Hypertarget{classPaint_a7c4451334289c681e3763ba244227b7a}\label{classPaint_a7c4451334289c681e3763ba244227b7a}} 
+\index{Paint@{Paint}!graph@{graph}}
+\index{graph@{graph}!Paint@{Paint}}
+\subsubsection{\texorpdfstring{graph}{graph}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classGraph}{Graph}}$\ast$ Paint\+::graph\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Temperature graph. 
+
 \mbox{\Hypertarget{classPaint_ad3674af36118608e17d5f49812f0e398}\label{classPaint_ad3674af36118608e17d5f49812f0e398}} 
 \index{Paint@{Paint}!isActive@{isActive}}
 \index{isActive@{isActive}!Paint@{Paint}}
@@ -225,16 +237,6 @@ Overrides the Q\+Widget\textquotesingle{}s style for custom background.
 
 
 Page ID. 
-
-\mbox{\Hypertarget{classPaint_a3e7c98331cbf71478fa2090c5d387cb2}\label{classPaint_a3e7c98331cbf71478fa2090c5d387cb2}} 
-\index{Paint@{Paint}!plot@{plot}}
-\index{plot@{plot}!Paint@{Paint}}
-\subsubsection{\texorpdfstring{plot}{plot}}
-{\footnotesize\ttfamily Q\+Custom\+Plot$\ast$ Paint\+::plot\hspace{0.3cm}{\ttfamily [private]}}
-
-
-
-Temperature graph. 
 
 \mbox{\Hypertarget{classPaint_ad18245bd858cc8c6bd715e56659e3634}\label{classPaint_ad18245bd858cc8c6bd715e56659e3634}} 
 \index{Paint@{Paint}!pos@{pos}}

@@ -96,16 +96,18 @@ Collaboration diagram for Smoke:</div>
 <div class="dyncontent">
 <div class="center"><img src="classSmoke__coll__graph.png" border="0" usemap="#Smoke_coll__map" alt="Collaboration graph"/></div>
 <map name="Smoke_coll__map" id="Smoke_coll__map">
-<area shape="rect"  title="The main fluid simulation class that the user interacts with." alt="" coords="61,79,124,104"/>
-<area shape="rect"  title=" " alt="" coords="5,5,79,31"/>
-<area shape="rect"  href="classSimulation.html" title="The abstract class that underlies the Smoke and Fluid simulations." alt="" coords="103,5,186,31"/>
+<area shape="rect"  title="The main fluid simulation class that the user interacts with." alt="" coords="113,167,176,192"/>
+<area shape="rect"  title=" " alt="" coords="5,80,79,105"/>
+<area shape="rect"  href="classSimulation.html" title="The abstract class that underlies the Smoke and Fluid simulations." alt="" coords="103,80,186,105"/>
+<area shape="rect"  href="classGraph.html" title="Temperature graph class for CPU and GPU." alt="" coords="210,80,268,105"/>
+<area shape="rect"  title=" " alt="" coords="189,5,290,31"/>
 </map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-slots"></a>
 Public Slots</h2></td></tr>
-<tr class="memitem:af856939211a558bf5dcd6feece65ad9d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSmoke.html#af856939211a558bf5dcd6feece65ad9d">redraw_plot</a> ()</td></tr>
-<tr class="separator:af856939211a558bf5dcd6feece65ad9d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a558447ca2b067daebfca58a2d8b30f66"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSmoke.html#a558447ca2b067daebfca58a2d8b30f66">redrawPlot</a> ()</td></tr>
+<tr class="separator:a558447ca2b067daebfca58a2d8b30f66"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -160,9 +162,9 @@ Private Attributes</h2></td></tr>
 <tr class="memitem:ab86a0c9a3d30df9136fd8b2cb0c875ad"><td class="memItemLeft" align="right" valign="top">QTimer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSmoke.html#ab86a0c9a3d30df9136fd8b2cb0c875ad">timer</a></td></tr>
 <tr class="memdesc:ab86a0c9a3d30df9136fd8b2cb0c875ad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Periodical timer to redraw the plot.  <a href="#ab86a0c9a3d30df9136fd8b2cb0c875ad">More...</a><br /></td></tr>
 <tr class="separator:ab86a0c9a3d30df9136fd8b2cb0c875ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5c1910ba7c1f3ae49b5e753d35e9156b"><td class="memItemLeft" align="right" valign="top">QCustomPlot *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSmoke.html#a5c1910ba7c1f3ae49b5e753d35e9156b">plot</a></td></tr>
-<tr class="memdesc:a5c1910ba7c1f3ae49b5e753d35e9156b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Temperature graph.  <a href="#a5c1910ba7c1f3ae49b5e753d35e9156b">More...</a><br /></td></tr>
-<tr class="separator:a5c1910ba7c1f3ae49b5e753d35e9156b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7a2faa3ba32e51c7eb4212622f31ed79"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classGraph.html">Graph</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSmoke.html#a7a2faa3ba32e51c7eb4212622f31ed79">graph</a></td></tr>
+<tr class="memdesc:a7a2faa3ba32e51c7eb4212622f31ed79"><td class="mdescLeft">&#160;</td><td class="mdescRight">Temperature graph.  <a href="#a7a2faa3ba32e51c7eb4212622f31ed79">More...</a><br /></td></tr>
+<tr class="separator:a7a2faa3ba32e51c7eb4212622f31ed79"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a83c338b4ec7a3d71443e8f1fd9d7a1b5"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSmoke.html#a83c338b4ec7a3d71443e8f1fd9d7a1b5">isActive</a></td></tr>
 <tr class="memdesc:a83c338b4ec7a3d71443e8f1fd9d7a1b5"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classSimulation.html" title="The abstract class that underlies the Smoke and Fluid simulations.">Simulation</a> Status.  <a href="#a83c338b4ec7a3d71443e8f1fd9d7a1b5">More...</a><br /></td></tr>
 <tr class="separator:a83c338b4ec7a3d71443e8f1fd9d7a1b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -176,6 +178,7 @@ Private Attributes</h2></td></tr>
 <tr class="memdesc:a27ecb4dc9f91a34bed0637c1743275cb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Buffer for CPU Temperature.  <a href="#a27ecb4dc9f91a34bed0637c1743275cb">More...</a><br /></td></tr>
 <tr class="separator:a27ecb4dc9f91a34bed0637c1743275cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae27bb310eec891bf0973a263383563a5"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSmoke.html#ae27bb310eec891bf0973a263383563a5">range</a> [2]</td></tr>
+<tr class="memdesc:ae27bb310eec891bf0973a263383563a5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Minimum and maximum range.  <a href="#ae27bb310eec891bf0973a263383563a5">More...</a><br /></td></tr>
 <tr class="separator:ae27bb310eec891bf0973a263383563a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -290,8 +293,8 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="af856939211a558bf5dcd6feece65ad9d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af856939211a558bf5dcd6feece65ad9d">&#9670;&nbsp;</a></span>redraw_plot</h2>
+<a id="a558447ca2b067daebfca58a2d8b30f66"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a558447ca2b067daebfca58a2d8b30f66">&#9670;&nbsp;</a></span>redrawPlot</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -300,7 +303,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void Smoke::redraw_plot </td>
+          <td class="memname">void Smoke::redrawPlot </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -460,6 +463,30 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="a7a2faa3ba32e51c7eb4212622f31ed79"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7a2faa3ba32e51c7eb4212622f31ed79">&#9670;&nbsp;</a></span>graph</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classGraph.html">Graph</a>* Smoke::graph</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Temperature graph. </p>
+
+</div>
+</div>
 <a id="a83c338b4ec7a3d71443e8f1fd9d7a1b5"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a83c338b4ec7a3d71443e8f1fd9d7a1b5">&#9670;&nbsp;</a></span>isActive</h2>
 
@@ -548,30 +575,6 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a5c1910ba7c1f3ae49b5e753d35e9156b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5c1910ba7c1f3ae49b5e753d35e9156b">&#9670;&nbsp;</a></span>plot</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">QCustomPlot* Smoke::plot</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Temperature graph. </p>
-
-</div>
-</div>
 <a id="ae762c3ace8ef3b2aafab01e1c28f7523"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae762c3ace8ef3b2aafab01e1c28f7523">&#9670;&nbsp;</a></span>pos</h2>
 
@@ -640,6 +643,8 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Minimum and maximum range. </p>
+
 </div>
 </div>
 <a id="ab86a0c9a3d30df9136fd8b2cb0c875ad"></a>
@@ -700,7 +705,7 @@ Private Attributes</h2></td></tr>
 <!-- <hr class="footer"/> -->
 <address class="footer">
     <small>
-Generated on Wed Jul 31 2019 14:49:49 for Simple Summit UI by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Aug 1 2019 16:40:35 for Simple Summit UI by &#160;<a href="http://www.doxygen.org/index.html">
         <img class="footer" src="doxygen.png" alt="doxygen"/>
         </a> 1.8.15
     </small>

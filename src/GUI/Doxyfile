@@ -899,6 +899,7 @@ EXCLUDE_PATTERNS       += */qrc_*
 EXCLUDE_PATTERNS       += */build/*
 EXCLUDE_PATTERNS       += */fonts/*
 EXCLUDE_PATTERNS       += README*
+EXCLUDE_PATTERNS       += moc_*
 # The EXCLUDE_SYMBOLS tag can be used to specify one or more symbol names
 # (namespaces, classes, functions, etc.) that should be excluded from the
 # output. The symbol name can be a fully qualified name, a word, or if the

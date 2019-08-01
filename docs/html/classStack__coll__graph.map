@@ -1,12 +1,14 @@
 <map id="Stack" name="Stack">
-<area shape="rect" id="node1" title="The hub for all application pages." alt="" coords="320,167,375,192"/>
-<area shape="rect" id="node2" title=" " alt="" coords="5,80,127,105"/>
-<area shape="rect" id="node3" href="$classSplashScreen.html" title="The widget that holds the splash screen shown in the page." alt="" coords="151,80,256,105"/>
-<area shape="rect" id="node4" title=" " alt="" coords="146,5,261,31"/>
-<area shape="rect" id="node5" href="$classFluid.html" title="The main fluid simulation class that the user interacts with." alt="" coords="442,80,492,105"/>
-<area shape="rect" id="node6" title=" " alt="" coords="427,5,500,31"/>
-<area shape="rect" id="node8" href="$classPaint.html" title=" " alt="" coords="367,80,419,105"/>
-<area shape="rect" id="node9" href="$classSmoke.html" title="The main fluid simulation class that the user interacts with." alt="" coords="280,80,343,105"/>
-<area shape="rect" id="node10" href="$classHomePage.html" title="The landing page for the application." alt="" coords="517,80,605,105"/>
-<area shape="rect" id="node7" href="$classSimulation.html" title="The abstract class that underlies the Smoke and Fluid simulations." alt="" coords="303,5,386,31"/>
+<area shape="rect" id="node1" title="The hub for all application pages." alt="" coords="343,253,397,279"/>
+<area shape="rect" id="node2" title=" " alt="" coords="5,167,127,192"/>
+<area shape="rect" id="node3" href="$classSplashScreen.html" title="The widget that holds the splash screen shown in the page." alt="" coords="151,167,256,192"/>
+<area shape="rect" id="node4" title=" " alt="" coords="146,80,261,105"/>
+<area shape="rect" id="node5" href="$classFluid.html" title="The main fluid simulation class that the user interacts with." alt="" coords="466,167,516,192"/>
+<area shape="rect" id="node6" title=" " alt="" coords="340,80,413,105"/>
+<area shape="rect" id="node10" href="$classPaint.html" title=" " alt="" coords="391,167,443,192"/>
+<area shape="rect" id="node11" href="$classSmoke.html" title="The main fluid simulation class that the user interacts with." alt="" coords="569,167,632,192"/>
+<area shape="rect" id="node12" href="$classHomePage.html" title="The landing page for the application." alt="" coords="279,167,367,192"/>
+<area shape="rect" id="node7" href="$classSimulation.html" title="The abstract class that underlies the Smoke and Fluid simulations." alt="" coords="438,80,521,105"/>
+<area shape="rect" id="node8" href="$classGraph.html" title="Temperature graph class for CPU and GPU." alt="" coords="626,80,685,105"/>
+<area shape="rect" id="node9" title=" " alt="" coords="605,5,706,31"/>
 </map>

@@ -1,6 +1,4 @@
 var searchData=
 [
-  ['ui',['ui',['../classHomePage.html#ae5f1197f0c3aa11acf90d036ae4f91c7',1,'HomePage']]],
-  ['update_5fcpu',['update_cpu',['../classSimulation.html#a36aefdee44fabe9b8070363ca9eb80a7',1,'Simulation']]],
-  ['update_5fgpu',['update_gpu',['../classSimulation.html#a16ab6b7e3c5936bae78fc8c2daf658d2',1,'Simulation']]]
+  ['timer',['timer',['../classFluid.html#a0765840a82e6ec401dea0cb65c435f5f',1,'Fluid::timer()'],['../classPaint.html#a0cd2955c474cb99795506bdee2df71ab',1,'Paint::timer()'],['../classSmoke.html#ab86a0c9a3d30df9136fd8b2cb0c875ad',1,'Smoke::timer()']]]
 ];

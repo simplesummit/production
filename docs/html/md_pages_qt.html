@@ -73,8 +73,24 @@ $(function() {
 <div class="textblock"><p>Leconte runs a user interface that allows visitors to play different simulations and see how they affect the CPU and GPU on the circuit board. Leconte is written in C++ and uses Qt to create the visuals of the application.</p>
 <h2>What is Qt?</h2>
 <p><a href="https://www.qt.io/">Qt</a> is a GUI SDK (Software Development Kit) that serves as the base for Leconte's interface. It is used by many professional companies such as Mercedes-Benz, LG, AMD, and Ubuntu to create powerful and efficent applications across a range of devices.</p>
-<h2>Qt's Organization</h2>
-<p>Qt is organized mainly into widgets, each with a base of QWidget, that serve purposes as various from reading gamepad input to animating complex. </p>
+<h2>Organization</h2>
+<p>Qt is organized mainly into widgets, each with a base of QWidget, that serve purposes as various from reading gamepad input to animating complex. Widgets are organized into hierarchies, with a final parent of QApplication, which runs in the main loop of C++.</p>
+<h3>Signals and Slots</h3>
+<p>One of the most important things in Qt is the signal-and-slot system which enables communication between Widgets. When something happens in a widget, it can emit a <b>signal</b> that is detected by a <b>slot</b> in another widget. This allows for responsive behavior throughout the application. You will see this referenced throughout the document with this code:</p>
+<div class="fragment"><div class="line">connect(&amp;widget1, &amp;Widget1::signal, &amp;widget2, &amp;Widget2::slot);</div></div><!-- fragment --><p>This line of code connects the signal of <code>Widget1</code> to the slot of <code>Widget2</code>. This technique is used to great effect throughout the application.</p>
+<h2>Leconte's Organization</h2>
+<p>Leconte is split into a couple different elements. There are five Pages, widgets which hold the contents of what is on the screen. (Including Simulations) There is also the <a class="el" href="classStack.html" title="The hub for all application pages.">Stack</a> class, where the Pages are combined to create a dynamic navigation environment.</p>
+<h3>Pages</h3>
+<h4><a class="el" href="classHomePage.html" title="The landing page for the application.">HomePage</a></h4>
+<p>The <a class="el" href="classHomePage.html" title="The landing page for the application.">HomePage</a> class holds, well, the home screen for the application. It is the most complex part of the application, creating four diffferent interactive cards and executing animations for each one of them. It has some specific Gamepad controls and many slots that are used in the <a class="el" href="classStack.html" title="The hub for all application pages.">Stack</a> class.</p>
+<p><a class="el" href="classHomePage.html" title="The landing page for the application.">HomePage</a> also holds the navigation for the application, which is described in more detail here.</p>
+<h4><a class="el" href="classSplashScreen.html" title="The widget that holds the splash screen shown in the page.">SplashScreen</a></h4>
+<p><a class="el" href="classSplashScreen.html" title="The widget that holds the splash screen shown in the page.">SplashScreen</a> is a wrapper of the QSplashScreen widget. It adds a custom fade-out animation, a background image, and text to show a message.</p>
+<p>This class is the first thing that appears on the monitor when you boot up the application. <code><a class="el" href="main_8cpp.html">main.cpp</a></code> uses a <a href="https://doc.qt.io/qt-5/qtimer.html#singleShot"><code>single-shot QTimer</code></a> that lasts for 4.5 seconds, which matches up with the animation curve of <a class="el" href="classSplashScreen.html" title="The widget that holds the splash screen shown in the page.">SplashScreen</a>, seen above.</p>
+<h4><a class="el" href="classPaint.html">Paint</a>, <a class="el" href="classSmoke.html" title="The main fluid simulation class that the user interacts with.">Smoke</a>, and <a class="el" href="classFluid.html" title="The main fluid simulation class that the user interacts with.">Fluid</a></h4>
+<p>The <a class="el" href="classPaint.html">Paint</a>, <a class="el" href="classSmoke.html" title="The main fluid simulation class that the user interacts with.">Smoke</a>, and <a class="el" href="classFluid.html" title="The main fluid simulation class that the user interacts with.">Fluid</a> classes are all simulations. All inherit from the <a class="el" href="classSimulation.html" title="The abstract class that underlies the Smoke and Fluid simulations.">Simulation</a> abstract class, which holds the basic building blocks of all the pages. For example, it holds the <code><a class="el" href="classSimulation.html#a36aefdee44fabe9b8070363ca9eb80a7">Simulation::update_cpu()</a></code> method, which returns the current CPU temperature.</p>
+<p>Each of the simulations have a graph which displays the CPU and GPU temperature for the system, as to show any change created by the applications. Each graph is an object of the <a class="el" href="classGraph.html" title="Temperature graph class for CPU and GPU.">Graph</a> class, which inherits from <a href="https://www.qcustomplot.com/">QCustomPlot</a>. For more info on how Leconte reads the temperature, see here.</p>
+<h3>For more info on the <a class="el" href="classStack.html" title="The hub for all application pages.">Stack</a> class, see it's dedicated page.</h3>
 </div></div><!-- PageDoc -->
 </div><!-- contents -->
 <!-- HTML footer for doxygen 1.8.13-->
@@ -82,7 +98,7 @@ $(function() {
 <!-- <hr class="footer"/> -->
 <address class="footer">
     <small>
-Generated on Wed Jul 31 2019 14:49:49 for Simple Summit UI by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Aug 1 2019 16:40:35 for Simple Summit UI by &#160;<a href="http://www.doxygen.org/index.html">
         <img class="footer" src="doxygen.png" alt="doxygen"/>
         </a> 1.8.15
     </small>
