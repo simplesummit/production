@@ -1,4 +1,4 @@
-\hypertarget{classStack}{}\section{Stack Class Reference}
+\hypertarget{classStack}{}\subsection{Stack Class Reference}
 \label{classStack}\index{Stack@{Stack}}
 
 
@@ -27,7 +27,7 @@ Collaboration diagram for Stack\+:\nopagebreak
 \includegraphics[width=350pt]{classStack__coll__graph}
 \end{center}
 \end{figure}
-\subsection*{Public Slots}
+\subsubsection*{Public Slots}
 \begin{DoxyCompactItemize}
 \item 
 void \mbox{\hyperlink{classStack_a3663db1c1578aabe63286d4f2bb6fc6f}{open\+Page}} (bool \+\_\+is\+Changed)
@@ -38,7 +38,7 @@ void \mbox{\hyperlink{classStack_a2f8a3dee32407abe994b7332282d03de}{close\+App}}
 \item 
 void \mbox{\hyperlink{classStack_a836814b5492af3a0a4cc613d11b56397}{prepare\+New\+Page}} (int index)
 \end{DoxyCompactItemize}
-\subsection*{Public Member Functions}
+\subsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{classStack_aa9d4cb23f0d4ade8db1df8624629cc14}{Stack}} (Q\+Widget $\ast$parent=nullptr)
@@ -47,17 +47,17 @@ void \mbox{\hyperlink{classStack_a836814b5492af3a0a4cc613d11b56397}{prepare\+New
 \item 
 void \mbox{\hyperlink{classStack_ac608632a7155f01a24a9713f5fde915e}{End\+Splash}} ()
 \end{DoxyCompactItemize}
-\subsection*{Public Attributes}
+\subsubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
 Q\+Gamepad $\ast$ \mbox{\hyperlink{classStack_a63dddeeffcc3340219b93b716f9b8bc9}{m\+\_\+gamepad}}
 \begin{DoxyCompactList}\small\item\em Central object for Logitech F310 gamepad. \end{DoxyCompactList}\end{DoxyCompactItemize}
-\subsection*{Protected Member Functions}
+\subsubsection*{Protected Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 void \mbox{\hyperlink{classStack_a58526db5899d5e03a6ad306a96f91d62}{paint\+Event}} (Q\+Paint\+Event $\ast$)
 \end{DoxyCompactItemize}
-\subsection*{Private Attributes}
+\subsubsection*{Private Attributes}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{classSmoke}{Smoke}} $\ast$ \mbox{\hyperlink{classStack_a0eb428edacee758da17e9b8a8943db79}{sim\+Smoke}}
@@ -86,7 +86,7 @@ int \mbox{\hyperlink{classStack_af1ad238355f4a635bda88ca8b664dd29}{id\+Paint}}
 \begin{DoxyCompactList}\small\item\em ID for neural paint. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
-\subsection{Detailed Description}
+\subsubsection{Detailed Description}
 The hub for all application pages. 
 
 \begin{DoxyAuthor}{Author}
@@ -100,11 +100,11 @@ B\+SD 3-\/Clause \char`\"{}\+New\char`\"{} or \char`\"{}\+Revised\char`\"{} Lice
 \end{DoxyCopyright}
 \mbox{\hyperlink{classStack}{Stack}} inherits from Q\+Stacked\+Widget, which allows it to hold multiple widgets simultaneously. The widget on \char`\"{}top\char`\"{} is chosen by selecting its id and is the one visible to the user. 
 
-\subsection{Constructor \& Destructor Documentation}
+\subsubsection{Constructor \& Destructor Documentation}
 \mbox{\Hypertarget{classStack_aa9d4cb23f0d4ade8db1df8624629cc14}\label{classStack_aa9d4cb23f0d4ade8db1df8624629cc14}} 
 \index{Stack@{Stack}!Stack@{Stack}}
 \index{Stack@{Stack}!Stack@{Stack}}
-\subsubsection{\texorpdfstring{Stack()}{Stack()}}
+\paragraph{\texorpdfstring{Stack()}{Stack()}}
 {\footnotesize\ttfamily Stack\+::\+Stack (\begin{DoxyParamCaption}\item[{Q\+Widget $\ast$}]{parent = {\ttfamily nullptr} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
 
 Create a \mbox{\hyperlink{classStack}{Stack}} element 
@@ -117,16 +117,16 @@ show\+Full\+Screen() maximizes the application to enable full usage of the scree
 Contains only five connect statements in the entire application and the only Q\+Gamepad object, as to remove any confusion at runtime and to allow for the abstraction of slots specific to child widgets. \mbox{\Hypertarget{classStack_a40bd5dff912f0e5290777c4b46d17809}\label{classStack_a40bd5dff912f0e5290777c4b46d17809}} 
 \index{Stack@{Stack}!````~Stack@{$\sim$Stack}}
 \index{````~Stack@{$\sim$Stack}!Stack@{Stack}}
-\subsubsection{\texorpdfstring{$\sim$Stack()}{~Stack()}}
+\paragraph{\texorpdfstring{$\sim$Stack()}{~Stack()}}
 {\footnotesize\ttfamily Stack\+::$\sim$\+Stack (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 
 
-\subsection{Member Function Documentation}
+\subsubsection{Member Function Documentation}
 \mbox{\Hypertarget{classStack_a2f8a3dee32407abe994b7332282d03de}\label{classStack_a2f8a3dee32407abe994b7332282d03de}} 
 \index{Stack@{Stack}!closeApp@{closeApp}}
 \index{closeApp@{closeApp}!Stack@{Stack}}
-\subsubsection{\texorpdfstring{closeApp}{closeApp}}
+\paragraph{\texorpdfstring{closeApp}{closeApp}}
 {\footnotesize\ttfamily void Stack\+::close\+App (\begin{DoxyParamCaption}\item[{bool}]{\+\_\+is\+Changed }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
 
 Exit the application. 
@@ -137,7 +137,7 @@ Exit the application.
 \mbox{\Hypertarget{classStack_a69cd464c336cb480ad54ac2c83c309e1}\label{classStack_a69cd464c336cb480ad54ac2c83c309e1}} 
 \index{Stack@{Stack}!closePage@{closePage}}
 \index{closePage@{closePage}!Stack@{Stack}}
-\subsubsection{\texorpdfstring{closePage}{closePage}}
+\paragraph{\texorpdfstring{closePage}{closePage}}
 {\footnotesize\ttfamily void Stack\+::close\+Page (\begin{DoxyParamCaption}\item[{bool}]{\+\_\+is\+Changed }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
 
 Return to previous screen. 
@@ -150,13 +150,13 @@ If the current page is not the \mbox{\hyperlink{classHomePage}{Home\+Page}}, the
 This is about as deep as the navigation goes currently. \mbox{\Hypertarget{classStack_ac608632a7155f01a24a9713f5fde915e}\label{classStack_ac608632a7155f01a24a9713f5fde915e}} 
 \index{Stack@{Stack}!EndSplash@{EndSplash}}
 \index{EndSplash@{EndSplash}!Stack@{Stack}}
-\subsubsection{\texorpdfstring{EndSplash()}{EndSplash()}}
+\paragraph{\texorpdfstring{EndSplash()}{EndSplash()}}
 {\footnotesize\ttfamily void Stack\+::\+End\+Splash (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 Closes splashscreen. \mbox{\Hypertarget{classStack_a3663db1c1578aabe63286d4f2bb6fc6f}\label{classStack_a3663db1c1578aabe63286d4f2bb6fc6f}} 
 \index{Stack@{Stack}!openPage@{openPage}}
 \index{openPage@{openPage}!Stack@{Stack}}
-\subsubsection{\texorpdfstring{openPage}{openPage}}
+\paragraph{\texorpdfstring{openPage}{openPage}}
 {\footnotesize\ttfamily void Stack\+::open\+Page (\begin{DoxyParamCaption}\item[{bool}]{\+\_\+is\+Changed }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
 
 Change the visible page. 
@@ -169,7 +169,7 @@ The function gets the destination from \mbox{\hyperlink{classHomePage}{Home\+Pag
 In the case of the smoke and fluid simulations, it needs to run the Start\+Sim() method to start (or restart) the process of embedding the simulation in the window. \mbox{\Hypertarget{classStack_a58526db5899d5e03a6ad306a96f91d62}\label{classStack_a58526db5899d5e03a6ad306a96f91d62}} 
 \index{Stack@{Stack}!paintEvent@{paintEvent}}
 \index{paintEvent@{paintEvent}!Stack@{Stack}}
-\subsubsection{\texorpdfstring{paintEvent()}{paintEvent()}}
+\paragraph{\texorpdfstring{paintEvent()}{paintEvent()}}
 {\footnotesize\ttfamily void Stack\+::paint\+Event (\begin{DoxyParamCaption}\item[{Q\+Paint\+Event $\ast$}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
 
 Update the potential destination.
@@ -177,7 +177,7 @@ Update the potential destination.
 Sets the destination to the selected page when a new pages is selected. \mbox{\Hypertarget{classStack_a836814b5492af3a0a4cc613d11b56397}\label{classStack_a836814b5492af3a0a4cc613d11b56397}} 
 \index{Stack@{Stack}!prepareNewPage@{prepareNewPage}}
 \index{prepareNewPage@{prepareNewPage}!Stack@{Stack}}
-\subsubsection{\texorpdfstring{prepareNewPage}{prepareNewPage}}
+\paragraph{\texorpdfstring{prepareNewPage}{prepareNewPage}}
 {\footnotesize\ttfamily void Stack\+::prepare\+New\+Page (\begin{DoxyParamCaption}\item[{int}]{index }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
 
 Activates necessary methods to allow the page to run smoothly. 
@@ -187,11 +187,11 @@ Activates necessary methods to allow the page to run smoothly.
 \end{DoxyParams}
 Meant to prepare the threads for the C\+PU and G\+PU processing. 
 
-\subsection{Member Data Documentation}
+\subsubsection{Member Data Documentation}
 \mbox{\Hypertarget{classStack_a1ef23f9e493b0f9d535eb8282114444d}\label{classStack_a1ef23f9e493b0f9d535eb8282114444d}} 
 \index{Stack@{Stack}!destination@{destination}}
 \index{destination@{destination}!Stack@{Stack}}
-\subsubsection{\texorpdfstring{destination}{destination}}
+\paragraph{\texorpdfstring{destination}{destination}}
 {\footnotesize\ttfamily unsigned int Stack\+::destination\hspace{0.3cm}{\ttfamily [private]}}
 
 
@@ -201,7 +201,7 @@ Holds current destination. Only used when open\+Page is called.
 \mbox{\Hypertarget{classStack_aa1bb5aa087f1766cec2dab2174159194}\label{classStack_aa1bb5aa087f1766cec2dab2174159194}} 
 \index{Stack@{Stack}!homePage@{homePage}}
 \index{homePage@{homePage}!Stack@{Stack}}
-\subsubsection{\texorpdfstring{homePage}{homePage}}
+\paragraph{\texorpdfstring{homePage}{homePage}}
 {\footnotesize\ttfamily \mbox{\hyperlink{classHomePage}{Home\+Page}}$\ast$ Stack\+::home\+Page\hspace{0.3cm}{\ttfamily [private]}}
 
 
@@ -211,7 +211,7 @@ Homepage object.
 \mbox{\Hypertarget{classStack_a91b33262d86feccc9a358076b69a0e90}\label{classStack_a91b33262d86feccc9a358076b69a0e90}} 
 \index{Stack@{Stack}!idFluid@{idFluid}}
 \index{idFluid@{idFluid}!Stack@{Stack}}
-\subsubsection{\texorpdfstring{idFluid}{idFluid}}
+\paragraph{\texorpdfstring{idFluid}{idFluid}}
 {\footnotesize\ttfamily int Stack\+::id\+Fluid\hspace{0.3cm}{\ttfamily [private]}}
 
 
@@ -221,7 +221,7 @@ ID for fluid simulation.
 \mbox{\Hypertarget{classStack_a11bccc127cb975dc118f08df920fd48d}\label{classStack_a11bccc127cb975dc118f08df920fd48d}} 
 \index{Stack@{Stack}!idHomePage@{idHomePage}}
 \index{idHomePage@{idHomePage}!Stack@{Stack}}
-\subsubsection{\texorpdfstring{idHomePage}{idHomePage}}
+\paragraph{\texorpdfstring{idHomePage}{idHomePage}}
 {\footnotesize\ttfamily int Stack\+::id\+Home\+Page\hspace{0.3cm}{\ttfamily [private]}}
 
 
@@ -231,7 +231,7 @@ ID for the homepage.
 \mbox{\Hypertarget{classStack_af1ad238355f4a635bda88ca8b664dd29}\label{classStack_af1ad238355f4a635bda88ca8b664dd29}} 
 \index{Stack@{Stack}!idPaint@{idPaint}}
 \index{idPaint@{idPaint}!Stack@{Stack}}
-\subsubsection{\texorpdfstring{idPaint}{idPaint}}
+\paragraph{\texorpdfstring{idPaint}{idPaint}}
 {\footnotesize\ttfamily int Stack\+::id\+Paint\hspace{0.3cm}{\ttfamily [private]}}
 
 
@@ -241,7 +241,7 @@ ID for neural paint.
 \mbox{\Hypertarget{classStack_ad4c5c03c0dde0b63650bd258183a6ed3}\label{classStack_ad4c5c03c0dde0b63650bd258183a6ed3}} 
 \index{Stack@{Stack}!idSmoke@{idSmoke}}
 \index{idSmoke@{idSmoke}!Stack@{Stack}}
-\subsubsection{\texorpdfstring{idSmoke}{idSmoke}}
+\paragraph{\texorpdfstring{idSmoke}{idSmoke}}
 {\footnotesize\ttfamily int Stack\+::id\+Smoke\hspace{0.3cm}{\ttfamily [private]}}
 
 
@@ -251,7 +251,7 @@ ID for smoke simulation.
 \mbox{\Hypertarget{classStack_a448b69ac9652860c3f94f4cf2972052f}\label{classStack_a448b69ac9652860c3f94f4cf2972052f}} 
 \index{Stack@{Stack}!idSplash@{idSplash}}
 \index{idSplash@{idSplash}!Stack@{Stack}}
-\subsubsection{\texorpdfstring{idSplash}{idSplash}}
+\paragraph{\texorpdfstring{idSplash}{idSplash}}
 {\footnotesize\ttfamily int Stack\+::id\+Splash\hspace{0.3cm}{\ttfamily [private]}}
 
 
@@ -261,7 +261,7 @@ ID for splashscreen.
 \mbox{\Hypertarget{classStack_a63dddeeffcc3340219b93b716f9b8bc9}\label{classStack_a63dddeeffcc3340219b93b716f9b8bc9}} 
 \index{Stack@{Stack}!m\_gamepad@{m\_gamepad}}
 \index{m\_gamepad@{m\_gamepad}!Stack@{Stack}}
-\subsubsection{\texorpdfstring{m\_gamepad}{m\_gamepad}}
+\paragraph{\texorpdfstring{m\_gamepad}{m\_gamepad}}
 {\footnotesize\ttfamily Q\+Gamepad$\ast$ Stack\+::m\+\_\+gamepad}
 
 
@@ -271,13 +271,13 @@ Central object for Logitech F310 gamepad.
 \mbox{\Hypertarget{classStack_ae20446c30ae36243a42983dcdc371258}\label{classStack_ae20446c30ae36243a42983dcdc371258}} 
 \index{Stack@{Stack}!paint@{paint}}
 \index{paint@{paint}!Stack@{Stack}}
-\subsubsection{\texorpdfstring{paint}{paint}}
+\paragraph{\texorpdfstring{paint}{paint}}
 {\footnotesize\ttfamily \mbox{\hyperlink{classPaint}{Paint}}$\ast$ Stack\+::paint\hspace{0.3cm}{\ttfamily [private]}}
 
 \mbox{\Hypertarget{classStack_a89c03088e1dd8cf4eb333638b059d30a}\label{classStack_a89c03088e1dd8cf4eb333638b059d30a}} 
 \index{Stack@{Stack}!pos@{pos}}
 \index{pos@{pos}!Stack@{Stack}}
-\subsubsection{\texorpdfstring{pos}{pos}}
+\paragraph{\texorpdfstring{pos}{pos}}
 {\footnotesize\ttfamily Q\+Rect Stack\+::pos\hspace{0.3cm}{\ttfamily [private]}}
 
 
@@ -287,7 +287,7 @@ Global Position.
 \mbox{\Hypertarget{classStack_a528378e89155254d8245e44892e93bd7}\label{classStack_a528378e89155254d8245e44892e93bd7}} 
 \index{Stack@{Stack}!simFluid@{simFluid}}
 \index{simFluid@{simFluid}!Stack@{Stack}}
-\subsubsection{\texorpdfstring{simFluid}{simFluid}}
+\paragraph{\texorpdfstring{simFluid}{simFluid}}
 {\footnotesize\ttfamily \mbox{\hyperlink{classFluid}{Fluid}}$\ast$ Stack\+::sim\+Fluid\hspace{0.3cm}{\ttfamily [private]}}
 
 
@@ -297,7 +297,7 @@ Global Position.
 \mbox{\Hypertarget{classStack_a0eb428edacee758da17e9b8a8943db79}\label{classStack_a0eb428edacee758da17e9b8a8943db79}} 
 \index{Stack@{Stack}!simSmoke@{simSmoke}}
 \index{simSmoke@{simSmoke}!Stack@{Stack}}
-\subsubsection{\texorpdfstring{simSmoke}{simSmoke}}
+\paragraph{\texorpdfstring{simSmoke}{simSmoke}}
 {\footnotesize\ttfamily \mbox{\hyperlink{classSmoke}{Smoke}}$\ast$ Stack\+::sim\+Smoke\hspace{0.3cm}{\ttfamily [private]}}
 
 
@@ -307,7 +307,7 @@ Global Position.
 \mbox{\Hypertarget{classStack_a2d3f7bf6df4a15c81ed677fd728dda4c}\label{classStack_a2d3f7bf6df4a15c81ed677fd728dda4c}} 
 \index{Stack@{Stack}!splash@{splash}}
 \index{splash@{splash}!Stack@{Stack}}
-\subsubsection{\texorpdfstring{splash}{splash}}
+\paragraph{\texorpdfstring{splash}{splash}}
 {\footnotesize\ttfamily \mbox{\hyperlink{classSplashScreen}{Splash\+Screen}}$\ast$ Stack\+::splash\hspace{0.3cm}{\ttfamily [private]}}
 
 

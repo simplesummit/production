@@ -42,3 +42,7 @@ checkpoints/
 node_modules/
 bin/
 platforms/
+docs/html/*
+docs/latex/*
+*/bin/*
+moc_*

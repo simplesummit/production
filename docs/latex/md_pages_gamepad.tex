@@ -1,6 +1,6 @@
 A user interacts with Leconte through a Logitech Gamepad F310 controller. Detecting and using the unique inputs of a controller was a challenge, but one that we overcame.
 
-\subsection*{Q\+Gamepad}
+\subsubsection*{Q\+Gamepad}
 
 Qt has its own library for reading gamepad input called \href{https://doc.qt.io/qt-5/qgamepad.html}{\texttt{ Q\+Gamepad}}. Leconte uses this to parse input and navigate.
 
@@ -40,6 +40,6 @@ The first example shows a button change. When the Guide button (the home button)
 
 The second example shows an axis change, which emits a double value with a range of -\/1 to 1. This is used by \mbox{\hyperlink{classHomePage}{Home\+Page}} to navigate through the application. To see how it does this, and for a look at the slot, see the Navigation page.
 
-\subsection*{Future}
+\subsubsection*{Future}
 
 As the application becomes more complex, we will add signals and slots for the gamepad to enable more functionality. 

@@ -1,12 +1,12 @@
 \mbox{\hyperlink{classStack}{Stack}} is the central widget for Leconte as a whole. It holds each individual page and the main gamepad object.
 
-\subsection*{Q\+Stacked\+Widget}
+\subsubsection*{Q\+Stacked\+Widget}
 
 \mbox{\hyperlink{classStack}{Stack}} inherits from Q\+Stacked\+Widget, a Qt class that enables the widget to hold other widgets and cycle through them visually based on a layer system. The widget at the top of the \char`\"{}stack\char`\"{} is the only one visible. The rest are hidden from view.
 
 At the beginning, the \mbox{\hyperlink{classSplashScreen}{Splash\+Screen}} page is visible, but fades out and the \mbox{\hyperlink{classHomePage}{Home\+Page}} takes its place. From here, the user cycles through which page is active depending on which card on \mbox{\hyperlink{classHomePage}{Home\+Page}} they select.
 
-\subsection*{Slots}
+\subsubsection*{Slots}
 
 \mbox{\hyperlink{classStack}{Stack}} also holds three slots, each of which deal with buttons for the application to use.
 
@@ -71,6 +71,6 @@ Finally, \mbox{\hyperlink{classStack}{Stack}} has {\ttfamily \mbox{\hyperlink{cl
 \end{DoxyCode}
 
 
-\subsection*{Future}
+\subsubsection*{Future}
 
 I would like to add transitions in this class to allow for a cleaner user experience and more fleshed out application. This place seems the perfect one to do it. 

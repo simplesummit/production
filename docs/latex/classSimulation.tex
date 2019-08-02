@@ -1,4 +1,4 @@
-\hypertarget{classSimulation}{}\section{Simulation Class Reference}
+\hypertarget{classSimulation}{}\subsection{Simulation Class Reference}
 \label{classSimulation}\index{Simulation@{Simulation}}
 
 
@@ -18,7 +18,7 @@ Inheritance diagram for Simulation\+:\nopagebreak
 \includegraphics[width=239pt]{classSimulation__inherit__graph}
 \end{center}
 \end{figure}
-\subsection*{Public Member Functions}
+\subsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 virtual void \mbox{\hyperlink{classSimulation_ac523544ffc2b4cffed1d2a6ead5809b1}{start\+Sim}} ()=0
@@ -33,23 +33,23 @@ float \mbox{\hyperlink{classSimulation_a36aefdee44fabe9b8070363ca9eb80a7}{update
 \item 
 float \mbox{\hyperlink{classSimulation_a16ab6b7e3c5936bae78fc8c2daf658d2}{update\+\_\+gpu}} ()
 \end{DoxyCompactItemize}
-\subsection*{Private Attributes}
+\subsubsection*{Private Attributes}
 \begin{DoxyCompactItemize}
 \item 
 bool \mbox{\hyperlink{classSimulation_ad76dc6e6d56b95b074f3824340f91a4c}{is\+Active}}
 \begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classSimulation}{Simulation}} status. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
-\subsection{Detailed Description}
+\subsubsection{Detailed Description}
 The abstract class that underlies the \mbox{\hyperlink{classSmoke}{Smoke}} and \mbox{\hyperlink{classFluid}{Fluid}} simulations. 
 
 It applies the prebuilt UI, reads joystick input, and creates animations. 
 
-\subsection{Member Function Documentation}
+\subsubsection{Member Function Documentation}
 \mbox{\Hypertarget{classSimulation_ab496d124202f55e741db7db9a304a7ee}\label{classSimulation_ab496d124202f55e741db7db9a304a7ee}} 
 \index{Simulation@{Simulation}!endSim@{endSim}}
 \index{endSim@{endSim}!Simulation@{Simulation}}
-\subsubsection{\texorpdfstring{endSim()}{endSim()}}
+\paragraph{\texorpdfstring{endSim()}{endSim()}}
 {\footnotesize\ttfamily virtual void Simulation\+::end\+Sim (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
 
 Ends the simulation 
@@ -59,7 +59,7 @@ Implemented in \mbox{\hyperlink{classSmoke_a83d3a0d8bf172fcd6bc42ebf07f0f12f}{Sm
 \mbox{\Hypertarget{classSimulation_a04cafb2071be521281c2584fa300b912}\label{classSimulation_a04cafb2071be521281c2584fa300b912}} 
 \index{Simulation@{Simulation}!readCommand@{readCommand}}
 \index{readCommand@{readCommand}!Simulation@{Simulation}}
-\subsubsection{\texorpdfstring{readCommand()}{readCommand()}}
+\paragraph{\texorpdfstring{readCommand()}{readCommand()}}
 {\footnotesize\ttfamily unsigned int Simulation\+::read\+Command (\begin{DoxyParamCaption}\item[{std\+::string}]{cmd }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 Grab results of bash command. 
@@ -73,13 +73,13 @@ Window ID (W\+ID) as a hex number.
 Runs the command, reads the string, and converts it to an unsigned int to be used as a Window ID. (See \mbox{\hyperlink{classSimulation}{Simulation}} page for more) \mbox{\Hypertarget{classSimulation_a0b951a01d3de845823d2a87b0d50adef}\label{classSimulation_a0b951a01d3de845823d2a87b0d50adef}} 
 \index{Simulation@{Simulation}!simIsActive@{simIsActive}}
 \index{simIsActive@{simIsActive}!Simulation@{Simulation}}
-\subsubsection{\texorpdfstring{simIsActive()}{simIsActive()}}
+\paragraph{\texorpdfstring{simIsActive()}{simIsActive()}}
 {\footnotesize\ttfamily bool Simulation\+::sim\+Is\+Active (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 Checks simulation status \mbox{\Hypertarget{classSimulation_ac523544ffc2b4cffed1d2a6ead5809b1}\label{classSimulation_ac523544ffc2b4cffed1d2a6ead5809b1}} 
 \index{Simulation@{Simulation}!startSim@{startSim}}
 \index{startSim@{startSim}!Simulation@{Simulation}}
-\subsubsection{\texorpdfstring{startSim()}{startSim()}}
+\paragraph{\texorpdfstring{startSim()}{startSim()}}
 {\footnotesize\ttfamily virtual void Simulation\+::start\+Sim (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
 
 Starts the simulation 
@@ -89,7 +89,7 @@ Implemented in \mbox{\hyperlink{classSmoke_aca6f4c3a6e62bf27920229c5b53ae561}{Sm
 \mbox{\Hypertarget{classSimulation_a36aefdee44fabe9b8070363ca9eb80a7}\label{classSimulation_a36aefdee44fabe9b8070363ca9eb80a7}} 
 \index{Simulation@{Simulation}!update\_cpu@{update\_cpu}}
 \index{update\_cpu@{update\_cpu}!Simulation@{Simulation}}
-\subsubsection{\texorpdfstring{update\_cpu()}{update\_cpu()}}
+\paragraph{\texorpdfstring{update\_cpu()}{update\_cpu()}}
 {\footnotesize\ttfamily float Simulation\+::update\+\_\+cpu (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 Get the current temperature of the C\+PU. \begin{DoxyReturn}{Returns}
@@ -98,7 +98,7 @@ C\+PU Temperature
 Reads the temperature file for thermal\+\_\+zone1, the M\+C\+PU, and converts it into a float. The initial temperature is in millidegree Celsius, so the program converts it to standard Celsius. \mbox{\Hypertarget{classSimulation_a16ab6b7e3c5936bae78fc8c2daf658d2}\label{classSimulation_a16ab6b7e3c5936bae78fc8c2daf658d2}} 
 \index{Simulation@{Simulation}!update\_gpu@{update\_gpu}}
 \index{update\_gpu@{update\_gpu}!Simulation@{Simulation}}
-\subsubsection{\texorpdfstring{update\_gpu()}{update\_gpu()}}
+\paragraph{\texorpdfstring{update\_gpu()}{update\_gpu()}}
 {\footnotesize\ttfamily float Simulation\+::update\+\_\+gpu (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 Get the current temperature of the G\+PU. \begin{DoxyReturn}{Returns}
@@ -106,11 +106,11 @@ G\+PU Temperature
 \end{DoxyReturn}
 Reads the temperature file for thermal\+\_\+zone1, the G\+PU, and converts it into a float. The initial temperature is in millidegree Celsius, so the program converts it to standard Celsius. 
 
-\subsection{Member Data Documentation}
+\subsubsection{Member Data Documentation}
 \mbox{\Hypertarget{classSimulation_ad76dc6e6d56b95b074f3824340f91a4c}\label{classSimulation_ad76dc6e6d56b95b074f3824340f91a4c}} 
 \index{Simulation@{Simulation}!isActive@{isActive}}
 \index{isActive@{isActive}!Simulation@{Simulation}}
-\subsubsection{\texorpdfstring{isActive}{isActive}}
+\paragraph{\texorpdfstring{isActive}{isActive}}
 {\footnotesize\ttfamily bool Simulation\+::is\+Active\hspace{0.3cm}{\ttfamily [private]}}
 
 

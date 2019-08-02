@@ -1,4 +1,4 @@
-\hypertarget{classPaint}{}\section{Paint Class Reference}
+\hypertarget{classPaint}{}\subsection{Paint Class Reference}
 \label{classPaint}\index{Paint@{Paint}}
 
 
@@ -22,12 +22,12 @@ Collaboration diagram for Paint\+:\nopagebreak
 \includegraphics[width=293pt]{classPaint__coll__graph}
 \end{center}
 \end{figure}
-\subsection*{Public Slots}
+\subsubsection*{Public Slots}
 \begin{DoxyCompactItemize}
 \item 
 void \mbox{\hyperlink{classPaint_a9790e137dfd6386ed72aea47f176326d}{redraw\+Plot}} ()
 \end{DoxyCompactItemize}
-\subsection*{Public Member Functions}
+\subsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{classPaint_a3be358e4052f20b7342f17a37fc32c4e}{Paint}} (Q\+Widget $\ast$parent=nullptr)
@@ -42,12 +42,12 @@ void \mbox{\hyperlink{classPaint_a93538df552b492f35b5349c9c546707f}{paint\+Event
 \item 
 void \mbox{\hyperlink{classPaint_ab8c4d8cbf3999cd2b80b299587ec9e83}{start\+Plot}} ()
 \end{DoxyCompactItemize}
-\subsection*{Public Attributes}
+\subsubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
 unsigned int \mbox{\hyperlink{classPaint_af6314388e667b01d9cd88e1d875d0449}{pg\+ID}} = 0x04
 \begin{DoxyCompactList}\small\item\em Page ID. \end{DoxyCompactList}\end{DoxyCompactItemize}
-\subsection*{Private Attributes}
+\subsubsection*{Private Attributes}
 \begin{DoxyCompactItemize}
 \item 
 Q\+Window $\ast$ \mbox{\hyperlink{classPaint_a12c0d1f2f57bd3aea9388f42aa6434f8}{m\+\_\+window}}
@@ -78,11 +78,11 @@ float \mbox{\hyperlink{classPaint_a7c7236ff4eb95bce87e4700dbc3385eb}{range}} \mb
 \begin{DoxyCompactList}\small\item\em Holds minimum and max for the graph. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
-\subsection{Constructor \& Destructor Documentation}
+\subsubsection{Constructor \& Destructor Documentation}
 \mbox{\Hypertarget{classPaint_a3be358e4052f20b7342f17a37fc32c4e}\label{classPaint_a3be358e4052f20b7342f17a37fc32c4e}} 
 \index{Paint@{Paint}!Paint@{Paint}}
 \index{Paint@{Paint}!Paint@{Paint}}
-\subsubsection{\texorpdfstring{Paint()}{Paint()}}
+\paragraph{\texorpdfstring{Paint()}{Paint()}}
 {\footnotesize\ttfamily Paint\+::\+Paint (\begin{DoxyParamCaption}\item[{Q\+Widget $\ast$}]{parent = {\ttfamily nullptr} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
 
 Create a \mbox{\hyperlink{classSmoke}{Smoke}} element 
@@ -97,16 +97,16 @@ Pairs the UI template with this page.
 N\+O\+TE\+: Could remove .ui file completely and use instead a pixmap as the background. \mbox{\Hypertarget{classPaint_ad9e9b7084b28e84887c70d0e4540ddb8}\label{classPaint_ad9e9b7084b28e84887c70d0e4540ddb8}} 
 \index{Paint@{Paint}!````~Paint@{$\sim$Paint}}
 \index{````~Paint@{$\sim$Paint}!Paint@{Paint}}
-\subsubsection{\texorpdfstring{$\sim$Paint()}{~Paint()}}
+\paragraph{\texorpdfstring{$\sim$Paint()}{~Paint()}}
 {\footnotesize\ttfamily Paint\+::$\sim$\+Paint (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 
 
-\subsection{Member Function Documentation}
+\subsubsection{Member Function Documentation}
 \mbox{\Hypertarget{classPaint_a0624eaeb1d076ab01278b27026aba249}\label{classPaint_a0624eaeb1d076ab01278b27026aba249}} 
 \index{Paint@{Paint}!endSim@{endSim}}
 \index{endSim@{endSim}!Paint@{Paint}}
-\subsubsection{\texorpdfstring{endSim()}{endSim()}}
+\paragraph{\texorpdfstring{endSim()}{endSim()}}
 {\footnotesize\ttfamily void Paint\+::end\+Sim (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
 
 End simulation 
@@ -116,7 +116,7 @@ Implements \mbox{\hyperlink{classSimulation_ab496d124202f55e741db7db9a304a7ee}{S
 \mbox{\Hypertarget{classPaint_a93538df552b492f35b5349c9c546707f}\label{classPaint_a93538df552b492f35b5349c9c546707f}} 
 \index{Paint@{Paint}!paintEvent@{paintEvent}}
 \index{paintEvent@{paintEvent}!Paint@{Paint}}
-\subsubsection{\texorpdfstring{paintEvent()}{paintEvent()}}
+\paragraph{\texorpdfstring{paintEvent()}{paintEvent()}}
 {\footnotesize\ttfamily void Paint\+::paint\+Event (\begin{DoxyParamCaption}\item[{Q\+Paint\+Event $\ast$}]{ }\end{DoxyParamCaption})}
 
 Repaint the canvas
@@ -124,19 +124,19 @@ Repaint the canvas
 Sets the settings of the canvas to allow for background-\/image. \mbox{\Hypertarget{classPaint_a9790e137dfd6386ed72aea47f176326d}\label{classPaint_a9790e137dfd6386ed72aea47f176326d}} 
 \index{Paint@{Paint}!redrawPlot@{redrawPlot}}
 \index{redrawPlot@{redrawPlot}!Paint@{Paint}}
-\subsubsection{\texorpdfstring{redrawPlot}{redrawPlot}}
+\paragraph{\texorpdfstring{redrawPlot}{redrawPlot}}
 {\footnotesize\ttfamily void Paint\+::redraw\+Plot (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
 
 Get update values, and update the graph\textquotesingle{}s content and y-\/axis. \mbox{\Hypertarget{classPaint_ab8c4d8cbf3999cd2b80b299587ec9e83}\label{classPaint_ab8c4d8cbf3999cd2b80b299587ec9e83}} 
 \index{Paint@{Paint}!startPlot@{startPlot}}
 \index{startPlot@{startPlot}!Paint@{Paint}}
-\subsubsection{\texorpdfstring{startPlot()}{startPlot()}}
+\paragraph{\texorpdfstring{startPlot()}{startPlot()}}
 {\footnotesize\ttfamily void Paint\+::start\+Plot (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 Start plotting the temperature \mbox{\Hypertarget{classPaint_a1f01fcd27e595cc9aacd1ef94e3e1454}\label{classPaint_a1f01fcd27e595cc9aacd1ef94e3e1454}} 
 \index{Paint@{Paint}!startSim@{startSim}}
 \index{startSim@{startSim}!Paint@{Paint}}
-\subsubsection{\texorpdfstring{startSim()}{startSim()}}
+\paragraph{\texorpdfstring{startSim()}{startSim()}}
 {\footnotesize\ttfamily void Paint\+::start\+Sim (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
 
 Start simulation.
@@ -147,11 +147,11 @@ Implements \mbox{\hyperlink{classSimulation_ac523544ffc2b4cffed1d2a6ead5809b1}{S
 
 
 
-\subsection{Member Data Documentation}
+\subsubsection{Member Data Documentation}
 \mbox{\Hypertarget{classPaint_a289c2a24e5186491ddd37a620eaac8b2}\label{classPaint_a289c2a24e5186491ddd37a620eaac8b2}} 
 \index{Paint@{Paint}!cpu\_data@{cpu\_data}}
 \index{cpu\_data@{cpu\_data}!Paint@{Paint}}
-\subsubsection{\texorpdfstring{cpu\_data}{cpu\_data}}
+\paragraph{\texorpdfstring{cpu\_data}{cpu\_data}}
 {\footnotesize\ttfamily float Paint\+::cpu\+\_\+data\hspace{0.3cm}{\ttfamily [private]}}
 
 
@@ -161,7 +161,7 @@ Buffer for C\+PU Temperature.
 \mbox{\Hypertarget{classPaint_adc5781ac10ec78958b8818b46a096914}\label{classPaint_adc5781ac10ec78958b8818b46a096914}} 
 \index{Paint@{Paint}!dShadow@{dShadow}}
 \index{dShadow@{dShadow}!Paint@{Paint}}
-\subsubsection{\texorpdfstring{dShadow}{dShadow}}
+\paragraph{\texorpdfstring{dShadow}{dShadow}}
 {\footnotesize\ttfamily Q\+Graphics\+Drop\+Shadow\+Effect$\ast$ Paint\+::d\+Shadow\hspace{0.3cm}{\ttfamily [private]}}
 
 
@@ -171,7 +171,7 @@ Drop Shadow Effect.
 \mbox{\Hypertarget{classPaint_a596f261f63bbc34d4ec35639eeb148ce}\label{classPaint_a596f261f63bbc34d4ec35639eeb148ce}} 
 \index{Paint@{Paint}!dura@{dura}}
 \index{dura@{dura}!Paint@{Paint}}
-\subsubsection{\texorpdfstring{dura}{dura}}
+\paragraph{\texorpdfstring{dura}{dura}}
 {\footnotesize\ttfamily chrono\+::milliseconds Paint\+::dura \{100\}\hspace{0.3cm}{\ttfamily [private]}}
 
 
@@ -181,7 +181,7 @@ Pause for simulation.
 \mbox{\Hypertarget{classPaint_a561a7ed14d82369f8a88ba76b0bcbb7e}\label{classPaint_a561a7ed14d82369f8a88ba76b0bcbb7e}} 
 \index{Paint@{Paint}!gpu\_data@{gpu\_data}}
 \index{gpu\_data@{gpu\_data}!Paint@{Paint}}
-\subsubsection{\texorpdfstring{gpu\_data}{gpu\_data}}
+\paragraph{\texorpdfstring{gpu\_data}{gpu\_data}}
 {\footnotesize\ttfamily float Paint\+::gpu\+\_\+data\hspace{0.3cm}{\ttfamily [private]}}
 
 
@@ -191,7 +191,7 @@ Buffer for G\+PU Temperature.
 \mbox{\Hypertarget{classPaint_a7c4451334289c681e3763ba244227b7a}\label{classPaint_a7c4451334289c681e3763ba244227b7a}} 
 \index{Paint@{Paint}!graph@{graph}}
 \index{graph@{graph}!Paint@{Paint}}
-\subsubsection{\texorpdfstring{graph}{graph}}
+\paragraph{\texorpdfstring{graph}{graph}}
 {\footnotesize\ttfamily \mbox{\hyperlink{classGraph}{Graph}}$\ast$ Paint\+::graph\hspace{0.3cm}{\ttfamily [private]}}
 
 
@@ -201,7 +201,7 @@ Temperature graph.
 \mbox{\Hypertarget{classPaint_ad3674af36118608e17d5f49812f0e398}\label{classPaint_ad3674af36118608e17d5f49812f0e398}} 
 \index{Paint@{Paint}!isActive@{isActive}}
 \index{isActive@{isActive}!Paint@{Paint}}
-\subsubsection{\texorpdfstring{isActive}{isActive}}
+\paragraph{\texorpdfstring{isActive}{isActive}}
 {\footnotesize\ttfamily bool Paint\+::is\+Active\hspace{0.3cm}{\ttfamily [private]}}
 
 
@@ -211,7 +211,7 @@ Temperature graph.
 \mbox{\Hypertarget{classPaint_a12c0d1f2f57bd3aea9388f42aa6434f8}\label{classPaint_a12c0d1f2f57bd3aea9388f42aa6434f8}} 
 \index{Paint@{Paint}!m\_window@{m\_window}}
 \index{m\_window@{m\_window}!Paint@{Paint}}
-\subsubsection{\texorpdfstring{m\_window}{m\_window}}
+\paragraph{\texorpdfstring{m\_window}{m\_window}}
 {\footnotesize\ttfamily Q\+Window$\ast$ Paint\+::m\+\_\+window\hspace{0.3cm}{\ttfamily [private]}}
 
 
@@ -221,7 +221,7 @@ Window the simulation is routed to.
 \mbox{\Hypertarget{classPaint_ac0f5a8dc0d272705bd7251867e8eabf2}\label{classPaint_ac0f5a8dc0d272705bd7251867e8eabf2}} 
 \index{Paint@{Paint}!option@{option}}
 \index{option@{option}!Paint@{Paint}}
-\subsubsection{\texorpdfstring{option}{option}}
+\paragraph{\texorpdfstring{option}{option}}
 {\footnotesize\ttfamily Q\+Style\+Option Paint\+::option\hspace{0.3cm}{\ttfamily [private]}}
 
 
@@ -231,7 +231,7 @@ Overrides the Q\+Widget\textquotesingle{}s style for custom background.
 \mbox{\Hypertarget{classPaint_af6314388e667b01d9cd88e1d875d0449}\label{classPaint_af6314388e667b01d9cd88e1d875d0449}} 
 \index{Paint@{Paint}!pgID@{pgID}}
 \index{pgID@{pgID}!Paint@{Paint}}
-\subsubsection{\texorpdfstring{pgID}{pgID}}
+\paragraph{\texorpdfstring{pgID}{pgID}}
 {\footnotesize\ttfamily unsigned int Paint\+::pg\+ID = 0x04}
 
 
@@ -241,7 +241,7 @@ Page ID.
 \mbox{\Hypertarget{classPaint_ad18245bd858cc8c6bd715e56659e3634}\label{classPaint_ad18245bd858cc8c6bd715e56659e3634}} 
 \index{Paint@{Paint}!pos@{pos}}
 \index{pos@{pos}!Paint@{Paint}}
-\subsubsection{\texorpdfstring{pos}{pos}}
+\paragraph{\texorpdfstring{pos}{pos}}
 {\footnotesize\ttfamily Q\+Rect Paint\+::pos\hspace{0.3cm}{\ttfamily [private]}}
 
 
@@ -251,7 +251,7 @@ Global Position.
 \mbox{\Hypertarget{classPaint_abaab9ddb4a329f78b558793a5f3a84c3}\label{classPaint_abaab9ddb4a329f78b558793a5f3a84c3}} 
 \index{Paint@{Paint}!qw@{qw}}
 \index{qw@{qw}!Paint@{Paint}}
-\subsubsection{\texorpdfstring{qw}{qw}}
+\paragraph{\texorpdfstring{qw}{qw}}
 {\footnotesize\ttfamily Q\+Widget$\ast$ Paint\+::qw\hspace{0.3cm}{\ttfamily [private]}}
 
 
@@ -261,7 +261,7 @@ Container for m\+\_\+window.
 \mbox{\Hypertarget{classPaint_a7c7236ff4eb95bce87e4700dbc3385eb}\label{classPaint_a7c7236ff4eb95bce87e4700dbc3385eb}} 
 \index{Paint@{Paint}!range@{range}}
 \index{range@{range}!Paint@{Paint}}
-\subsubsection{\texorpdfstring{range}{range}}
+\paragraph{\texorpdfstring{range}{range}}
 {\footnotesize\ttfamily float Paint\+::range\mbox{[}2\mbox{]}\hspace{0.3cm}{\ttfamily [private]}}
 
 
@@ -271,7 +271,7 @@ Holds minimum and max for the graph.
 \mbox{\Hypertarget{classPaint_a0cd2955c474cb99795506bdee2df71ab}\label{classPaint_a0cd2955c474cb99795506bdee2df71ab}} 
 \index{Paint@{Paint}!timer@{timer}}
 \index{timer@{timer}!Paint@{Paint}}
-\subsubsection{\texorpdfstring{timer}{timer}}
+\paragraph{\texorpdfstring{timer}{timer}}
 {\footnotesize\ttfamily Q\+Timer Paint\+::timer\hspace{0.3cm}{\ttfamily [private]}}
 
 
@@ -281,7 +281,7 @@ Periodical timer to redraw the plot.
 \mbox{\Hypertarget{classPaint_a6263fca255c858e9cbf7f549392b9e9e}\label{classPaint_a6263fca255c858e9cbf7f549392b9e9e}} 
 \index{Paint@{Paint}!wShadow@{wShadow}}
 \index{wShadow@{wShadow}!Paint@{Paint}}
-\subsubsection{\texorpdfstring{wShadow}{wShadow}}
+\paragraph{\texorpdfstring{wShadow}{wShadow}}
 {\footnotesize\ttfamily Q\+Widget$\ast$ Paint\+::w\+Shadow\hspace{0.3cm}{\ttfamily [private]}}
 
 

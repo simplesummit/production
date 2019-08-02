@@ -2,7 +2,7 @@ The \mbox{\hyperlink{classHomePage}{Home\+Page}} class houses the main slots tha
 
 The gamepad\textquotesingle{}s left joystick is used to navigate, like many other applications that use gamepad input. Since Leconte uses signals and slots, \mbox{\hyperlink{classHomePage}{Home\+Page}} uses two signals emitted by the Gamepad\+: {\ttfamily Q\+Gamepad\+::axis\+Left\+X\+Changed()} and {\ttfamily Q\+Gamepad\+::axis\+Left\+X\+Changed()}.
 
-\subsection*{The Math}
+\subsubsection*{The Math}
 
 There are four cards on the \mbox{\hyperlink{classHomePage}{Home\+Page}}, arranged with one at the top and three in a row at the bottom. To see which card is selected, we needed to calculate the rotation of the joystick, a process we achieved by using some trigonometry.
 
@@ -41,7 +41,7 @@ As you can see, the function gets the joystick input, rounds it, and uses it alo
 
 {\ttfamily state} is an enumerated type of each card and {\ttfamily active\+Card} is used in {\ttfamily \mbox{\hyperlink{classHomePage_ab3daab17f753e46efcec8968333f88b5}{Home\+Page\+::paint\+Event}}} to apply a green drop shadow to the active card.
 
-\subsection*{Hover Effect}
+\subsubsection*{Hover Effect}
 
 Along with a green drop shadow, the highlighted card also is raised 18 pixels to further emphasize its active state. This is done with the help of Q\+Property\+Animation, an animation effect in Qt that has a custom start and end value.
 
@@ -49,10 +49,10 @@ There were a couple issues when first implementing this. For one, the cards woul
 
 This fixed the issues, but caused there to be a jarring fall of the cards whenever the joystick was released.
 
-\subsection*{The Complication}
+\subsubsection*{The Complication}
 
 Since there are four main cards can select, the \mbox{\hyperlink{classHomePage}{Home\+Page}} needs to process changes in both the x-\/axis and y-\/axis. Since both of the signals fire at the same time, it is difficult to get a complete measurement without relying on just one. Because of this, there are som odd samples that occur with rotating rapidly. This produces a glitchly effect in the \mbox{\hyperlink{classHomePage}{Home\+Page}} with both the drop shadow and the raising effect.
 
-\subsection*{The Future}
+\subsubsection*{The Future}
 
 Both the drop shadow and raising effect bugs need to be fixed. A rethink in how the navigation works may be in order. 

@@ -1,10 +1,10 @@
 \href{http://www.youtube.com/watch?v=p5U4NgVGAwg}{\texttt{ }}
 
-\subsection*{Background}
+\subsubsection*{Background}
 
 Neural\+Paint is a G\+UI created to interface with a machine learning program called S\+P\+A\+DE (short for Spatially-\/\+Adaptive Normalization) created by N\+V\+I\+D\+IA. S\+P\+A\+DE is an implementation of a technique known as {\itshape semantic image synthesis} with spatially-\/adaptive normalization which takes in hand-\/drawn images as input and outputs photorealistic interpretations of those images. The paper covering this technique can be found \href{https://nvlabs.github.io/SPADE/}{\texttt{ here}}.
 
-\subsection*{Install Project Dependencies}
+\subsubsection*{Install Project Dependencies}
 
 
 \begin{DoxyCode}{0}
@@ -12,7 +12,7 @@ Neural\+Paint is a G\+UI created to interface with a machine learning program ca
 \end{DoxyCode}
 
 
-\subsection*{Frontend Installation and Setup}
+\subsubsection*{Frontend Installation and Setup}
 
 The Deep Painting application has both a frontend javascript G\+UI drawing application and a backend python Flask A\+PI to interface with the python S\+P\+A\+DE code.
 
@@ -41,11 +41,11 @@ Next, change directories into the painting frontend directory {\ttfamily $\sim$/
 \end{DoxyCode}
 
 
-\subsection*{Backend Installation and Setup}
+\subsubsection*{Backend Installation and Setup}
 
 Change directories into server folder with {\ttfamily cd $\sim$/production/painting/frontend} and complete the following directions.
 
-\subsubsection*{Install Pytorch}
+\paragraph*{Install Pytorch}
 
 If you are running this project on N\+V\+I\+D\+IA Jetson follow the below steps. Else, install Pytorch based on instructions found on the \href{https://pytorch.org/get-started/locally/}{\texttt{ Py\+Torch Website}}
 
@@ -76,7 +76,7 @@ If you are running this project on N\+V\+I\+D\+IA Jetson follow the below steps.
 \end{DoxyCode}
 
 
-\subsubsection*{Install Pillow}
+\paragraph*{Install Pillow}
 
 If you are running on an N\+V\+I\+D\+IA Jetson or any other A\+RM device there may not be a pip wheel available to you for Pillow. To fix this we must build Pillow from source.
 
@@ -89,7 +89,7 @@ If you are running on an N\+V\+I\+D\+IA Jetson or any other A\+RM device there m
 \end{DoxyCode}
 
 
-\subsubsection*{Install remaining dependencies with pip}
+\paragraph*{Install remaining dependencies with pip}
 
 
 \begin{DoxyCode}{0}
@@ -98,16 +98,16 @@ If you are running on an N\+V\+I\+D\+IA Jetson or any other A\+RM device there m
 \end{DoxyCode}
 
 
-\subsection*{Run Frontend and Backend}
+\subsubsection*{Run Frontend and Backend}
 
-\subsubsection*{Running frontend}
+\paragraph*{Running frontend}
 
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{cd ~/production/painting/frontend/www}
 \DoxyCodeLine{python3 -m http.server 8000}
 \end{DoxyCode}
- \subsubsection*{Running Backend}
+ \paragraph*{Running Backend}
 
 
 \begin{DoxyCode}{0}
@@ -116,11 +116,11 @@ If you are running on an N\+V\+I\+D\+IA Jetson or any other A\+RM device there m
 \end{DoxyCode}
 
 
-\subsection*{Running Frontend and Backend as Background Services}
+\subsubsection*{Running Frontend and Backend as Background Services}
 
 Both the backend and frontend of the Deep Painting application can be run persistently with minimal resource usage as lost as the server does not have images in its que. This can best be accomplished through the use of supervisord due to its simplicity and dependability when it comes to python programs.
 
-\subsubsection*{Three System Services Must Be Created}
+\paragraph*{Three System Services Must Be Created}
 
 
 \begin{DoxyItemize}
@@ -131,20 +131,20 @@ Both the backend and frontend of the Deep Painting application can be run persis
 \end{DoxyItemize}
 \end{DoxyItemize}
 
-\subsubsection*{Supervisord Installation}
+\paragraph*{Supervisord Installation}
 
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{sudo apt-get install supervisor}
 \DoxyCodeLine{sudo supervisord}
 \end{DoxyCode}
- \subsubsection*{Ensure that Supervisord is running}
+ \paragraph*{Ensure that Supervisord is running}
 
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{\$ sudo service supervisor status}
 \end{DoxyCode}
- \subsubsection*{Create Frontend and Backend Services}
+ \paragraph*{Create Frontend and Backend Services}
 
 
 \begin{DoxyCode}{0}
@@ -182,7 +182,7 @@ Both the backend and frontend of the Deep Painting application can be run persis
 \end{DoxyCode}
 
 
-\subsubsection*{Supervisord Web Interface}
+\paragraph*{Supervisord Web Interface}
 
 If you want you can monitor your services in using Supervisord\textquotesingle{}s web interface.
 
