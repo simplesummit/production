@@ -1,7 +1,0 @@
-<map id="Smoke" name="Smoke">
-<area shape="rect" id="node1" title="The main fluid simulation class that the user interacts with." alt="" coords="113,167,176,192"/>
-<area shape="rect" id="node2" title=" " alt="" coords="5,80,79,105"/>
-<area shape="rect" id="node3" href="$classSimulation.html" title="The abstract class that underlies the Smoke and Fluid simulations." alt="" coords="103,80,186,105"/>
-<area shape="rect" id="node4" href="$classGraph.html" title="Temperature graph class for CPU and GPU." alt="" coords="210,80,268,105"/>
-<area shape="rect" id="node5" title=" " alt="" coords="189,5,290,31"/>
-</map>
